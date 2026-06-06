@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Training — Brave Souls Wellness Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ── */
+:root {
+  --g0:#0e2818; --g1:#1a4230; --g2:#2d6648;
+  --au:#c8942a; --al:#e4b84a; --ap:#f5e4b8;
+  --cr:#faf6ed; --wh:#ffffff;
+  --tx:#1e2e22; --tm:#5a7060;
+  --ba:rgba(200,148,42,.22);
+  --t:.55s cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--tx);overflow-x:hidden;cursor:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--g0)}
+::-webkit-scrollbar-thumb{background:var(--au);border-radius:2px}
+
+/* ── CURSOR ── */
+#cur{
+  position:fixed;z-index:9999;pointer-events:none;
+  mix-blend-mode:difference;
+}
+.c-dot{
+  position:fixed;width:10px;height:10px;border-radius:50%;
+  background:var(--au);transform:translate(-50%,-50%);
+  transition:.1s;pointer-events:none;z-index:9999;
+}
+.c-ring{
+  position:fixed;width:40px;height:40px;border-radius:50%;
+  border:1.5px solid rgba(200,148,42,.55);
+  transform:translate(-50%,-50%);
+  transition:all .2s ease;pointer-events:none;z-index:9998;
+}
+
+/* ── NAV ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  padding:20px 0;transition:padding .3s,background .3s;
+}
+.nav.sc{padding:11px 0;background:rgba(14,40,24,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--ba)}
+.ni{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 40px}
+.nb{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.55);transition:color .25s;
+}
+.nb::before{content:'←';color:var(--au)}
+.nb:hover{color:var(--au)}
+.nm{text-align:center}
+.nm-n{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#fff}
+.nm-n span{color:var(--au)}
+.nm-s{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ap);opacity:.65;margin-top:2px}
+.n-cta{
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;padding:13px 28px;background:var(--au);color:#fff;
+  border-radius:2px;transition:var(--t);
+}
+.n-cta:hover{background:var(--al);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════
+   HERO — FULL TYPOGRAPHIC CANVAS
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;background:var(--g0);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;padding-bottom:0;
+}
+/* Giant background word */
+.hero-word{
+  position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(160px,28vw,340px);
+  color:transparent;-webkit-text-stroke:1px rgba(200,148,42,.1);
+  white-space:nowrap;line-height:1;user-select:none;pointer-events:none;
+  letter-spacing:-4px;
+}
+/* Grid lines */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+/* Diagonal gold band */
+.hero-band{
+  position:absolute;top:40%;left:-10%;right:-10%;height:3px;
+  background:linear-gradient(90deg,transparent,var(--au),var(--au),transparent);
+  opacity:.18;transform:rotate(-6deg);
+}
+
+/* Top-left tag */
+.hero-tag{
+  position:absolute;top:85px;left:385px;z-index:4;
+  border:1px solid var(--ba);border-radius:2px;padding:10px 16px;
+  background:rgba(14,40,24,.6);backdrop-filter:blur(8px);
+}
+.hero-tag-text{
+  font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--au);
+}
+
+/* Main content — asymmetric */
+.hero-content{
+  position:relative;top:75px;z-index:3;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:flex-end;gap:40px;
+  padding:0 40px 80px;max-width:1280px;margin:0 auto;width:100%;
+}
+.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(72px,14vw,180px);
+  line-height:.88;color:#fff;letter-spacing:-2px;
+}
+.hero-headline .au{color:var(--au)}
+.hero-headline .italic{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:900;
+  font-size:clamp(48px,9vw,120px);
+  color:var(--al);display:block;
+}
+
+/* Right — vertical stats column */
+.hero-stats{display:flex;flex-direction:column;gap:0;align-items:flex-end;padding-bottom:8px}
+.h-stat{
+  text-align:right;padding:18px 0;
+  border-top:1px solid rgba(255,255,255,.08);min-width:160px;
+}
+.h-stat:first-child{border-top:none}
+.h-n{
+  font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--au);line-height:1;
+}
+.h-l{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.38)}
+
+/* Sub-row — desc + CTA */
+.hero-sub-row{
+  position:relative;z-index:3;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+  padding:0 40px 56px;max-width:1280px;margin:0 auto;width:100%;
+}
+.hero-desc{
+  max-width:440px;font-size:1rem;line-height:1.8;color:rgba(255,255,255,.55);
+}
+.hero-bottom-cta{
+  display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex-shrink:0;
+}
+.hero-cta-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:4;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);
+}
+.scroll-line{width:1px;height:48px;background:linear-gradient(180deg,var(--au),transparent)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:none;padding:15px 32px;border-radius:2px;transition:var(--t);
+}
+.btn-solid{background:var(--au);color:#fff;box-shadow:0 4px 20px rgba(200,148,42,.4)}
+.btn-solid:hover{background:var(--al);transform:translateY(-3px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{border-color:var(--au);color:var(--au);transform:translateY(-3px)}
+.btn-dark{background:var(--g0);color:#fff}
+.btn-dark:hover{background:var(--g1);transform:translateY(-3px)}
+
+/* ═══════════════════════════════════════
+   DIAGONAL DIVIDER
+═══════════════════════════════════════ */
+.diag{
+  height:80px;position:relative;overflow:hidden;
+}
+.diag-g0-to-cr{background:var(--g0)}
+.diag-g0-to-cr::after{
+  content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100%;
+  background:var(--cr);clip-path:polygon(0 100%,100% 30%,100% 100%);
+}
+.diag-cr-to-g0{background:var(--cr)}
+.diag-cr-to-g0::after{
+  content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100%;
+  background:var(--g0);clip-path:polygon(0 40%,100% 0%,100% 100%,0 100%);
+}
+.diag-cr-to-g1{background:var(--cr)}
+.diag-cr-to-g1::after{
+  content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100%;
+  background:var(--g1);clip-path:polygon(0 100%,100% 20%,100% 100%);
+}
+.diag-g1-to-cr{background:var(--g1)}
+.diag-g1-to-cr::after{
+  content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100%;
+  background:var(--cr);clip-path:polygon(0 30%,100% 0%,100% 100%,0 100%);
+}
+.diag-cr-to-g0b{background:var(--cr)}
+.diag-cr-to-g0b::after{
+  content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100%;
+  background:var(--g0);clip-path:polygon(0 0,100% 60%,100% 100%,0 100%);
+}
+
+/* ═══════════════════════════════════════
+   WHO IT'S FOR — ACCORDION LIST
+═══════════════════════════════════════ */
+.who{background:var(--cr);padding:100px 0 80px}
+.who-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.who-top{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:40px;margin-bottom:72px;
+}
+.who-top-left{}
+.who-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  color:var(--au);display:flex;align-items:center;gap:12px;margin-bottom:16px;
+}
+.who-eyebrow::before{content:'';width:28px;height:1px;background:var(--au)}
+.who-h{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4.5vw,4rem);
+  font-weight:900;color:var(--g0);line-height:1.05;
+}
+.who-h em{font-style:italic;color:var(--au)}
+.who-top-right{
+  max-width:320px;font-size:.9rem;line-height:1.8;color:var(--tm);text-align:right;
+}
+
+/* Accordion rows */
+.who-list{}
+.who-item{
+  border-top:1px solid rgba(0,0,0,.09);
+  overflow:hidden;transition:background var(--t);
+}
+.who-item:last-child{border-bottom:1px solid rgba(0,0,0,.09)}
+.who-item-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0;cursor:none;gap:24px;
+}
+.who-item-left{display:flex;align-items:center;gap:28px}
+.who-item-num{
+  font-family:'Bebas Neue',sans-serif;font-size:1.6rem;
+  color:var(--au);opacity:.35;line-height:1;flex-shrink:0;min-width:36px;
+}
+.who-item-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(200,148,42,.08);border:1px solid var(--ba);
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;
+  transition:background var(--t),transform var(--t);
+}
+.who-item:hover .who-item-icon,.who-item.open .who-item-icon{
+  background:var(--au);transform:rotate(8deg);
+}
+.who-item-name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;color:var(--g0);
+  transition:color var(--t);
+}
+.who-item:hover .who-item-name,.who-item.open .who-item-name{color:var(--au)}
+.who-item-arrow{
+  font-size:1.4rem;color:var(--tm);transition:transform var(--t),color var(--t);flex-shrink:0;
+}
+.who-item.open .who-item-arrow{transform:rotate(45deg);color:var(--au)}
+.who-item-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .55s cubic-bezier(.16,1,.3,1),padding .4s;
+  padding-left:112px;
+}
+.who-item.open .who-item-body{max-height:200px;padding-bottom:28px}
+.who-item-desc{font-size:.94rem;line-height:1.8;color:var(--tm);max-width:640px}
+
+/* ═══════════════════════════════════════
+   WHAT YOU RECEIVE — BENTO GRID
+═══════════════════════════════════════ */
+.receive{background:var(--g0);padding:100px 0 120px;position:relative;overflow:hidden}
+.receive::before{
+  content:'TRAIN';
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:28vw;color:rgba(255,255,255,.02);
+  line-height:1;pointer-events:none;user-select:none;
+}
+.receive-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.receive-top{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:40px;margin-bottom:60px;
+}
+.rec-eyebrow{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--al);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rec-eyebrow::before{content:'';width:28px;height:1px;background:var(--al)}
+.rec-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:900;color:#fff;line-height:1.05}
+.rec-h em{font-style:italic;color:var(--au)}
+.rec-sub{max-width:280px;font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.45);text-align:right}
+
+/* BENTO */
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto auto;
+  gap:12px;
+}
+.bento-cell{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;padding:36px 32px;position:relative;overflow:hidden;
+  transition:background var(--t),border-color var(--t),transform var(--t);
+}
+.bento-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--au),transparent);
+  transform:scaleX(0);transition:transform .5s ease;
+}
+.bento-cell:hover{background:rgba(45,102,72,.25);border-color:var(--ba);transform:translateY(-4px)}
+.bento-cell:hover::before{transform:scaleX(1)}
+/* layout assignments */
+.bc1{grid-column:1/6;grid-row:1/2}   /* wide top-left */
+.bc2{grid-column:6/9;grid-row:1/2}   /* mid top */
+.bc3{grid-column:9/13;grid-row:1/2}  /* right top */
+.bc4{grid-column:1/5;grid-row:2/3}   /* bottom-left */
+.bc5{grid-column:5/13;grid-row:2/3}  /* wide bottom-right */
+
+.bc-num{
+  font-family:'Bebas Neue',sans-serif;font-size:4.5rem;
+  color:var(--au);opacity:.08;line-height:1;
+  position:absolute;bottom:12px;right:16px;transition:opacity .4s;
+}
+.bento-cell:hover .bc-num{opacity:.18}
+.bc-icon{
+  width:52px;height:52px;border-radius:6px;
+  background:rgba(200,148,42,.1);border:1px solid var(--ba);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:22px;transition:background .3s;
+}
+.bento-cell:hover .bc-icon{background:rgba(200,148,42,.22)}
+.bc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:#fff;
+  margin-bottom:10px;line-height:1.3;
+}
+.bc-desc{font-size:12px;line-height:1.8;color:rgba(255,255,255,.45)}
+/* Large cell treatment */
+.bc1 .bc-name{font-size:1.4rem}
+.bc1 .bc-desc{font-size:13px}
+.bc5 .bc-name{font-size:1.4rem}
+.bc5 .bc-desc{max-width:540px;font-size:13px}
+
+/* ═══════════════════════════════════════
+   PUTTING IN WORK — CINEMA PANELS
+═══════════════════════════════════════ */
+.work{background:var(--cr);padding:0;position:relative}
+.work-intro{
+  padding:100px 40px 60px;max-width:1280px;margin:0 auto;
+  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
+}
+.work-intro-left{}
+.w-eyebrow{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--au);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.w-eyebrow::before{content:'';width:28px;height:1px;background:var(--au)}
+.work-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:900;color:var(--g0);line-height:1.05}
+.work-h em{font-style:italic;color:var(--au)}
+.work-intro-right{
+  max-width:340px;font-size:.9rem;line-height:1.8;color:var(--tm);text-align:right;
+}
+
+/* Cinema nav — 3 big clickable labels */
+.cinema-nav{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(0,0,0,.08);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.cinema-btn{
+  display:flex;flex-direction:column;align-items:center;
+  padding:28px 20px;cursor:none;
+  border-right:1px solid rgba(0,0,0,.08);
+  transition:background var(--t);position:relative;
+  background:transparent;border-top:none;border-bottom:none;border-left:none;
+  overflow:hidden;
+}
+.cinema-btn:last-child{border-right:none}
+.cinema-btn::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--au);transform:scaleX(0);transition:transform .4s;
+}
+.cinema-btn.active,.cinema-btn:hover{background:rgba(14,40,24,.04)}
+.cinema-btn.active::after{transform:scaleX(1)}
+.cinema-btn-num{
+  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;
+  color:var(--au);opacity:.2;line-height:1;margin-bottom:8px;
+  transition:opacity .3s;
+}
+.cinema-btn.active .cinema-btn-num{opacity:1}
+.cinema-btn-label{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:700;color:var(--g0);
+  transition:color .3s;
+}
+.cinema-btn.active .cinema-btn-label,.cinema-btn:hover .cinema-btn-label{color:var(--au)}
+.cinema-btn-sub{
+  font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--tm);margin-top:6px;
+}
+
+/* Cinema panel */
+.cinema-stage{overflow:hidden}
+.cinema-panel{
+  display:none;
+  grid-template-columns:1.15fr 1fr;
+  min-height:600px;
+}
+.cinema-panel.active{display:grid}
+/* Video half */
+.cinema-vid-half{position:relative;overflow:hidden}
+.cinema-vid-half video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  min-height:520px;background:var(--g0);
+}
+.cinema-vid-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 60%,rgba(250,246,237,.95) 100%);
+}
+.cinema-vid-label{
+  position:absolute;top:32px;left:32px;
+  background:rgba(14,40,24,.85);backdrop-filter:blur(8px);
+  border:1px solid var(--ba);border-radius:3px;padding:9px 16px;
+}
+.cinema-vid-label-text{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--au)}
+/* Play overlay pill */
+.cinema-vid-play{
+  position:absolute;bottom:28px;left:28px;
+  display:flex;align-items:center;gap:12px;
+  background:var(--au);border:none;cursor:none;
+  padding:12px 20px 12px 16px;border-radius:50px;
+  transition:var(--t);
+}
+.cinema-vid-play:hover{background:var(--al);transform:scale(1.05)}
+.cinema-vid-play-circle{
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#fff;flex-shrink:0;
+}
+.cinema-vid-play-text{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff}
+
+/* Content half */
+.cinema-content-half{
+  background:var(--cr);padding:60px 52px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.cinema-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:9px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--au);margin-bottom:18px;
+}
+.cinema-tag::before{content:'';width:20px;height:1px;background:var(--au)}
+.cinema-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:900;color:var(--g0);line-height:1.05;margin-bottom:18px;
+}
+.cinema-title em{font-style:italic;color:var(--au)}
+.cinema-body{font-size:.94rem;line-height:1.85;color:var(--tm);margin-bottom:28px}
+/* Feature list — diagonal lines style */
+.feat-list{list-style:none;margin-bottom:36px}
+.feat-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:13px 0;border-bottom:1px solid rgba(0,0,0,.07);
+}
+.feat-bullet{
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(200,148,42,.1);border:1px solid var(--ba);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.feat-bullet::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--au)}
+.feat-title{font-size:13px;font-weight:600;color:var(--g0)}
+.feat-sub{font-size:12px;color:var(--tm);line-height:1.6;margin-top:3px}
+
+/* ═══════════════════════════════════════
+   RESULTS — TYPOGRAPHIC WALL
+═══════════════════════════════════════ */
+.results{background:var(--g1);padding:100px 0 80px;position:relative;overflow:hidden}
+.results-wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.results-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:40px;margin-bottom:80px;
+}
+.res-ey{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--al);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.res-ey::before{content:'';width:28px;height:1px;background:var(--al)}
+.res-h{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:900;color:#fff;line-height:1.05}
+.res-h em{font-style:italic;color:var(--au)}
+.res-right{max-width:300px;font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.45);text-align:right}
+
+/* The typographic wall */
+.results-wall{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:0;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;overflow:hidden;
+}
+.res-block{
+  padding:52px 36px;
+  border-right:1px solid rgba(255,255,255,.07);
+  position:relative;overflow:hidden;
+  transition:background var(--t);
+}
+.res-block:last-child{border-right:none}
+.res-block:hover{background:rgba(255,255,255,.04)}
+.res-big{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,8vw,9rem);
+  color:var(--au);line-height:.9;display:block;
+  margin-bottom:16px;
+  transition:transform var(--t),color var(--t);
+}
+.res-block:hover .res-big{transform:scale(1.05);color:var(--al)}
+.res-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:700;color:#fff;
+  margin-bottom:10px;line-height:1.3;
+}
+.res-desc{font-size:12px;line-height:1.8;color:rgba(255,255,255,.4)}
+.res-line{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--au);transform:scaleX(0);transition:transform .5s;
+  transform-origin:left;
+}
+.res-block:hover .res-line{transform:scaleX(1)}
+
+/* ═══════════════════════════════════════
+   CTA BAND — FULL BLEED BOLD
+═══════════════════════════════════════ */
+.cta-band{
+  background:var(--g0);
+  padding:0;
+  position:relative;overflow:hidden;
+}
+.cta-bg-text{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,20vw,220px);
+  color:rgba(200,148,42,.05);letter-spacing:-4px;white-space:nowrap;
+  user-select:none;pointer-events:none;
+}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:100px 40px;max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;
+}
+.cta-left{}
+.cta-eyebrow{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--au);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.cta-eyebrow::before{content:'';width:28px;height:1px;background:var(--au)}
+.cta-h{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(60px,10vw,130px);
+  line-height:.9;color:#fff;letter-spacing:-1px;
+}
+.cta-h span{color:var(--au)}
+.cta-sub{font-size:1rem;line-height:1.8;color:rgba(255,255,255,.5);max-width:480px;margin-top:22px}
+.cta-right{
+  display:flex;flex-direction:column;gap:14px;align-items:flex-end;
+  flex-shrink:0;
+}
+.cta-info-row{
+  display:flex;gap:36px;padding-top:28px;margin-top:16px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.ci{text-align:center}
+.ci-n{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--au);line-height:1}
+.ci-l{font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer{
+  background:var(--g0);border-top:1px solid var(--ba);padding:52px 0 28px;
+}
+.footer-inner{
+  max-width:1280px;margin:0 auto;padding:0 40px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;
+}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.footer-brand span{color:var(--au)}
+.footer-tagline{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--au);margin-top:2px}
+.footer-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:11px;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:1px;transition:color .25s}
+.footer-links a:hover{color:var(--au)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.18);padding-top:16px;border-top:1px solid rgba(255,255,255,.05);width:100%}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+[data-reveal]{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+[data-reveal].vis{opacity:1;transform:none}
+[data-reveal="left"]{transform:translateX(-40px)}
+[data-reveal="left"].vis{transform:none}
+[data-reveal="right"]{transform:translateX(40px)}
+[data-reveal="right"].vis{transform:none}
+[data-reveal="scale"]{transform:scale(.92)}
+[data-reveal="scale"].vis{transform:none}
+.dl1{transition-delay:.1s}.dl2{transition-delay:.2s}.dl3{transition-delay:.3s}
+.dl4{transition-delay:.4s}.dl5{transition-delay:.5s}.dl6{transition-delay:.6s}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:1100px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:0}
+  .h-stat{min-width:120px;padding:12px 16px}
+  .bento{grid-template-columns:repeat(6,1fr)}
+  .bc1{grid-column:1/4}.bc2{grid-column:4/7}.bc3{grid-column:1/4;grid-row:2}
+  .bc4{grid-column:4/7;grid-row:2}.bc5{grid-column:1/7;grid-row:3}
+  .cinema-panel.active{grid-template-columns:1fr}
+  .cinema-vid-half video{min-height:300px}
+  .cinema-vid-overlay{background:linear-gradient(180deg,transparent 60%,rgba(250,246,237,.95) 100%)}
+  .results-wall{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr}
+  .cta-right{align-items:flex-start}
+  .cta-info-row{padding-top:20px}
+}
+@media(max-width:768px){
+  .ni{padding:0 20px}
+  .hero-content,.hero-sub-row{padding-left:20px;padding-right:20px}
+  .who-wrap,.receive-wrap,.work-intro,.results-wrap,.cta-inner,.footer-inner{padding-left:20px;padding-right:20px}
+  .bento{grid-template-columns:1fr}
+  .bc1,.bc2,.bc3,.bc4,.bc5{grid-column:1/2;grid-row:auto}
+  .who-top,.work-intro,.receive-top,.results-header{flex-direction:column;align-items:flex-start}
+  .who-top-right,.work-intro-right,.rec-sub,.res-right{text-align:left}
+  .hero-sub-row{flex-direction:column;align-items:flex-start}
+  .hero-bottom-cta{align-items:flex-start}
+  .cinema-nav{grid-template-columns:1fr}
+  .cinema-btn{flex-direction:row;gap:16px;padding:20px}
+  .cinema-btn{border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}
+  .results-wall{grid-template-columns:1fr}
+  .who-item-body{padding-left:56px}
+  body{cursor:auto}
+  .c-dot,.c-ring{display:none}
+}
+@media(max-width:480px){
+  .hero-headline{font-size:68px}
+  .hero-word{font-size:160px}
+}
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="c-dot" id="cDot"></div>
+<div class="c-ring" id="cRing"></div>
+
+<!-- ── NAVBAR ── -->
+<nav class="nav" id="nav">
+  <div class="ni">
+    <a href="index.html" class="nb">Back to Main Site</a>
+    <div class="nm">
+      <div class="nm-n">Brave <span>Souls</span> Wellness Group</div>
+      <div class="nm-s">Kigali, Rwanda</div>
+    </div>
+    <a href="#cta" class="n-cta">Start Training</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-band"></div>
+  <div class="hero-word">PERSONAL</div>
+
+  <div class="hero-tag" data-reveal>
+    <div class="hero-tag-text">Individual Fitness &amp; Wellness Coaching · Kigali, Rwanda</div>
+  </div>
+
+  <div class="hero-content" data-reveal>
+    <div class="hero-left">
+      <h1 class="hero-headline">
+        YOUR<br>
+        BODY.<br>
+        YOUR<br>
+        <span class="italic">Rules.</span>
+      </h1>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-n">100%</div><div class="h-l">Personalised</div></div>
+      <div class="h-stat"><div class="h-n">10+</div><div class="h-l">Yrs Experience</div></div>
+      <div class="h-stat"><div class="h-n">3</div><div class="h-l">Client Types</div></div>
+      <div class="h-stat"><div class="h-n">∞</div><div class="h-l">Possibilities</div></div>
+    </div>
+  </div>
+
+  <div class="hero-sub-row" data-reveal class="dl2">
+    <p class="hero-desc">
+      Personal Training at Brave Souls is designed for individuals who want structured guidance, real accountability, and measurable progress — on their own terms, toward their own goals. No templates. No guesswork. Just results.
+    </p>
+    <div class="hero-bottom-cta">
+      <div class="hero-cta-btns">
+        <a href="#cta" class="btn btn-solid">Start Personal Coaching</a>
+        <a href="#who" class="btn btn-ghost">See Who It's For</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    SCROLL
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diag diag-g0-to-cr"></div>
+
+<!-- ═══════ WHO IT'S FOR — ACCORDION ═══════ -->
+<section class="who" id="who">
+  <div class="who-wrap">
+    <div class="who-top" data-reveal>
+      <div class="who-top-left">
+        <div class="who-eyebrow">Who It's For</div>
+        <h2 class="who-h">One program.<br><em>Every person.</em></h2>
+      </div>
+      <p class="who-top-right">You don't need to be an athlete to train with us. You need a goal and the readiness to pursue it with structure and real discipline.</p>
+    </div>
+
+    <!-- Accordion rows -->
+    <div class="who-list" data-reveal class="dl1">
+
+      <div class="who-item" data-who>
+        <div class="who-item-head">
+          <div class="who-item-left">
+            <span class="who-item-num">01</span>
+            <div class="who-item-icon">💼</div>
+            <div class="who-item-name">Professionals Balancing Work &amp; Health</div>
+          </div>
+          <span class="who-item-arrow">+</span>
+        </div>
+        <div class="who-item-body">
+          <p class="who-item-desc">Busy schedules demand efficient, structured training. We design programs that fit your life — not the other way around. You show up when you can; we make every session count.</p>
+        </div>
+      </div>
+
+      <div class="who-item" data-who>
+        <div class="who-item-head">
+          <div class="who-item-left">
+            <span class="who-item-num">02</span>
+            <div class="who-item-icon">🔄</div>
+            <div class="who-item-name">Individuals Restarting Their Fitness Journey</div>
+          </div>
+          <span class="who-item-arrow">+</span>
+        </div>
+        <div class="who-item-body">
+          <p class="who-item-desc">Whether it's been months or years, we meet you exactly where you are and build you up progressively and safely — no judgment, no unrealistic expectations, just forward momentum.</p>
+        </div>
+      </div>
+
+      <div class="who-item" data-who>
+        <div class="who-item-head">
+          <div class="who-item-left">
+            <span class="who-item-num">03</span>
+            <div class="who-item-icon">🤝</div>
+            <div class="who-item-name">Clients Needing Personalized Support</div>
+          </div>
+          <span class="who-item-arrow">+</span>
+        </div>
+        <div class="who-item-body">
+          <p class="who-item-desc">Generic programs don't work for everyone. We create fully individualized plans built around your body, goals, and lifestyle — because you're not like everyone else, and your training shouldn't be either.</p>
+        </div>
+      </div>
+
+      <div class="who-item" data-who>
+        <div class="who-item-head">
+          <div class="who-item-left">
+            <span class="who-item-num">04</span>
+            <div class="who-item-icon">🚀</div>
+            <div class="who-item-name">Anyone Ready for Structured Transformation</div>
+          </div>
+          <span class="who-item-arrow">+</span>
+        </div>
+        <div class="who-item-body">
+          <p class="who-item-desc">If you're committed to real change — physically and in how you live — personal coaching provides the system to make it happen. All you bring is commitment. We bring everything else.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diag diag-cr-to-g0"></div>
+
+<!-- ═══════ WHAT YOU RECEIVE — BENTO ═══════ -->
+<section class="receive" id="program">
+  <div class="receive-wrap">
+    <div class="receive-top" data-reveal>
+      <div>
+        <div class="rec-eyebrow">What You Receive</div>
+        <h2 class="rec-h">Five pillars.<br><em>One complete system.</em></h2>
+      </div>
+      <p class="rec-sub">Every element of your program works together — nothing exists in isolation.</p>
+    </div>
+
+    <div class="bento" data-reveal class="dl1">
+
+      <div class="bento-cell bc1">
+        <div class="bc-num">01</div>
+        <div class="bc-icon">📋</div>
+        <div class="bc-name">Personalized Fitness Programming</div>
+        <p class="bc-desc">A fully custom training plan built around your body, goals, schedule, and current fitness level. No templates — your plan, your pace, your progress.</p>
+      </div>
+
+      <div class="bento-cell bc2">
+        <div class="bc-num">02</div>
+        <div class="bc-icon">🥗</div>
+        <div class="bc-name">Nutrition Guidance</div>
+        <p class="bc-desc">Practical nutrition advice aligned with your training goals — whether fat loss, muscle gain, or performance. Simple, realistic, and built to last.</p>
+      </div>
+
+      <div class="bento-cell bc3">
+        <div class="bc-num">03</div>
+        <div class="bc-icon">🌿</div>
+        <div class="bc-name">Habit &amp; Lifestyle Coaching</div>
+        <p class="bc-desc">Coaching that extends beyond the gym — addressing the habits that determine your results in real life.</p>
+      </div>
+
+      <div class="bento-cell bc4">
+        <div class="bc-num">04</div>
+        <div class="bc-icon">📊</div>
+        <div class="bc-name">Regular Progress Tracking</div>
+        <p class="bc-desc">Scheduled check-ins, body assessments, and benchmarks. You'll always know where you are.</p>
+      </div>
+
+      <div class="bento-cell bc5">
+        <div class="bc-num">05</div>
+        <div class="bc-icon">🤝</div>
+        <div class="bc-name">Accountability Support</div>
+        <p class="bc-desc">Consistent check-ins, motivation, and direct access to your coach. When you're struggling, we don't disappear — we show up with you. The difference between good programs and great results is always accountability. We take that seriously so you can stay consistent, even when motivation dips.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diag diag-cr-to-g1" style="background:var(--g0)"></div>
+
+<!-- ═══════ PUTTING IN WORK — CINEMA ═══════ -->
+<section class="work" id="work">
+  <div class="work-intro" data-reveal>
+    <div class="work-intro-left">
+      <div class="w-eyebrow">Putting in Work</div>
+      <h2 class="work-h">We train <em>every type</em><br>of person. Every goal.</h2>
+    </div>
+    <p class="work-intro-right">From elite athletes to aspiring models to everyday individuals — our coaching adapts to who you are. Select a category below to see us in action.</p>
+  </div>
+
+  <!-- Cinema navigation -->
+  <div class="cinema-nav" data-reveal class="dl1">
+    <button class="cinema-btn active" data-cinema="athletes">
+      <div class="cinema-btn-num">01</div>
+      <div>
+        <div class="cinema-btn-label">Athletes</div>
+        <div class="cinema-btn-sub">Performance &amp; Sport</div>
+      </div>
+    </button>
+    <button class="cinema-btn" data-cinema="models">
+      <div class="cinema-btn-num">02</div>
+      <div>
+        <div class="cinema-btn-label">Models</div>
+        <div class="cinema-btn-sub">Aesthetics &amp; Presence</div>
+      </div>
+    </button>
+    <button class="cinema-btn" data-cinema="ordinary">
+      <div class="cinema-btn-num">03</div>
+      <div>
+        <div class="cinema-btn-label">Everyday People</div>
+        <div class="cinema-btn-sub">Real Life. Real Results.</div>
+      </div>
+    </button>
+  </div>
+
+  <!-- Cinema stage -->
+  <div class="cinema-stage">
+
+    <!-- ATHLETES -->
+    <div class="cinema-panel active" id="cp-athletes">
+      <div class="cinema-vid-half">
+        <video preload="metadata" loop id="vid-athletes">
+          <source src="videos/athelete3.mp4" type="video/mp4">
+        </video>
+        <div class="cinema-vid-overlay"></div>
+        <div class="cinema-vid-label"><div class="cinema-vid-label-text">Athletes · Performance Training</div></div>
+        <button class="cinema-vid-play" id="pb-athletes">
+          <div class="cinema-vid-play-circle">▶</div>
+          <span class="cinema-vid-play-text">Watch Training</span>
+        </button>
+      </div>
+      <div class="cinema-content-half">
+        <div class="cinema-tag">Training Category 01</div>
+        <h3 class="cinema-title">Built for<br><em>Champions.</em></h3>
+        <p class="cinema-body">Whether you're competing professionally or pushing personal limits, our athletic programs elevate performance, prevent injury, and build the physical foundation that separates good from great.</p>
+        <ul class="feat-list">
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Sport-specific conditioning</div><div class="feat-sub">Power, speed, agility & endurance built for your sport</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Strength & performance programming</div><div class="feat-sub">Progressive overload calibrated to your competition schedule</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Injury prevention & recovery</div><div class="feat-sub">Mobility, recovery protocols, and movement quality work</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Mental performance coaching</div><div class="feat-sub">Focus, competition mindset, and resilience under pressure</div></div>
+          </li>
+        </ul>
+        <a href="#cta" class="btn btn-dark">Train Like an Athlete →</a>
+      </div>
+    </div>
+
+    <!-- MODELS -->
+    <div class="cinema-panel" id="cp-models">
+      <div class="cinema-vid-half">
+        <video preload="metadata" loop id="vid-models">
+          <source src="videos/model6.mp4" type="video/mp4">
+        </video>
+        <div class="cinema-vid-overlay"></div>
+        <div class="cinema-vid-label"><div class="cinema-vid-label-text">Models · Aesthetics Training</div></div>
+        <button class="cinema-vid-play" id="pb-models">
+          <div class="cinema-vid-play-circle">▶</div>
+          <span class="cinema-vid-play-text">Watch Training</span>
+        </button>
+      </div>
+      <div class="cinema-content-half">
+        <div class="cinema-tag">Training Category 02</div>
+        <h3 class="cinema-title">Sculpted.<br><em>Confident. Defined.</em></h3>
+        <p class="cinema-body">Looking great isn't just aesthetics — it's how you carry yourself, the energy you project, and the discipline behind the physique. We train appearance-focused clients with precision and care.</p>
+        <ul class="feat-list">
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Body sculpting & toning</div><div class="feat-sub">Defined, lean physique development with precision</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Posture & movement coaching</div><div class="feat-sub">How you move is as important as how you look</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Nutrition for aesthetics</div><div class="feat-sub">Fuelling for composition, energy, and appearance</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Confidence coaching</div><div class="feat-sub">Building the mindset and presence that completes the look</div></div>
+          </li>
+        </ul>
+        <a href="#cta" class="btn btn-dark">Train for Your Best Look →</a>
+      </div>
+    </div>
+
+    <!-- ORDINARY -->
+    <div class="cinema-panel" id="cp-ordinary">
+      <div class="cinema-vid-half">
+        <video preload="metadata" loop id="vid-ordinary">
+          <source src="videos/ordinary2.mp4" type="video/mp4">
+        </video>
+        <div class="cinema-vid-overlay"></div>
+        <div class="cinema-vid-label"><div class="cinema-vid-label-text">Everyday People · Real Transformation</div></div>
+        <button class="cinema-vid-play" id="pb-ordinary">
+          <div class="cinema-vid-play-circle">▶</div>
+          <span class="cinema-vid-play-text">Watch Training</span>
+        </button>
+      </div>
+      <div class="cinema-content-half">
+        <div class="cinema-tag">Training Category 03</div>
+        <h3 class="cinema-title">Real People.<br><em>Real Results.</em></h3>
+        <p class="cinema-body">You don't need to be a professional athlete to deserve great coaching. Most of our clients are ordinary people with extraordinary goals — and we treat every single one with the same seriousness and care.</p>
+        <ul class="feat-list">
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Beginner-friendly programming</div><div class="feat-sub">No experience required — just willingness to commit</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Weight loss & fat reduction</div><div class="feat-sub">Safe, structured, and sustainable approaches</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Energy & daily vitality</div><div class="feat-sub">Feel better, stronger, and more capable in everyday life</div></div>
+          </li>
+          <li class="feat-item">
+            <div class="feat-bullet"></div>
+            <div><div class="feat-title">Habit & lifestyle transformation</div><div class="feat-sub">Building the foundation for lifelong health</div></div>
+          </li>
+        </ul>
+        <a href="#cta" class="btn btn-dark">Start Where You Are →</a>
+      </div>
+    </div>
+
+  </div><!-- /cinema-stage -->
+</section>
+
+<!-- DIAGONAL -->
+<div class="diag diag-cr-to-g1"></div>
+
+<!-- ═══════ RESULTS — TYPOGRAPHIC WALL ═══════ -->
+<section class="results" id="results">
+  <div class="results-wrap">
+    <div class="results-header" data-reveal>
+      <div>
+        <div class="res-ey">Expected Results</div>
+        <h2 class="res-h">What <em>changes</em><br>when you commit.</h2>
+      </div>
+      <p class="res-right">These aren't promises — they're the outcomes our clients consistently report after committing to a structured personal training program.</p>
+    </div>
+
+    <div class="results-wall" data-reveal class="dl1">
+      <div class="res-block">
+        <div class="res-line"></div>
+        <span class="res-big">✓</span>
+        <div class="res-title">Fat Loss or Muscle Development</div>
+        <p class="res-desc">Visible, measurable changes in body composition — delivered through structured programming and nutrition support tailored to your specific goal.</p>
+      </div>
+      <div class="res-block">
+        <div class="res-line"></div>
+        <span class="res-big">↑</span>
+        <div class="res-title">Improved Fitness Level</div>
+        <p class="res-desc">Strength, endurance, flexibility, and overall physical capacity — all improve progressively as your program advances and your body adapts.</p>
+      </div>
+      <div class="res-block">
+        <div class="res-line"></div>
+        <span class="res-big">3×</span>
+        <div class="res-title">Better Daily Energy</div>
+        <p class="res-desc">Regular structured training dramatically improves energy levels, sleep quality, and mental clarity — making everyday life feel lighter and more capable.</p>
+      </div>
+      <div class="res-block">
+        <div class="res-line"></div>
+        <span class="res-big">∞</span>
+        <div class="res-title">Long-Term Sustainable Habits</div>
+        <p class="res-desc">We build the habits, mindset, and systems that keep you healthy and disciplined for years — not just the duration of a program.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGONAL -->
+<div class="diag diag-g1-to-cr" style="background:var(--g1)"></div>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-band" id="cta">
+  <div class="cta-bg-text">TRANSFORM</div>
+  <div class="cta-inner">
+    <div class="cta-left" data-reveal>
+      <div class="cta-eyebrow">Ready to Begin</div>
+      <h2 class="cta-h">YOUR<br>TRANSFORMATION<br><span>STARTS NOW.</span></h2>
+      <p class="cta-sub">Whether you're an athlete, a model, a professional, or someone simply ready to change — your personalized program is waiting. Book a consultation with Coach Brave and let's build your plan.</p>
+      <div class="cta-info-row">
+        <div class="ci"><div class="ci-n">10+</div><div class="ci-l">Yrs Experience</div></div>
+        <div class="ci"><div class="ci-n">3</div><div class="ci-l">Client Types</div></div>
+        <div class="ci"><div class="ci-n">100%</div><div class="ci-l">Personalised</div></div>
+        <div class="ci"><div class="ci-n">∞</div><div class="ci-l">Possibilities</div></div>
+      </div>
+    </div>
+    <div class="cta-right" data-reveal="right">
+      <a href="https://wa.me/250788675638?text=Hi%20Coach%20Brave!%20I%20want%20to%20start%20Personal%20Training%20with%20Brave%20Souls%20Wellness" target="_blank" class="btn btn-solid" style="font-size:13px;padding:20px 40px">💬 Start on WhatsApp</a>
+      <a href="brave-souls-wellness.html#booking" class="btn btn-ghost">View Consultation Options</a>
+      <div style="margin-top:8px;text-align:center">
+        <div style="font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px">📞 +250 788 675 638</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.3);margin-top:4px">📧 info@bravesoulswellness.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
+      <div class="footer-tagline">Healthy Body and Spirit · Kigali, Rwanda</div>
+    </div>
+    <div class="footer-links">
+      <a href="brave-souls-wellness.html">Main Website</a>
+      <a href="shebraveelite.html">SheBraveElite</a>
+      <a href="executive coaching.html">Executive Coaching</a>
+      <a href="#who">Who It's For</a>
+      <a href="#work">Putting in Work</a>
+      <a href="#cta">Start Training</a>
+    </div>
+    <div class="footer-copy">© 2025 Brave Souls Wellness Group Ltd · Personal Training Program · Kigali, Rwanda 🇷🇼</div>
+  </div>
+</footer>
+
+<script>
+/* ── Cursor ── */
+const dot  = document.getElementById('cDot');
+const ring = document.getElementById('cRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  rx+=(mx-rx)*.14;ry+=(my-ry)*.14;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,.who-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(200,148,42,.8)'});
+  el.addEventListener('mouseleave',()=>{ring.style.width='40px';ring.style.height='40px';ring.style.borderColor='rgba(200,148,42,.55)'});
+});
+
+/* ── Navbar ── */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+
+/* ── Scroll reveal ── */
+const rvObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rvObs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el=>rvObs.observe(el));
+
+/* ── WHO accordion ── */
+document.querySelectorAll('[data-who]').forEach(item=>{
+  item.querySelector('.who-item-head').addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('[data-who]').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+/* ── CINEMA tabs ── */
+const cinBtns=document.querySelectorAll('.cinema-btn');
+const cinPanels=document.querySelectorAll('.cinema-panel');
+const allVids=document.querySelectorAll('.cinema-panel video');
+
+function switchCinema(key){
+  allVids.forEach(v=>v.pause());
+  cinBtns.forEach(b=>b.classList.remove('active'));
+  cinPanels.forEach(p=>p.classList.remove('active'));
+  document.querySelector(`[data-cinema="${key}"]`).classList.add('active');
+  document.getElementById('cp-'+key).classList.add('active');
+}
+cinBtns.forEach(b=>b.addEventListener('click',()=>switchCinema(b.dataset.cinema)));
+
+/* Video play buttons */
+['athletes','models','ordinary'].forEach(key=>{
+  const btn=document.getElementById('pb-'+key);
+  const vid=document.getElementById('vid-'+key);
+  if(!btn||!vid)return;
+  btn.addEventListener('click',()=>{
+    if(vid.paused){
+      vid.play();
+      btn.querySelector('.cinema-vid-play-circle').textContent='⏸';
+      btn.querySelector('.cinema-vid-play-text').textContent='Pause';
+    } else {
+      vid.pause();
+      btn.querySelector('.cinema-vid-play-circle').textContent='▶';
+      btn.querySelector('.cinema-vid-play-text').textContent='Watch Training';
+    }
+  });
+});
+
+/* ── Smooth scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
+</script>
+</body>
+</html>

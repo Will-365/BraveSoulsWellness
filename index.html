@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brave Souls Wellness Group Ltd | Healthy Body and Spirit</title>
+<meta name="description" content="Brave Souls Wellness Group Ltd — Premium fitness, wellness and coaching in Kigali, Rwanda. Structured programs for individuals, teams & organizations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep:   #0e2818;
+  --green-mid:    #1a4230;
+  --green-light:  #2d6648;
+  --green-muted:  #3a7a55;
+  --gold:         #c8942a;
+  --gold-light:   #e4b84a;
+  --gold-pale:    #f5e4b8;
+  --cream:        #faf6ed;
+  --white:        #ffffff;
+  --charcoal:     #1c1c1c;
+  --text-dark:    #1e2e22;
+  --text-muted:   #5a7060;
+  --border:       rgba(200,148,42,0.25);
+  --shadow:       0 20px 60px rgba(14,40,24,0.18);
+  --radius:       4px;
+  --transition:   0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-dark);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Outfit', sans-serif; font-size: 13px;
+  font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  padding: 16px 34px; border-radius: var(--radius);
+  transition: var(--transition);
+}
+.btn-gold { background: var(--gold); color: var(--white); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,148,42,0.4); }
+.btn-outline-white {
+  background: transparent; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+.btn-outline-white:hover { background: var(--white); color: var(--green-deep); transform: translateY(-2px); }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 13px 0;
+  background: rgba(14,40,24,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s, background 0.3s;
+}
+.navbar.scrolled { padding: 11px 0; background: rgba(10,30,18,0.97); }
+.navbar .container {
+  display: flex; align-items: center; justify-content: space-between;
+  min-height: 64px;
+  gap: 18px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  height: 64px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.logo-image {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: -43px;
+  margin-bottom: -43px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+}
+.nav-links {
+  display: flex; align-items: center; gap: 2px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+.nav-links a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.8px;
+  text-transform: uppercase; text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  padding: 8px 9px; border-radius: 2px;
+  transition: color 0.25s, background 0.25s;
+  position: relative;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links .dropdown { position: relative; }
+.nav-links .dropdown > a::after { content: ' ▾'; font-size: 10px; }
+.dropdown-menu {
+  display: none; position: absolute; top: calc(100% + 8px); left: 0;
+  min-width: 220px;
+  background: var(--green-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 0;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block; padding: 10px 20px;
+  font-size: 12px; color: rgba(255,255,255,0.75);
+  text-transform: none; letter-spacing: 0.5px;
+}
+.dropdown-menu a:hover { color: var(--gold); background: rgba(200,148,42,0.1); }
+.nav-cta {
+  margin-left: 4px;
+  padding: 10px 14px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--white); border-radius: 1px;
+  transition: var(--transition);
+}
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--green-deep); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+  padding: 80px 24px 40px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 600;
+  color: var(--white); text-decoration: none;
+  transition: color 0.25s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: none; cursor: pointer;
+  font-size: 1.6rem; color: var(--white);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 85vh; position: relative;
+  display: flex; align-items: center;
+  background: var(--green-deep);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(45,102,72,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 42% 62% at 22% 54%, rgba(200,148,42,0.12) 0%, transparent 62%);
+}
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+  padding: 118px 0 72px;
+  margin-top: -150px;
+}
+.hero-left {
+  max-width: 560px;
+  margin-top: -200px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 10px; font-weight: 600; letter-spacing: 3.5px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700; line-height: 1.0;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.hero-headline em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1.05rem; line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  max-width: 480px; margin-bottom: 40px;
+}
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 56px; }
+.hero-values { display: flex; align-items: center; gap: 0; }
+.hero-values span {
+  font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.hero-values .dot { color: var(--gold); margin: 0 14px; font-size: 16px; }
+
+.hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.hero-coach-wrap {
+  position: relative;
+  width: min(550px, 100%);
+  margin: 0 auto;
+  isolation: isolate;
+}
+.hero-coach-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: saturate(1.04) contrast(1.02);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 56%,
+    rgba(0, 0, 0, 0.9) 66%,
+    rgba(0, 0, 0, 0.58) 77%,
+    rgba(0, 0, 0, 0.24) 88%,
+    rgba(0, 0, 0, 0.06) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 56%,
+    rgba(0, 0, 0, 0.9) 66%,
+    rgba(0, 0, 0, 0.58) 77%,
+    rgba(0, 0, 0, 0.24) 88%,
+    rgba(0, 0, 0, 0.06) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+/* Misty bottom fade like your reference design */
+.hero-coach-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14,40,24,0) 52%,
+    rgba(14,40,24,0.08) 64%,
+    rgba(14,40,24,0.24) 76%,
+    rgba(14,40,24,0.5) 90%,
+    rgba(14,40,24,0.78) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-coach-wrap::before {
+  content: none;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 18px 22px;
+  width: 100%; max-width: 250px;
+  backdrop-filter: blur(10px);
+}
+.hero-card-floating {
+  position: absolute;
+  z-index: 3;
+  animation: statsPulse 5.8s ease-in-out infinite;
+}
+.hero-card-floating.card-1 { top: calc(8% + 60px); right: -6%; }
+.hero-card-floating.card-2 { top: 44%; left: -10%; animation-delay: 1.7s; }
+.hero-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.3rem; font-weight: 700; color: var(--gold);
+  line-height: 1;
+}
+.hero-card-label {
+  font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.62); margin-top: 6px;
+}
+
+.hero-tags {
+  margin-top: 42px; /* moved down for coach image space */
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+  max-width: 460px;
+}
+.hero-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.65); padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 50px;
+}
+
+@keyframes statsPulse {
+  0%, 14% { opacity: 0; transform: translateY(10px) scale(0.98); }
+  24%, 56% { opacity: 1; transform: translateY(0) scale(1); }
+  76%, 100% { opacity: 0; transform: translateY(-6px) scale(0.985); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.animate.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ── ABOUT (SinCity-inspired structure, brand-mapped colors) ── */
+.about-showcase {
+  background: var(--cream);
+  padding: 0;
+}
+.about-shell {
+  width: 100%;
+  min-height: 84vh;
+  display: grid;
+  grid-template-columns: 180px 0.95fr 1.45fr;
+  overflow: hidden;
+  background: var(--green-deep);
+}
+.about-rail {
+  background: var(--cream); /* white -> beige */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about-rail-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-rail-col--beige {
+  background: var(--cream);
+}
+.about-rail-col--gold {
+  background: var(--gold); /* black -> gold */
+}
+.about-rail-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 8px;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+}
+.about-rail-col--beige .about-rail-text {
+  color: var(--green-deep);
+}
+.about-rail-col--gold .about-rail-text {
+  color: var(--cream);
+}
+.about-copy {
+  background: linear-gradient(140deg, rgba(26,66,48,0.9) 0%, rgba(14,40,24,0.74) 100%); /* green flame, slightly transparent */
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(36px, 6vw, 76px) clamp(28px, 4.2vw, 56px);
+  position: relative;
+  z-index: 2;
+  margin-right: -72px;
+  backdrop-filter: blur(2px);
+}
+.about-copy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 18% 25%, rgba(200,148,42,0.12) 0%, transparent 64%);
+  pointer-events: none;
+}
+.about-copy-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+.about-copy-inner p {
+  font-size: clamp(1rem, 1.6vw, 1.34rem);
+  line-height: 1.72;
+  color: rgba(250,246,237,0.92);
+}
+.about-copy-cta {
+  margin-top: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  border: 1px solid rgba(245,228,184,0.45);
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  transition: var(--transition);
+  width: fit-content;
+}
+.about-copy-cta-arrow {
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.about-copy-cta:hover {
+  background: rgba(250,246,237,0.08);
+  border-color: var(--gold-light);
+}
+.about-visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--green-deep);
+  z-index: 1;
+}
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.92) contrast(1.05);
+}
+.about-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(14,40,24,0.22) 0%, rgba(14,40,24,0.06) 35%, rgba(14,40,24,0) 64%),
+    radial-gradient(ellipse at 78% 58%, rgba(45,102,72,0.14) 0%, rgba(14,40,24,0) 66%);
+  pointer-events: none;
+}
+
+/* ── RESTORED SECTIONS ── */
+.section-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 18px;
+}
+.section-label::before {
+  content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1;
+  color: var(--green-deep);
+}
+.section-title.light { color: var(--white); }
+.section-title em { font-style: italic; color: var(--gold); }
+.section-sub {
+  font-size: 1.05rem; line-height: 1.8;
+  color: var(--text-muted); max-width: 600px;
+  margin-top: 16px;
+}
+.section-sub.light { color: rgba(255,255,255,0.72); }
+.btn-outline-gold {
+  background: transparent; color: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+.btn-outline-gold:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); }
+.btn-green {
+  background: var(--green-deep); color: var(--white);
+}
+.btn-green:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(14,40,24,0.35); }
+
+.programs { padding: 120px 0; background: var(--cream); }
+.programs-header { text-align: center; margin-bottom: 20px; }
+.programs-header .section-sub { margin: 16px auto 0; text-align: center; }
+.pillars-strip {
+  display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+  margin: 40px 0 70px;
+  perspective: 1100px;
+}
+.pillar-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 24px;
+  border: 1px solid rgba(14,40,24,0.12);
+  background: rgba(255,255,255,0.86);
+  box-shadow: 0 14px 26px rgba(14,40,24,0.1);
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--green-deep);
+  border-radius: 999px;
+  transform-style: preserve-3d;
+  animation: shuffleOrbit 6.6s ease-in-out infinite;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.pillar-item:nth-child(1) { animation-delay: 0s; }
+.pillar-item:nth-child(2) { animation-delay: 0.35s; }
+.pillar-item:nth-child(3) { animation-delay: 0.7s; }
+.pillars-strip:hover .pillar-item { animation-play-state: paused; }
+.pillar-item:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 18px 30px rgba(14,40,24,0.18);
+  border-color: rgba(200,148,42,0.5);
+}
+.pillar-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.programs-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 2px; background: var(--green-deep);
+  border: 2px solid var(--green-deep);
+  border-radius: 8px; overflow: hidden;
+}
+.program-block {
+  background: var(--white); padding: 48px 44px;
+  position: relative; overflow: hidden;
+  transition: background 0.4s, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.program-block:hover { background: var(--green-deep); transform: translateY(-6px); box-shadow: 0 14px 28px rgba(14,40,24,0.2); }
+.program-block:hover .program-title,
+.program-block:hover .program-tag,
+.program-block:hover .program-desc,
+.program-block:hover .program-item { color: rgba(255,255,255,0.75); }
+.program-block:hover .program-title { color: var(--white); }
+.program-block:hover .program-cta { background: var(--gold); color: var(--white); border-color: var(--gold); }
+.program-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4rem; font-weight: 700;
+  color: var(--green-deep); opacity: 0.06;
+  position: absolute; top: 24px; right: 30px;
+  line-height: 1; transition: opacity 0.4s;
+}
+.program-block:hover .program-num { opacity: 0.12; color: var(--gold); }
+.program-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 12px;
+}
+.program-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem; font-weight: 700; color: var(--green-deep);
+  line-height: 1.2; margin-bottom: 14px;
+}
+.program-desc {
+  font-size: 14px; line-height: 1.8; color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.program-list { list-style: none; margin-bottom: 28px; }
+.program-item {
+  font-size: 13px; color: var(--text-muted);
+  padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex; align-items: center; gap: 10px;
+}
+.program-item::before {
+  content: '→'; color: var(--gold); font-size: 12px; flex-shrink: 0;
+}
+.program-cta {
+  display: inline-flex; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 12px 24px; border: 1.5px solid var(--green-deep);
+  color: var(--green-deep); text-decoration: none;
+  border-radius: var(--radius); transition: var(--transition);
+  cursor: pointer; background: transparent;
+}
+
+.corporate {
+  padding: 120px 0;
+  background: var(--green-deep);
+  position: relative; overflow: hidden;
+}
+.corporate::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(110deg, rgba(14,40,24,0.84) 0%, rgba(14,40,24,0.62) 48%, rgba(14,40,24,0.78) 100%),
+    radial-gradient(ellipse at 18% 84%, rgba(200,148,42,0.12) 0%, rgba(200,148,42,0) 52%);
+  z-index: 1;
+  pointer-events: none;
+}
+.corp-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  filter: saturate(1.05) contrast(1.04);
+}
+.corporate .container {
+  position: relative;
+  z-index: 2;
+}
+.corp-header { margin-bottom: 70px; }
+.corp-intro {
+  font-size: 1.08rem; line-height: 1.8; color: rgba(255,255,255,0.65);
+  max-width: 680px; margin-top: 18px;
+}
+.corp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.corp-card {
+  background: rgba(14,40,24,0.5); border: 1px solid rgba(245,228,184,0.22);
+  border-radius: 8px; padding: 36px 30px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.corp-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.24);
+}
+.corp-card-icon { font-size: 2rem; margin-bottom: 20px; }
+.corp-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--white);
+  margin-bottom: 12px;
+}
+.corp-problem {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(200,148,42,0.7);
+  margin-bottom: 8px;
+}
+.corp-text { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+.corp-outcomes { list-style: none; margin-bottom: 24px; }
+.corp-outcome {
+  font-size: 12px; color: rgba(255,255,255,0.6);
+  padding: 5px 0; display: flex; align-items: flex-start; gap: 8px;
+}
+.corp-outcome::before { content: '✦'; color: var(--gold); font-size: 8px; margin-top: 3px; }
+.corp-cta {
+  display: inline-flex; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 11px 22px; border: 1px solid var(--gold);
+  color: var(--gold); text-decoration: none;
+  border-radius: var(--radius); transition: var(--transition);
+}
+.corp-cta:hover { background: var(--gold); color: var(--white); }
+
+.founders {
+  padding: 100px 0;
+  background: var(--green-deep);
+  position: relative; overflow: hidden;
+}
+.founders-header { text-align: center; margin-bottom: 64px; }
+.founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.founder-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.founder-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+.founder-photo {
+  height: 260px;
+  background: var(--green-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.founder-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) saturate(1.05) contrast(1.02);
+  transform: scale(1.12);
+}
+.founder-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,40,24,0.72) 0%, rgba(14,40,24,0.2) 45%, rgba(14,40,24,0.06) 100%);
+}
+.founder-photo-ceo::before { background-image: url("images/background4jpg.jpg"); }
+.founder-photo-co::before { background-image: url("images/background3.jpg"); }
+.founder-avatar {
+  width: 130px; height: 130px; border-radius: 50%;
+  border: 3px solid rgba(245,228,184,0.9);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,0.1);
+}
+.founder-body { padding: 28px 32px; }
+.founder-role {
+  font-size: 10px; font-weight: 600; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--white);
+  margin-bottom: 14px;
+}
+.founder-bio { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.6); }
+.founder-highlights {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.founder-chip {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  border: 1px solid rgba(245,228,184,0.32);
+  background: rgba(255,255,255,0.05);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.booking { padding: 120px 0; background: var(--cream); }
+.booking-header { text-align: center; margin-bottom: 16px; }
+.book-feature {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) 1fr;
+  align-items: center;
+  gap: clamp(28px, 5vw, 74px);
+  margin: 0 auto 64px;
+  max-width: 1020px;
+}
+.book-feature-media { justify-self: center; }
+.book-card {
+  width: min(340px, 86vw);
+  aspect-ratio: 3 / 4.4;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  animation: bookFloat 6.2s ease-in-out infinite;
+}
+.book-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.book-feature-copy h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.book-feature-copy p {
+  color: var(--text-dark);
+  font-size: 1.06rem;
+  line-height: 1.8;
+  max-width: 560px;
+}
+.book-feature-cta {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 30px;
+  background: var(--green-mid);
+  color: var(--white);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.book-feature-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(14,40,24,0.22);
+  background: var(--green-deep);
+}
+.booking-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin: 60px 0 40px;
+}
+.booking-card {
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbf6 100%);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px; overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.booking-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 34px rgba(14,40,24,0.14);
+  border-color: rgba(200,148,42,0.45);
+}
+.booking-card.featured {
+  border-color: rgba(200,148,42,0.6);
+  box-shadow: 0 14px 36px rgba(200,148,42,0.2);
+}
+.booking-top {
+  background: linear-gradient(140deg, var(--green-deep) 0%, var(--green-mid) 100%);
+  padding: 32px 32px 26px;
+}
+.booking-type {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.7px;
+  text-transform: uppercase; color: var(--gold-pale);
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(245,228,184,0.35);
+  background: rgba(245,228,184,0.1);
+}
+.booking-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.52rem; font-weight: 700; color: var(--white);
+}
+.booking-body { padding: 28px 32px; }
+.booking-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.3rem; font-weight: 700; color: var(--green-deep);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+.booking-currency {
+  font-size: 0.95rem;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.booking-feature {
+  font-size: 13px; color: var(--text-muted); padding: 8px 0;
+  border-bottom: 1px solid rgba(14,40,24,0.08);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.booking-feature::before {
+  content: "✓";
+  color: var(--green-mid);
+  font-weight: 700;
+  margin-top: 1px;
+}
+.booking-feature:last-child { border-bottom: none; }
+.booking-choose-btn {
+  margin-top: 20px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--green-deep);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green-deep);
+  transition: var(--transition);
+}
+.booking-choose-btn:hover {
+  background: var(--green-deep);
+  color: var(--white);
+}
+.booking-card.featured .booking-choose-btn {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--white);
+}
+.booking-card.featured .booking-choose-btn:hover {
+  background: var(--gold-light);
+}
+.booking-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+.booking-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(200,148,42,0.35) 50%, transparent 100%);
+}
+
+.testimonials {
+  padding: 120px 0;
+  background: radial-gradient(circle at 88% 18%, rgba(200,148,42,0.16) 0%, rgba(14,40,24,0) 36%), var(--green-deep);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 46px 46px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.testi-header { text-align: center; margin-bottom: 42px; position: relative; z-index: 2; }
+.testi-slider {
+  position: relative;
+  z-index: 2;
+  min-height: 560px;
+}
+.testi-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease, visibility 0.55s;
+}
+.testi-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+.testi-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+.testi-copy h3 {
+  color: var(--white);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 22px;
+}
+.testi-copy h4 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+.testi-copy p {
+  color: rgba(255,255,255,0.86);
+  line-height: 1.72;
+  font-size: 1.08rem;
+  max-width: 620px;
+  margin-bottom: 16px;
+}
+.testi-cta-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--gold);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 13px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.testi-media-stack {
+  position: relative;
+  min-height: 430px;
+}
+.testi-photo-card {
+  position: absolute;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.32);
+}
+.testi-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: rgba(250,246,237,0.12);
+  display: block;
+}
+.testi-photo-after {
+  width: 62%;
+  right: 0;
+  top: 0;
+  height: 380px;
+}
+.testi-photo-before {
+  width: 44%;
+  left: 4%;
+  bottom: 8px;
+  height: 300px;
+}
+.testi-tag {
+  position: absolute;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-shadow: 0 8px 16px rgba(0,0,0,0.45);
+}
+.testi-tag.after { right: 18%; top: 350px; }
+.testi-tag.before { left: 18%; bottom: -18px; }
+.testi-video-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.34);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.testi-video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9/16;
+  object-fit: contain;
+  background: #0f151a;
+}
+.testi-dots {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.testi-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+.testi-dot.active {
+  background: var(--white);
+}
+
+.contact { padding: 120px 0; background: var(--cream); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-info-block { margin-top: 32px; }
+.contact-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.contact-icon {
+  width: 42px; height: 42px; border-radius: 4px;
+  background: rgba(14,40,24,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.contact-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.contact-value { font-size: 15px; font-weight: 500; color: var(--green-deep); margin-top: 4px; }
+.contact-ctas { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
+.contact-form-wrap {
+  background: var(--white); border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 8px; padding: 44px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.contact-form-wrap:hover { box-shadow: 0 14px 30px rgba(14,40,24,0.1); transform: translateY(-3px); }
+
+@keyframes shuffleOrbit {
+  0%, 100% { transform: translate3d(0,0,0) rotateZ(0deg); }
+  20% { transform: translate3d(-6px,-4px,0) rotateZ(-3deg); }
+  50% { transform: translate3d(0,-7px,0) rotateZ(2deg); }
+  80% { transform: translate3d(6px,-3px,0) rotateZ(-2deg); }
+}
+@keyframes bookFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+.contact-form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 700; color: var(--green-deep);
+  margin-bottom: 28px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 14px 16px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  font-family: 'Outfit', sans-serif; font-size: 14px;
+  color: var(--text-dark); background: var(--cream);
+  outline: none;
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.footer {
+  background: #f3dca6;
+  color: rgba(30,46,34,0.82);
+  padding: 70px 0 30px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  height: 64px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.logo-image {
+  height: 110px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: -43px;
+  margin-bottom: -43px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 48px; padding-bottom: 50px;
+  border-bottom: 1px solid rgba(14,40,24,0.14);
+}
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 700; color: var(--green-deep);
+  margin-bottom: 4px;
+}
+.footer-brand-name span { color: var(--gold); }
+.footer-brand-tagline {
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(14,40,24,0.72); margin-bottom: 16px;
+}
+.footer-brand-desc { font-size: 13px; line-height: 1.8; margin-bottom: 24px; }
+.footer-values { display: flex; gap: 0; }
+.footer-val {
+  font-size: 9px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(30,46,34,0.68);
+  padding: 0 12px;
+  border-right: 1px solid rgba(14,40,24,0.18);
+}
+.footer-val:first-child { padding-left: 0; }
+.footer-val:last-child { border-right: none; }
+.footer-col-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--green-deep);
+  margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  font-size: 13px; color: rgba(30,46,34,0.75); text-decoration: none;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-contact-item {
+  display: flex; gap: 10px; font-size: 13px;
+  color: rgba(30,46,34,0.78); margin-bottom: 12px;
+}
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 28px; flex-wrap: wrap; gap: 12px;
+  font-size: 12px; color: rgba(30,46,34,0.64);
+}
+.footer-bottom-gold { color: var(--gold); }
+
+/* Placeholder sections so nav anchors still work */
+section.content-placeholder {
+  padding: 110px 0;
+  background: var(--cream);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+.placeholder-title {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--green-deep);
+  font-size: 2.2rem;
+}
+.placeholder-sub {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .hero { min-height: auto; }
+  .hero-content { grid-template-columns: 1fr; gap: 34px; padding: 96px 0 52px; align-items: center; }
+  .hero-left { max-width: 680px; }
+  .hero-right { align-items: center; }
+  .hero-coach-wrap { width: min(480px, 100%); }
+  .hero-tags { justify-content: center; }
+  .hero-card-floating.card-1 { right: 2%; }
+  .hero-card-floating.card-2 { left: 2%; top: 54%; }
+
+  .about-shell {
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: auto 400px;
+    min-height: auto;
+  }
+  .about-rail {
+    grid-row: 1 / span 2;
+  }
+  .about-copy {
+    grid-column: 2;
+    grid-row: 1;
+    margin-right: 0;
+  }
+  .about-visual {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .programs-grid, .corp-grid, .contact-grid, .booking-grid, .founders-grid { grid-template-columns: 1fr; }
+  .testi-layout { grid-template-columns: 1fr; }
+  .testi-media-stack { margin-top: 10px; min-height: 480px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .navbar { padding: 12px 0; }
+  .navbar .container { min-height: 56px; }
+  .logo { height: 56px; }
+  .logo-image {
+    height: 76px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+  .hero-content { grid-template-columns: 1fr; padding: 86px 0 44px; gap: 28px; }
+  .hero-left {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-btns {
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .hero-values {
+    justify-content: center;
+  }
+  .hero-coach-wrap { width: min(430px, 100%); }
+  .hero-coach-img {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 52%,
+      rgba(0, 0, 0, 0.86) 66%,
+      rgba(0, 0, 0, 0.48) 80%,
+      rgba(0, 0, 0, 0.16) 92%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 52%,
+      rgba(0, 0, 0, 0.86) 66%,
+      rgba(0, 0, 0, 0.48) 80%,
+      rgba(0, 0, 0, 0.16) 92%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .hero-card-floating {
+    max-width: 210px;
+    padding: 14px 16px;
+    animation-duration: 4.9s;
+  }
+  .hero-card-floating.card-1 { top: 5%; right: 0; }
+  .hero-card-floating.card-2 { top: 62%; left: 0; }
+  .hero-tags { margin-top: 34px; }
+
+  .about-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .about-rail {
+    grid-template-columns: 1fr 1fr;
+    min-height: 88px;
+  }
+  .about-rail-text {
+    writing-mode: horizontal-tb;
+    transform: none;
+    letter-spacing: 4px;
+    font-size: 1.1rem;
+  }
+  .about-copy {
+    padding: 34px 24px;
+    margin-right: 0;
+  }
+  .about-copy-inner p {
+    font-size: 1rem;
+  }
+  .about-visual {
+    min-height: 330px;
+  }
+  .book-feature {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+  }
+  .book-feature-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testi-slider { min-height: 860px; }
+  .testi-photo-after {
+    width: 70%;
+    height: 300px;
+    right: 2%;
+  }
+  .testi-photo-before {
+    width: 52%;
+    height: 220px;
+    left: 0;
+  }
+  .testi-tag { font-size: 1.6rem; }
+  .testi-tag.after { top: 308px; right: 16%; }
+  .testi-tag.before { left: 10%; bottom: 6px; }
+  .pillar-item {
+    animation-duration: 5.2s;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    padding: 12px 16px;
+  }
+  .pillar-item svg { width: 16px; height: 16px; }
+  .footer-top { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .hero-card-floating { display: none; } /* responsive hide on small screens */
+  .hero-tags { margin-top: 22px; }
+  .hero-headline { font-size: 2.8rem; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn { justify-content: center; }
+  .hero-content { padding: 82px 0 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li class="dropdown">
+        <a href="#programs">Programs</a>
+        <div class="dropdown-menu">
+          <a href="sheisbraveelite.html">SheBraveElite</a>
+          <a href="executivecoaching.html">Executive Coaching</a>
+          <a href="personaltraining.html">Personal Coaching</a>
+          <a href="communitytraining.html">Community Programs</a>
+        </div>
+      </li>
+      <li><a href="#corporate">Corporate Wellness</a></li>
+      <li><a href="#booking">Education</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#team">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="contact.html" class="btn btn-gold nav-cta">Book Now</a>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#programs" onclick="closeMobile()">Programs</a>
+  <a href="#corporate" onclick="closeMobile()">Corporate Wellness</a>
+  <a href="#booking" onclick="closeMobile()">Book Consultation</a>
+  <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
+  <a href="#team" onclick="closeMobile()">Our Team</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-eyebrow animate">Kigali, Rwanda — Est. 2024</div>
+        <h1 class="hero-headline animate delay-1">
+          Healthy Body.<br><em>Strong Spirit.</em>
+        </h1>
+        <p class="hero-sub animate delay-2">
+          Structured Fitness & Wellness Coaching for Individuals, Groups, and Organizations. True transformation begins within.
+        </p>
+        <div class="hero-btns animate delay-3">
+          <a href="contact.html" class="btn btn-gold">Apply for Coaching</a>
+          <a href="#about" class="btn btn-outline-white">Learn More</a>
+        </div>
+        <div class="hero-values animate delay-4">
+          <span>Discipline</span>
+          <span class="dot">•</span>
+          <span>Structure</span>
+          <span class="dot">•</span>
+          <span>Transformation</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-coach-wrap animate delay-1">
+          <img src="images/coachbgrvm.png" alt="Coach in training stance" class="hero-coach-img">
+
+          <div class="hero-card hero-card-floating card-1 animate delay-2">
+            <div class="hero-card-num">10+</div>
+            <div class="hero-card-label">Years of Coaching Experience</div>
+          </div>
+          <div class="hero-card hero-card-floating card-2 animate delay-3">
+            <div class="hero-card-num">4</div>
+            <div class="hero-card-label">Structured Programs Available</div>
+          </div>
+        </div>
+
+        <div class="hero-tags animate delay-4">
+          <span class="hero-tag">Personal Training</span>
+          <span class="hero-tag">Corporate Wellness</span>
+          <span class="hero-tag">Group Fitness</span>
+          <span class="hero-tag">Mindset Coaching</span>
+          <span class="hero-tag">Executive Performance</span>
+          <span class="hero-tag">SheBraveElite</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about" class="about-showcase">
+  <div class="about-shell">
+    <div class="about-rail">
+      <div class="about-rail-col about-rail-col--beige">
+        <span class="about-rail-text">About</span>
+      </div>
+      <div class="about-rail-col about-rail-col--gold">
+        <span class="about-rail-text">Brave Souls Wellness</span>
+      </div>
+    </div>
+
+    <div class="about-copy">
+      <div class="about-copy-inner">
+        <p>
+          Brave Souls Wellness Group Ltd is a registered wellness company based in Kigali, Rwanda. We provide structured fitness and wellness coaching that develops not only physical strength, but also mindset, discipline, and inner stability — because lasting transformation starts from within.
+        </p>
+        <p style="margin-top: 16px;">
+          We are founded and led by a husband-and-wife leadership team committed to building disciplined wellness systems that develop both body and spirit. Our approach blends professional fitness coaching with character development, accountability, and holistic wellness practices.
+        </p>
+        <a href="#our team" class="about-copy-cta">
+          <span class="about-copy-cta-arrow">→</span>
+          Learn more about us
+        </a>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <img src="images/equipment.jpg" alt="Brave Souls training facility and coaching environment">
+    </div>
+  </div>
+</section>
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="programs-header animate">
+      <span class="section-label">Our Programs</span>
+      <h2 class="section-title">Programs That <em>Transform</em></h2>
+      <p class="section-sub">
+        At Brave Souls Wellness Group Ltd, we design structured programs that develop the body, strengthen the mind, and build disciplined individuals and leaders.
+      </p>
+    </div>
+    <div class="pillars-strip animate delay-1">
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 14c-1.8 0-3-1.2-3-3s1.3-3 3-3h2l2 2-2 2H8Z"/><path d="M16 10c1.8 0 3 1.2 3 3s-1.3 3-3 3h-2l-2-2 2-2h2Z"/><path d="M10 10h4M8 8V6M16 18v-2"/></svg>
+        Physical Strength
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.4 0 8 3.1 8 7 0 3.4-2.8 6.2-6.5 6.9-.6 1.2-1.7 2-3 2H9.5c-.8 0-1.5-.7-1.5-1.5V17C5.7 16.1 4 13.8 4 11c0-3.9 3.6-7 8-7Z"/><path d="M9.5 10.5h0M14.5 10.5h0"/></svg>
+        Mental Resilience
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c-3.3-1.8-5-4.8-5-8.8 2.3-.2 4.1-1.2 5-3.2.9 2 2.7 3 5 3.2 0 4-1.7 7-5 8.8Z"/><path d="M12 7v13"/></svg>
+        Lifestyle Discipline
+      </div>
+    </div>
+    <div class="programs-grid animate delay-2">
+      <div class="program-block">
+        <div class="program-num">01</div>
+        <div class="program-tag">Women-Only Transformation</div>
+        <h3 class="program-title">SheBraveElite</h3>
+        <p class="program-desc">A high-accountability transformation program designed exclusively for women ready to build strength, confidence, and disciplined lifestyles.</p>
+        <ul class="program-list">
+          <li class="program-item">Structured strength & fitness training</li>
+          <li class="program-item">Fat loss & body recomposition guidance</li>
+          <li class="program-item">Mindset & identity coaching</li>
+          <li class="program-item">Lifestyle discipline systems</li>
+          <li class="program-item">Community accountability</li>
+        </ul>
+        <a href="sheisbraveelite.html" class="program-cta">Apply for SheBraveElite →</a>
+      </div>
+      <div class="program-block">
+        <div class="program-num">02</div>
+        <div class="program-tag">Executive & Leadership Performance</div>
+        <h3 class="program-title">Executive Coaching</h3>
+        <p class="program-desc">High-performing leaders cannot afford low energy, burnout, or mental fatigue. Our program is designed for CEOs, founders, and decision-makers who want sustainable performance.</p>
+        <ul class="program-list">
+          <li class="program-item">Performance-based fitness programming</li>
+          <li class="program-item">Stress optimization systems</li>
+          <li class="program-item">Mental clarity & focus coaching</li>
+          <li class="program-item">Energy management strategy</li>
+          <li class="program-item">Discipline-based lifestyle systems</li>
+        </ul>
+        <a href="executivecoaching.html" class="program-cta">Book Executive Consultation →</a>
+      </div>
+      <div class="program-block">
+        <div class="program-num">03</div>
+        <div class="program-tag">Individual Fitness & Wellness</div>
+        <h3 class="program-title">Personal Coaching</h3>
+        <p class="program-desc">Structured guidance, accountability, and measurable progress. Designed for individuals ready for personalized transformation.</p>
+        <ul class="program-list">
+          <li class="program-item">Personalized fitness programming</li>
+          <li class="program-item">Nutrition guidance</li>
+          <li class="program-item">Habit & lifestyle coaching</li>
+          <li class="program-item">Regular progress tracking</li>
+          <li class="program-item">Accountability support</li>
+        </ul>
+        <a href="personaltraining.html" class="program-cta">Start Personal Coaching →</a>
+      </div>
+      <div class="program-block">
+        <div class="program-num">04</div>
+        <div class="program-tag">Building Wellness Beyond the Individual</div>
+        <h3 class="program-title">Community Programs</h3>
+        <p class="program-desc">Wellness creates impact when it spreads into communities. Our programs are designed to promote collective health, discipline, and social impact.</p>
+        <ul class="program-list">
+          <li class="program-item">Group Fitness Classes</li>
+          <li class="program-item">Monthly Wellness Challenges</li>
+          <li class="program-item">Fitness Camps & Bootcamps</li>
+          <li class="program-item">Youth & School Wellness Initiatives</li>
+          <li class="program-item">Faith & Discipline-Based Wellness Events</li>
+        </ul>
+        <a href="communitytraining.html" class="program-cta">Join a Community Program →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="corporate" id="corporate">
+  <video class="corp-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="videos/aerobics.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="corp-header animate">
+      <span class="section-label">Corporate Wellness</span>
+      <h2 class="section-title light">Corporate-Ready <em>Wellness</em> Solutions</h2>
+      <p class="corp-intro">
+        Brave Souls Wellness Group Ltd delivers structured wellness programs that build healthier, more focused, and resilient teams.
+      </p>
+    </div>
+    <div class="corp-grid">
+      <div class="corp-card animate delay-1">
+        <div class="corp-card-icon"></div>
+        <h3 class="corp-card-title">Solutions for NGOs</h3>
+        <div class="corp-problem">The Challenge</div>
+        <p class="corp-text">High-stress environments and emotional burnout can reduce efficiency, engagement, and impact within NGO teams.</p>
+        <ul class="corp-outcomes">
+          <li class="corp-outcome">Improved staff well-being and resilience</li>
+          <li class="corp-outcome">Higher productivity and focus</li>
+          <li class="corp-outcome">Reduced burnout and turnover</li>
+        </ul>
+        <a href="contact.html" class="corp-cta">Boost Your NGO's Wellness</a>
+      </div>
+      <div class="corp-card animate delay-2">
+        <div class="corp-card-icon"></div>
+        <h3 class="corp-card-title">Solutions for Schools</h3>
+        <div class="corp-problem">The Challenge</div>
+        <p class="corp-text">Student engagement, teacher burnout, and limited wellness initiatives can affect performance and school culture.</p>
+        <ul class="corp-outcomes">
+          <li class="corp-outcome">Enhanced student focus and discipline</li>
+          <li class="corp-outcome">Improved teacher well-being</li>
+          <li class="corp-outcome">Positive school culture</li>
+        </ul>
+        <a href="contact.html" class="corp-cta">Transform Your School's Wellness</a>
+      </div>
+      <div class="corp-card animate delay-3">
+        <div class="corp-card-icon"></div>
+        <h3 class="corp-card-title">Other Organizations</h3>
+        <div class="corp-problem">Tailored for Every Sector</div>
+        <p class="corp-text">Customized wellness for private companies, government, health institutions, and tech teams.</p>
+        <ul class="corp-outcomes">
+          <li class="corp-outcome">Boost productivity</li>
+          <li class="corp-outcome">Reduce workplace stress</li>
+          <li class="corp-outcome">Combat sedentary lifestyle</li>
+        </ul>
+        <a href="contact.html" class="corp-cta">Build a Healthier Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="book-feature animate">
+      <div class="book-feature-media">
+        <div class="book-card">
+          <img src="images/book2.png" alt="Brave Souls Wellness education book cover">
+        </div>
+      </div>
+      <div class="book-feature-copy">
+        <h3>Brave Souls Education Guide</h3>
+        <p>
+          Discover a practical wellness roadmap designed for everyday life — blending movement, discipline, mindset, and recovery into one structured guide. This book supports individuals, leaders, and teams who want sustainable transformation, not quick fixes.
+        </p>
+        <a href="contact.html" class="book-feature-cta">Order Now</a>
+      </div>
+    </div>
+
+    <div class="booking-header animate">
+      <span class="section-label">Book a Consultation</span>
+      <h2 class="section-title">Your <em>Transformation</em> Starts Here</h2>
+    </div>
+    <div class="booking-grid">
+      <div class="booking-card">
+        <div class="booking-top"><div class="booking-type">Individual</div><div class="booking-title">Quick Insight Session</div></div>
+        <div class="booking-body">
+          <div class="booking-price">50,000 RWF</div>
+          <div class="booking-currency">30 minutes</div>
+          <div class="booking-feature">Introductory assessment or advice session</div>
+          <div class="booking-feature">Identify key areas for growth</div>
+          <a href="#contact" class="booking-choose-btn">Choose Plan</a>
+        </div>
+      </div>
+      <div class="booking-card featured">
+        <div class="booking-badge">Most Popular</div>
+        <div class="booking-top"><div class="booking-type">Individual</div><div class="booking-title">Deep Dive Personal Consultation</div></div>
+        <div class="booking-body">
+          <div class="booking-price">100,000 RWF</div>
+          <div class="booking-currency">60 minutes</div>
+          <div class="booking-feature">Personalized fitness and wellness roadmap</div>
+          <div class="booking-feature">Comprehensive actionable wellness plan</div>
+          <a href="#contact" class="booking-choose-btn">Choose Plan</a>
+        </div>
+      </div>
+      <div class="booking-card">
+        <div class="booking-top"><div class="booking-type">Premium</div><div class="booking-title">Premium Transformation Session</div></div>
+        <div class="booking-body">
+          <div class="booking-price">150,000 RWF</div>
+          <div class="booking-currency">90+ minutes</div>
+          <div class="booking-feature">In-depth personal assessment</div>
+          <div class="booking-feature">Follow-up accountability check</div>
+          <a href="#contact" class="booking-choose-btn">Choose Plan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testi-header animate">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title light">Voices of <em>Transformation</em></h2>
+    </div>
+    <div class="testi-slider" id="testiSlider">
+      <article class="testi-slide active">
+        <div class="testi-layout">
+          <div class="testi-copy">
+            <h3>Members Transformations</h3>
+            <h4>Member 2 Years Result</h4>
+            <p>
+              A consistent journey from March 2023 to November 2025 through structured coaching, weekly accountability, and lifestyle discipline.
+            </p>
+            <p>
+              The focus stayed on sustainable habits, progressive training, and mental resilience. The result is not only physical change, but stronger confidence and long-term wellness structure.
+            </p>
+            <a href="#contact" class="testi-cta-btn">See More Results <span>→</span></a>
+          </div>
+          <div class="testi-media-stack">
+            <figure class="testi-photo-card testi-photo-after">
+              <img src="images/clientafter.jpg" alt="Client after transformation">
+            </figure>
+            <figure class="testi-photo-card testi-photo-before">
+              <img src="images/clientbefore.jpg" alt="Client before transformation">
+            </figure>
+            <span class="testi-tag after">After</span>
+            <span class="testi-tag before">Before</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testi-slide">
+        <div class="testi-layout">
+          <div class="testi-copy">
+            <h3>Member Story Video</h3>
+            <h4>Real Journey in Motion</h4>
+            <p>
+              Watch the transformation journey in video format. The testimonial plays automatically when this slide becomes active and loops to keep the story continuous.
+            </p>
+            <a href="#contact" class="testi-cta-btn">Start Your Journey <span>→</span></a>
+          </div>
+          <div class="testi-video-wrap">
+            <video id="testiVideo" class="testi-video" loop playsinline preload="metadata" controls>
+              <source src="videos/client testimonial.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </article>
+
+      <div class="testi-dots">
+        <button class="testi-dot active" aria-label="Show testimonial slide 1" data-slide="0"></button>
+        <button class="testi-dot" aria-label="Show testimonial slide 2" data-slide="1"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founders" id="team">
+  <div class="container">
+    <div class="founders-header animate">
+      <span class="section-label">Leadership</span>
+      <h2 class="section-title light">Our <em>Founders</em></h2>
+      <p class="section-sub light" style="margin: 16px auto 0; text-align:center;">
+        Led by a team committed to building disciplined wellness systems.
+      </p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card animate delay-1">
+        <div class="founder-photo founder-photo-ceo">
+          <img class="founder-avatar" src="images/coachshot1.jpg" alt="Portrait of Founder and CEO">
+        </div>
+        <div class="founder-body">
+          <div class="founder-role">Founder & CEO · Master Coach</div>
+          <div class="founder-name">Jean Pierre MUFUKUZI<br><span style="font-size:1.1rem; color:var(--gold)">Coach Brave</span></div>
+          <p class="founder-bio">Coach Brave is a professional fitness and wellness coach with a mission to build disciplined individuals through structured training, mindset coaching, and identity development.</p>
+          <div class="founder-highlights">
+            <span class="founder-chip">Performance Coach</span>
+            <span class="founder-chip">Mindset Systems</span>
+            <span class="founder-chip">Body Transformation</span>
+          </div>
+        </div>
+      </div>
+      <div class="founder-card animate delay-2">
+        <div class="founder-photo founder-photo-co">
+          <img class="founder-avatar" src="images/cofounder.jpeg" alt="Portrait of Co-Founder">
+        </div>
+        <div class="founder-body">
+          <div class="founder-role">Co-Founder & Chief Operations Officer</div>
+          <div class="founder-name">Catherine Achieng Ochieng</div>
+          <p class="founder-bio">Catherine oversees operations, program coordination, and client experience while ensuring structure and excellence across all wellness programs.</p>
+          <div class="founder-highlights">
+            <span class="founder-chip">Operations Leadership</span>
+            <span class="founder-chip">Client Experience</span>
+            <span class="founder-chip">Program Excellence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="section-label animate">Get in Touch</span>
+        <h2 class="section-title animate delay-1">Ready to Begin Your <em>Journey?</em></h2>
+        <p class="section-sub animate delay-2">
+          Reach out to schedule a consultation, ask about our programs, or explore corporate wellness partnerships.
+        </p>
+        <div class="contact-info-block animate delay-2">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Phone / WhatsApp</div>
+              <div class="contact-value">+250 788 675 638</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">info@bravesoulswellness.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Kigali, Rwanda</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap animate delay-2">
+        <div class="contact-form-title">Send Us a Message</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jean Pierre">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Mufukuzi">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your goals or your organization's needs…"></textarea>
+        </div>
+        <button class="btn btn-green" style="width:100%; justify-content:center;" onclick="handleSubmit(this)">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
+    </a>
+    <div class="footer-top">
+      <div>
+
+        <div class="footer-brand-name">Brave <span>Souls</span> Wellness Group Ltd</div>
+        <div class="footer-brand-tagline">Healthy Body and Spirit</div>
+        <p class="footer-brand-desc">
+          A registered wellness company based in Kigali, Rwanda. Providing structured fitness and wellness coaching for individuals, groups, and organizations.
+        </p>
+        <div class="footer-values">
+          <span class="footer-val">Discipline</span>
+          <span class="footer-val">Structure</span>
+          <span class="footer-val">Transformation</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Programs</div>
+        <ul class="footer-links">
+          <li><a href="sheisbraveelite.html">SheBraveElite</a></li>
+          <li><a href="executivecoaching.html">Executive Coaching</a></li>
+          <li><a href="personaltraining.html">Personal Coaching</a></li>
+          <li><a href="communitytraining.html">Community Programs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-item"> +250 788 675 638</div>
+        <div class="footer-contact-item"> info@bravesoulswellness.com</div>
+        <div class="footer-contact-item"> Kigali, Rwanda</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brave Souls Wellness Group Ltd. All rights reserved.</span>
+      <span>Made by Will <span class="footer-bottom-gold">Kigali, Rwanda 🇷🇼</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+const heroBg = document.querySelector('.hero-bg');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (heroBg && y < 900) {
+    heroBg.style.transform = `translateY(${y * 0.08}px)`;
+  }
+}, { passive: true });
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', closeMobile);
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+function handleSubmit(btn) {
+  btn.textContent = '✓ Message Sent!';
+  btn.style.background = 'var(--gold)';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 3500);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+const testiSlides = Array.from(document.querySelectorAll('.testi-slide'));
+const testiDots = Array.from(document.querySelectorAll('.testi-dot'));
+const testiVideo = document.getElementById('testiVideo');
+let testiIndex = 0;
+let testiTimer;
+
+function setTestimonialSlide(index) {
+  testiIndex = index;
+  testiSlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  testiDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+
+  if (testiVideo) {
+    if (index === 1) {
+      // User initiates playback via controls on slide 2.
+    } else {
+      testiVideo.pause();
+      testiVideo.currentTime = 0;
+    }
+  }
+}
+
+function stopTestiAutoplay() {
+  clearInterval(testiTimer);
+  testiTimer = null;
+}
+
+function startTestiAutoplay() {
+  if (testiTimer) clearInterval(testiTimer);
+  testiTimer = setInterval(() => {
+    setTestimonialSlide((testiIndex + 1) % testiSlides.length);
+  }, 7000);
+}
+
+testiDots.forEach((dot, idx) => {
+  dot.addEventListener('click', () => {
+    setTestimonialSlide(idx);
+    startTestiAutoplay();
+  });
+});
+
+if (testiVideo) {
+  testiVideo.addEventListener('play', () => {
+    stopTestiAutoplay();
+  });
+  testiVideo.addEventListener('pause', () => {
+    startTestiAutoplay();
+  });
+}
+
+setTestimonialSlide(0);
+startTestiAutoplay();
+</script>
+</body>
+</html>

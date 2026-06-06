@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SheBraveElite — Women's Transformation Program | Brave Souls Wellness</title>
+<meta name="description" content="SheBraveElite is an elite women-only transformation program by Brave Souls Wellness Group. Build strength, confidence, and a disciplined lifestyle — Kigali, Rwanda.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════
+   BRAND DESIGN SYSTEM — Brave Souls
+══════════════════════════════════════ */
+:root {
+  --green-deep:   #0e2818;
+  --green-mid:    #1a4230;
+  --green-light:  #2d6648;
+  --green-muted:  #3a7a55;
+  --gold:         #c8942a;
+  --gold-light:   #e4b84a;
+  --gold-pale:    #f5e4b8;
+  --cream:        #faf6ed;
+  --white:        #ffffff;
+  --charcoal:     #1c1c1c;
+  --text-dark:    #1e2e22;
+  --text-muted:   #5a7060;
+  --border-gold:  rgba(200,148,42,0.25);
+  --border-green: rgba(45,102,72,0.3);
+  --shadow:       0 24px 70px rgba(14,40,24,0.22);
+  --t:            0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--green-deep)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ── UTILITY ── */
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:10px;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:18px;
+}
+.eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+
+.s-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4.5vw,3.8rem);
+  font-weight:900;line-height:1.05;
+}
+.s-title em{font-style:italic;color:var(--gold)}
+.s-title.light{color:var(--white)}
+.s-title.dark{color:var(--green-deep)}
+.s-sub{font-size:1rem;line-height:1.85;margin-top:18px;max-width:580px}
+.s-sub.muted{color:var(--text-muted)}
+.s-sub.light{color:rgba(255,255,255,0.62)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;text-decoration:none;
+  border:none;cursor:pointer;padding:17px 38px;border-radius:3px;transition:var(--t)
+}
+.btn-gold{background:var(--gold);color:var(--white);box-shadow:0 4px 24px rgba(200,148,42,0.35)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 10px 32px rgba(200,148,42,0.5)}
+.btn-green{background:var(--green-deep);color:var(--white)}
+.btn-green:hover{background:var(--green-mid);transform:translateY(-3px)}
+.btn-outline-gold{background:transparent;color:var(--gold);border:1.5px solid var(--border-gold)}
+.btn-outline-gold:hover{background:var(--gold);color:var(--white);transform:translateY(-3px)}
+.btn-outline-white{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.4)}
+.btn-outline-white:hover{background:var(--white);color:var(--green-deep);transform:translateY(-3px)}
+
+/* ════════════════════════════
+   NAVBAR
+════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:22px 0;transition:padding .3s,background .3s,border .3s;
+}
+.nav.scrolled{
+  padding:13px 0;background:rgba(14,40,24,0.97);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--border-gold);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-back{
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);text-decoration:none;transition:color .25s;
+}
+.nav-back::before{content:'←';color:var(--gold)}
+.nav-back:hover{color:var(--gold)}
+.nav-brand{text-align:center}
+.nav-brand-name{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;color:var(--white);letter-spacing:.5px;
+}
+.nav-brand-name span{color:var(--gold)}
+.nav-brand-sub{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold-pale);opacity:.7;margin-top:2px;
+}
+
+/* ════════════════════════════
+   HERO — FULL SCREEN IMAGE BG
+════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background-image:url('images/sheisbraveelitebackground.png');
+  background-size:cover;background-position:center top;
+  transform:scale(1.05);transition:transform 9s ease;
+}
+.hero-bg.loaded{transform:scale(1)}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg,
+      rgba(14,40,24,0.70) 0%,
+      rgba(14,40,24,0.40) 38%,
+      rgba(14,40,24,0.72) 78%,
+      rgba(14,40,24,0.96) 100%),
+    radial-gradient(ellipse 70% 60% at 25% 50%,rgba(200,148,42,0.07) 0%,transparent 70%);
+}
+
+/* Top sliding ticker */
+.hero-ticker-wrap{
+  position:absolute;top:0;left:0;right:0;z-index:3;
+  overflow:hidden;padding-top:98px;
+}
+.hero-ticker{
+  display:flex;gap:0;white-space:nowrap;
+  animation:ticker-slide 22s linear infinite;
+}
+.hero-ticker-item{
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px;font-style:italic;letter-spacing:3px;
+  color:rgba(255,255,255,0.32);text-transform:uppercase;
+  padding:8px 30px;
+  border-right:1px solid rgba(200,148,42,0.18);flex-shrink:0;
+}
+@keyframes ticker-slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Stats — right panel */
+.hero-stats{
+  position:absolute;right:56px;top:50%;transform:translateY(-50%);
+  z-index:4;display:flex;flex-direction:column;gap:2px;
+}
+.hero-stat{
+  background:rgba(14,40,24,0.78);backdrop-filter:blur(12px);
+  border:1px solid var(--border-gold);
+  padding:20px 24px;text-align:center;min-width:114px;
+}
+.hero-stat-n{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;font-weight:900;color:var(--gold);line-height:1;
+}
+.hero-stat-l{
+  font-size:9px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;color:rgba(255,255,255,0.42);margin-top:6px;
+}
+
+/* Main content */
+.hero-content{
+  position:relative;z-index:4;
+  text-align:center;padding:0 24px;max-width:730px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);padding:10px 22px;
+  border:1px solid var(--border-gold);border-radius:50px;
+  background:rgba(14,40,24,0.5);backdrop-filter:blur(8px);margin-bottom:32px;
+}
+.hero-badge::before,.hero-badge::after{content:'♦';font-size:8px}
+.hero-headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.8rem,9vw,8rem);
+  font-weight:900;line-height:0.92;color:var(--white);margin-bottom:28px;
+}
+.hero-headline em{font-style:italic;color:var(--gold-light);display:block}
+.hero-sub-text{
+  font-size:1.1rem;line-height:1.8;color:rgba(255,255,255,0.68);
+  max-width:560px;margin:0 auto 48px;
+}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+
+/* Bottom sliding pillars */
+.hero-pillars-wrap{
+  position:absolute;bottom:0;left:0;right:0;z-index:4;overflow:hidden;
+}
+.hero-pillars-track{
+  display:flex;white-space:nowrap;
+  animation:pillars-slide 18s linear infinite;
+  border-top:1px solid rgba(200,148,42,0.18);
+}
+@keyframes pillars-slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hero-pillar-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.48);
+  padding:18px 34px;border-right:1px solid rgba(255,255,255,0.07);
+  flex-shrink:0;background:rgba(14,40,24,0.65);backdrop-filter:blur(6px);
+}
+.hero-pillar-item span{color:var(--gold);font-size:15px}
+
+/* ════════════════════════════
+   GOLD STRIP
+════════════════════════════ */
+.strip{background:var(--gold);padding:20px 0;overflow:hidden}
+.strip-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 24s linear infinite}
+.strip-item{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-style:italic;font-weight:600;
+  color:rgba(255,255,255,0.9);padding:0 36px;
+  border-right:1px solid rgba(255,255,255,0.25);flex-shrink:0;
+}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ════════════════════════════
+   WHO IT'S FOR SECTION
+════════════════════════════ */
+
+.who{
+  position:relative;
+  overflow:hidden;
+  padding:140px 0;
+  background:var(--cream);
+}
+
+/* BACKGROUND GLOW */
+.who-bg-glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(200,148,42,0.07), transparent 70%);
+  top:-200px;
+  left:-200px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* LAYOUT */
+.who-layout{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:90px;
+  align-items:center;
+}
+
+/* ════════════════════════════
+   LEFT VISUAL
+════════════════════════════ */
+
+.who-visual{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:700px;
+}
+
+/* FEMALE SYMBOL */
+.who-float-icon{
+  position:absolute;
+  top:5px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  transition:transform .5s ease;
+}
+
+.who-float-icon img{
+  width:330px;
+  height:auto;
+  object-fit:contain;
+  opacity:0.95;
+  filter:drop-shadow(0 10px 25px rgba(0,0,0,0.08));
+}
+
+/* HUGE LETTER S */
+.who-big-letter{
+  position:absolute;
+
+  left:-40px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  z-index:1;
+
+  font-family:'Playfair Display',serif;
+  font-size:clamp(18rem,28vw,32rem);
+  font-style:italic;
+  font-weight:900;
+  line-height:.8;
+
+  color:transparent;
+
+  -webkit-text-stroke:2px rgba(200,148,42,0.40);
+
+  user-select:none;
+  pointer-events:none;
+
+  transition:
+    transform .7s ease,
+    opacity .7s ease;
+}
+
+/* FLOATING CARD */
+.who-float-card{
+  position:absolute;
+
+  top:65%;
+  left:50%;
+
+  transform:translate(-35%,-50%);
+
+  width:290px;
+
+  padding:38px 32px;
+
+  background:var(--green-deep);
+
+  border:1px solid rgba(200,148,42,0.28);
+
+  border-radius:14px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.12);
+
+  backdrop-filter:blur(10px);
+
+  z-index:3;
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease;
+}
+
+/* CARD HOVER */
+.who-float-card:hover{
+  transform:translate(-35%,-50%) translateY(-10px);
+  box-shadow:
+    0 35px 80px rgba(0,0,0,0.18);
+}
+
+/* LABEL */
+.who-float-label{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+
+/* TEXT */
+.who-float-text{
+  font-family:'Playfair Display',serif;
+  font-size:1.18rem;
+  font-weight:600;
+  line-height:1.5;
+  color:var(--white);
+}
+
+/* ════════════════════════════
+   RIGHT CONTENT
+════════════════════════════ */
+
+.who-content{
+  position:relative;
+  z-index:3;
+}
+
+.who-for-list{
+  list-style:none;
+  margin-top:44px;
+}
+
+.who-for-item{
+  display:flex;
+  gap:20px;
+
+  align-items:flex-start;
+
+  padding:24px 0;
+
+  border-bottom:
+    1px solid rgba(0,0,0,0.08);
+
+  transition:
+    transform .35s ease,
+    padding-left .35s ease,
+    background .35s ease;
+}
+
+/* ITEM HOVER */
+.who-for-item:hover{
+  transform:translateX(8px);
+}
+
+/* NUMBER */
+.who-for-num{
+  font-family:'Playfair Display',serif;
+
+  font-size:1.6rem;
+
+  font-weight:900;
+
+  font-style:italic;
+
+  color:var(--gold);
+
+  opacity:.45;
+
+  flex-shrink:0;
+}
+
+/* TITLE */
+.who-for-name{
+  font-size:15px;
+  font-weight:700;
+  color:var(--green-deep);
+  margin-bottom:6px;
+}
+
+/* DESCRIPTION */
+.who-for-desc{
+  font-size:13px;
+  line-height:1.8;
+  color:var(--text-muted);
+}
+
+/* ════════════════════════════
+   PARALLAX EFFECTS
+════════════════════════════ */
+
+.parallax-slow{
+  animation:floatSlow 6s ease-in-out infinite;
+}
+
+.parallax-card{
+  animation:floatCard 7s ease-in-out infinite;
+}
+
+.parallax-letter{
+  animation:floatLetter 10s ease-in-out infinite;
+}
+
+/* ICON FLOAT */
+@keyframes floatSlow{
+  0%{
+    transform:translateX(-50%) translateY(0px);
+  }
+
+  50%{
+    transform:translateX(-50%) translateY(-12px);
+  }
+
+  100%{
+    transform:translateX(-50%) translateY(0px);
+  }
+}
+
+/* CARD FLOAT */
+@keyframes floatCard{
+  0%{
+    transform:translate(-35%,-50%);
+  }
+
+  50%{
+    transform:translate(-35%,-53%);
+  }
+
+  100%{
+    transform:translate(-35%,-50%);
+  }
+}
+
+/* LETTER FLOAT */
+@keyframes floatLetter{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(18px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+/* ════════════════════════════
+   SCROLL REVEAL
+════════════════════════════ */
+
+.reveal-l,
+.reveal-r{
+  opacity:0;
+  transform:translateY(60px);
+  animation:revealUp 1s ease forwards;
+}
+
+.reveal-r{
+  animation-delay:.2s;
+}
+
+@keyframes revealUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ════════════════════════════
+   RESPONSIVE
+════════════════════════════ */
+
+@media(max-width:1100px){
+
+  .who-layout{
+    grid-template-columns:1fr;
+    gap:80px;
+  }
+
+  .who-visual{
+    min-height:580px;
+  }
+
+  .who-big-letter{
+    font-size:clamp(14rem,30vw,22rem);
+  }
+}
+
+@media(max-width:768px){
+
+  .who{
+    padding:100px 0;
+  }
+
+  .who-visual{
+    min-height:500px;
+  }
+
+  .who-big-letter{
+    font-size:clamp(10rem,40vw,16rem);
+    text-align:center;
+  }
+
+  .who-float-card{
+    width:260px;
+    padding:30px 24px;
+
+    transform:translate(-50%,-45%);
+  }
+
+  .who-float-card:hover{
+    transform:translate(-50%,-48%);
+  }
+
+  .who-float-icon img{
+    width:72px;
+  }
+}
+
+@media(max-width:540px){
+
+  .who-layout{
+    gap:60px;
+  }
+
+  .who-visual{
+    min-height:420px;
+  }
+
+  .who-float-card{
+    width:220px;
+    padding:24px 20px;
+  }
+
+  .who-float-text{
+    font-size:1rem;
+  }
+
+  .who-for-item{
+    gap:14px;
+  }
+}
+
+/* ════════════════════════════
+   WHAT'S INCLUDED
+════════════════════════════ */
+.included{padding:130px 0;background:var(--green-deep);position:relative;overflow:hidden}
+.included::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,148,42,0.06) 0%,transparent 65%);
+}
+.included-header{margin-bottom:72px}
+.included-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:rgba(255,255,255,0.05);border-radius:8px;overflow:hidden;
+}
+.inc-card{
+  background:rgba(14,40,24,0.88);padding:44px 36px;
+  position:relative;overflow:hidden;transition:background .4s;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.inc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .5s ease;
+}
+.inc-card:hover{background:rgba(26,66,48,0.95)}
+.inc-card:hover::before{transform:scaleX(1)}
+.inc-num{
+  font-family:'Playfair Display',serif;
+  font-size:5rem;font-weight:900;font-style:italic;
+  color:var(--gold);opacity:.06;line-height:1;
+  position:absolute;bottom:12px;right:16px;transition:opacity .4s;
+}
+.inc-card:hover .inc-num{opacity:.14}
+.inc-icon{
+  width:52px;height:52px;border-radius:4px;
+  background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:24px;transition:background .3s;
+}
+.inc-card:hover .inc-icon{background:rgba(200,148,42,0.18)}
+.inc-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--white);
+  margin-bottom:12px;line-height:1.3;
+}
+.inc-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,.5)}
+.inc-tag{
+  display:inline-block;margin-top:18px;
+  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);padding:4px 10px;border:1px solid var(--border-gold);border-radius:50px;
+}
+
+/* ════════════════════════════
+   RESULTS
+════════════════════════════ */
+.results{padding:130px 0;background:var(--cream)}
+.results-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.results-sticky{position:sticky;top:130px}
+.results-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,4.5vw,4rem);
+  font-weight:900;line-height:1.0;color:var(--green-deep);margin-bottom:22px;
+}
+.results-title em{font-style:italic;color:var(--gold);display:block}
+.results-desc{font-size:14px;line-height:1.9;color:var(--text-muted);margin-bottom:32px}
+.results-quote{
+  border-left:2px solid var(--gold);padding:20px 26px;
+  background:rgba(200,148,42,0.06);border-radius:0 6px 6px 0;margin-bottom:36px;
+}
+.results-quote p{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-style:italic;color:var(--green-deep);line-height:1.75;
+}
+.results-quote cite{
+  display:block;margin-top:12px;
+  font-size:10px;font-style:normal;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--text-muted);
+}
+.result-items{display:flex;flex-direction:column;gap:16px}
+.result-item{
+  background:var(--white);border:1px solid rgba(0,0,0,0.07);
+  border-radius:6px;padding:26px 24px;
+  display:flex;gap:18px;align-items:flex-start;
+  transition:border-color .3s,transform .3s;
+}
+.result-item:hover{border-color:var(--gold);transform:translateX(8px)}
+.result-check{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:14px;color:var(--gold);
+}
+.result-label{font-size:14px;font-weight:600;color:var(--green-deep);margin-bottom:6px}
+.result-desc{font-size:13px;line-height:1.7;color:var(--text-muted)}
+
+/* ════════════════════════════
+   PROGRAM TRACKS
+════════════════════════════ */
+.structure{padding:130px 0;background:var(--green-mid);position:relative}
+.structure-header{text-align:center;margin-bottom:72px}
+.structure-tracks{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;background:rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;
+}
+.track{
+  background:rgba(14,40,24,0.75);padding:44px 26px;text-align:center;
+  position:relative;overflow:hidden;transition:background .4s;
+}
+.track:hover{background:rgba(14,40,24,0.95)}
+.track-line{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:1px;height:36px;background:linear-gradient(180deg,var(--gold),transparent);
+}
+.track-n{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;font-weight:900;font-style:italic;
+  color:var(--gold);opacity:.13;line-height:1;margin-bottom:14px;
+}
+.track-icon{font-size:2rem;margin-bottom:16px}
+.track-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;
+}
+.track-desc{font-size:12px;line-height:1.75;color:rgba(255,255,255,.5)}
+.track-items{list-style:none;margin-top:18px}
+.track-item{
+  font-size:11px;color:rgba(255,255,255,.42);padding:6px 0;
+  border-top:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.track-item::before{content:'·';color:var(--gold);font-size:1.2rem}
+
+/* ════════════════════════════
+   VIDEO SECTION — HER WORDS
+════════════════════════════ */
+.video-section{
+  padding:130px 0;background:var(--cream);
+  position:relative;overflow:hidden;
+}
+.video-section::before{
+  content:'"';position:absolute;top:20px;left:0;
+  font-family:'Playfair Display',serif;
+  font-size:22rem;font-weight:900;
+  color:rgba(200,148,42,0.04);line-height:1;
+  pointer-events:none;user-select:none;
+}
+.video-header{text-align:center;margin-bottom:70px}
+
+/* Carousel wrapper */
+.video-carousel-wrap{position:relative;max-width:900px;margin:0 auto}
+.video-slider{
+  position:relative;overflow:hidden;
+  border-radius:12px;box-shadow:var(--shadow);
+}
+.video-slides{
+  display:flex;
+  transition:transform .56s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.video-slide{min-width:100%;position:relative}
+.video-slide video{
+  width:100%;display:block;
+  aspect-ratio:16/9;object-fit:cover;
+  background:var(--green-deep);
+}
+.video-slide-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(14,40,24,0.92));
+  padding:40px 36px 26px;
+}
+.video-slide-num{
+  font-size:9px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+.video-slide-label{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--white);
+}
+
+/* Arrow buttons */
+.video-arrow{
+  position:absolute;top:50%;z-index:10;transform:translateY(-50%);
+  width:56px;height:56px;border-radius:50%;
+  background:var(--gold);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;color:var(--white);
+  transition:background .25s,transform .25s,box-shadow .25s;
+  box-shadow:0 4px 20px rgba(200,148,42,0.45);
+}
+.video-arrow:hover{background:var(--gold-light);transform:translateY(-50%) scale(1.1)}
+.video-arrow.prev{left:-28px}
+.video-arrow.next{right:-28px}
+
+/* Dots */
+.video-dots{display:flex;justify-content:center;gap:10px;margin-top:28px}
+.video-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(14,40,24,0.18);border:none;cursor:pointer;
+  transition:background .25s,transform .25s;padding:0;
+}
+.video-dot.active{background:var(--gold);transform:scale(1.35)}
+
+/* ════════════════════════════
+   SHOP SECTION
+════════════════════════════ */
+.shop{
+  padding:130px 0;background:var(--green-deep);
+  position:relative;overflow:hidden;
+}
+.shop::before{
+  content:'';position:absolute;bottom:-150px;right:-150px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,148,42,0.08) 0%,transparent 65%);
+}
+.shop::after{
+  content:'';position:absolute;top:-100px;left:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(45,102,72,0.2) 0%,transparent 65%);
+}
+.shop-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;position:relative;z-index:2;
+}
+
+/* Product image */
+.shop-img-col{position:relative}
+.shop-img-frame{
+  position:relative;border-radius:12px;overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,0.5);
+}
+.shop-img-frame img{
+  width:100%;display:block;
+  aspect-ratio:3/4;object-fit:cover;
+  background:var(--green-mid);
+}
+.shop-img-frame::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(transparent 60%,rgba(14,40,24,0.35));
+}
+.shop-badge-wrap{
+  position:absolute;top:-18px;right:-18px;
+  width:114px;height:114px;border-radius:50%;
+  background:var(--gold);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;box-shadow:0 8px 30px rgba(200,148,42,0.55);
+  animation:pulse-badge 3s ease infinite;
+}
+@keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.shop-badge-main{
+  font-size:9px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--white);line-height:1.3;
+}
+.shop-badge-sub{
+  font-size:8px;font-weight:500;letter-spacing:1px;
+  text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:4px;
+}
+.shop-corner-tag{
+  position:absolute;bottom:20px;left:20px;z-index:2;
+  background:rgba(14,40,24,0.88);backdrop-filter:blur(8px);
+  border:1px solid var(--border-gold);border-radius:6px;padding:14px 18px;
+}
+.shop-corner-label{
+  font-size:9px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gold);
+}
+.shop-corner-name{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;color:var(--white);margin-top:4px;
+}
+
+/* Content */
+.shop-announce{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);padding:8px 18px;
+  border:1px solid var(--border-gold);border-radius:50px;
+  background:rgba(200,148,42,0.08);margin-bottom:28px;
+}
+.shop-announce::before{content:'✦';font-size:8px}
+.shop-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,4.5vw,4rem);
+  font-weight:900;line-height:1.05;color:var(--white);margin-bottom:14px;
+}
+.shop-title em{font-style:italic;color:var(--gold-light)}
+.shop-slogan{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-style:italic;font-weight:600;
+  color:var(--gold-pale);margin-bottom:8px;line-height:1.4;
+}
+.shop-slogan-sub{
+  font-size:1rem;color:rgba(255,255,255,.55);margin-bottom:36px;line-height:1.75;
+}
+.shop-details{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.shop-detail{
+  display:flex;gap:14px;align-items:flex-start;
+  font-size:13px;color:rgba(255,255,255,.6);
+}
+.shop-detail::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0;margin-top:2px}
+.shop-actions{display:flex;flex-wrap:wrap;gap:14px}
+.shop-whatsapp{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  text-decoration:none;padding:17px 32px;border-radius:3px;
+  background:#25D366;color:var(--white);
+  transition:var(--t);box-shadow:0 4px 20px rgba(37,211,102,0.3);
+}
+.shop-whatsapp:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,211,102,0.45)}
+
+/* ════════════════════════════
+   APPLY
+════════════════════════════ */
+.apply{padding:130px 0;background:var(--cream);position:relative;overflow:hidden}
+.apply::before{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:900px;height:400px;
+  background:radial-gradient(ellipse,rgba(200,148,42,0.07) 0%,transparent 65%);
+}
+.apply-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.apply-crown{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:24px;
+  z-index:3;
+}
+
+.apply-crown img{
+  width: 200px;
+  height:auto;
+  object-fit:contain;
+
+  opacity:.95;
+
+  filter:
+    drop-shadow(0 10px 25px rgba(0,0,0,0.08));
+
+  transition:
+    transform .4s ease,
+    filter .4s ease;
+}
+
+/* Hover Effect */
+.apply-crown img{
+  animation:
+    crownFloat 5s ease-in-out infinite;
+}
+
+@keyframes crownFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+.apply-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,6vw,5rem);
+  font-weight:900;line-height:.98;color:var(--green-deep);margin-bottom:18px;
+}
+.apply-title em{font-style:italic;color:var(--gold);display:block}
+.apply-sub{font-size:1rem;line-height:1.85;color:var(--text-muted);margin-bottom:56px}
+.apply-form{
+  background:var(--white);border:1px solid rgba(0,0,0,0.07);
+  border-radius:12px;padding:54px;text-align:left;box-shadow:var(--shadow);
+}
+.apply-form-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;font-weight:700;color:var(--green-deep);margin-bottom:6px;
+}
+.apply-form-sub{font-size:13px;color:var(--text-muted);margin-bottom:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg{margin-bottom:22px}
+.fg label{
+  display:block;font-size:10px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:15px 18px;
+  background:var(--cream);border:1px solid rgba(0,0,0,0.1);
+  border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;
+  color:var(--text-dark);outline:none;transition:border-color .25s,background .25s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--gold);background:var(--white);
+}
+.fg textarea{resize:vertical;min-height:110px}
+.apply-notice{
+  margin-top:22px;padding:16px 20px;
+  background:rgba(200,148,42,0.07);border-left:2px solid var(--gold);
+  border-radius:0 4px 4px 0;font-size:12px;color:var(--text-muted);
+}
+.apply-notice strong{color:var(--gold)}
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+.footer{
+  background:var(--green-deep);border-top:1px solid var(--border-gold);
+  padding:60px 0 32px;
+}
+.footer-inner{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:20px;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;color:var(--white);
+}
+.footer-brand span{color:var(--gold)}
+.footer-tagline{
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:4px;
+}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+.footer-links a{
+  font-size:12px;color:rgba(255,255,255,.4);text-decoration:none;
+  letter-spacing:1px;transition:color .25s;
+}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{
+  font-size:12px;color:rgba(255,255,255,.24);
+  padding-top:20px;border-top:1px solid rgba(255,255,255,.06);width:100%;
+}
+
+/* ════════════════════════════
+   ANIMATIONS
+════════════════════════════ */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .8s ease,transform .8s ease}
+.reveal-l.in{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .8s ease,transform .8s ease}
+.reveal-r.in{opacity:1;transform:none}
+.d1{transition-delay:.10s}.d2{transition-delay:.20s}.d3{transition-delay:.30s}
+.d4{transition-delay:.40s}.d5{transition-delay:.50s}.d6{transition-delay:.60s}
+
+/* ════════════════════════════
+   RESPONSIVE
+════════════════════════════ */
+@media(max-width:1024px){
+  .hero-stats{display:none}
+  .who-layout{grid-template-columns:1fr}
+  .who-visual{display:none}
+  .included-grid{grid-template-columns:1fr 1fr}
+  .results-layout{grid-template-columns:1fr}
+  .results-sticky{position:static}
+  .structure-tracks{grid-template-columns:1fr 1fr}
+  .video-quotes{grid-template-columns:1fr}
+  .shop-layout{grid-template-columns:1fr;gap:50px}
+  .apply-form{padding:36px}
+}
+@media(max-width:768px){
+  .nav-cta-desk{display:none}
+  .included-grid{grid-template-columns:1fr}
+  .structure-tracks{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .video-arrow.prev{left:8px}
+  .video-arrow.next{right:8px}
+  .apply-form{padding:26px 20px}
+  .shop-badge-wrap{width:90px;height:90px;top:-12px;right:-12px}
+}
+@media(max-width:480px){
+  .container{padding:0 20px}
+  .structure-tracks{grid-template-columns:1fr}
+  .hero-headline{font-size:3.2rem}
+  .apply-title{font-size:2.6rem}
+  .video-arrow{width:44px;height:44px;font-size:1rem}
+  .video-arrow.prev{left:4px}
+  .video-arrow.next{right:4px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">Back to Home</a>
+      <div class="nav-brand">
+      </div>
+      <a href="#apply" class="btn btn-gold nav-cta-desk">Apply Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO — IMAGE BG ═══════ -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Top sliding ticker -->
+  <div class="hero-ticker-wrap">
+    <div class="hero-ticker">
+      <span class="hero-ticker-item">Women-Only Transformation</span>
+      <span class="hero-ticker-item">Strength Training</span>
+      <span class="hero-ticker-item">Mindset Coaching</span>
+      <span class="hero-ticker-item">Fat Loss & Recomposition</span>
+      <span class="hero-ticker-item">Lifestyle Discipline</span>
+      <span class="hero-ticker-item">Identity Development</span>
+      <span class="hero-ticker-item">Community Accountability</span>
+      <span class="hero-ticker-item">SheBraveElite · Kigali Rwanda</span>
+      <span class="hero-ticker-item">Women-Only Transformation</span>
+      <span class="hero-ticker-item">Strength Training</span>
+      <span class="hero-ticker-item">Mindset Coaching</span>
+      <span class="hero-ticker-item">Fat Loss & Recomposition</span>
+      <span class="hero-ticker-item">Lifestyle Discipline</span>
+      <span class="hero-ticker-item">Identity Development</span>
+      <span class="hero-ticker-item">Community Accountability</span>
+      <span class="hero-ticker-item">SheBraveElite · Kigali Rwanda</span>
+    </div>
+  </div>
+
+  <!-- Floating stats -->
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-n">100%</div>
+      <div class="hero-stat-l">Women Only</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-n">5</div>
+      <div class="hero-stat-l">Core Pillars</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-n">10+</div>
+      <div class="hero-stat-l">Yrs Experience</div>
+    </div>
+  </div>
+
+  <!-- Center content -->
+  <div class="hero-content">
+    <div class="hero-badge reveal">Women-Only · Elite Transformation Program</div>
+    <h1 class="hero-headline reveal d1">
+      She Is
+      <em>Brave. Elite.</em>
+    </h1>
+    <p class="hero-sub-text reveal d2">
+      A high-accountability transformation program designed exclusively for women ready to build strength, confidence, and a disciplined lifestyle — from the inside out.
+    </p>
+    <div class="hero-btns reveal d3">
+      <a href="#apply" class="btn btn-gold">Apply for SheBraveElite</a>
+      <a href="#who" class="btn btn-outline-white">Discover the Program</a>
+    </div>
+  </div>
+
+  <!-- Bottom sliding pillars -->
+  <div class="hero-pillars-wrap">
+    <div class="hero-pillars-track">
+      <div class="hero-pillar-item"><span></span> Strength Training</div>
+      <div class="hero-pillar-item"><span></span> Mindset Coaching</div>
+      <div class="hero-pillar-item"><span></span> Fat Loss & Recomposition</div>
+      <div class="hero-pillar-item"><span></span> Lifestyle Systems</div>
+      <div class="hero-pillar-item"><span></span> Community Accountability</div>
+      <div class="hero-pillar-item"><span></span> Identity Development</div>
+      <div class="hero-pillar-item"><span></span> Progress Tracking</div>
+      <div class="hero-pillar-item"><span></span> SheBraveElite</div>
+      <div class="hero-pillar-item"><span></span> Strength Training</div>
+      <div class="hero-pillar-item"><span></span> Mindset Coaching</div>
+      <div class="hero-pillar-item"><span></span> Fat Loss & Recomposition</div>
+      <div class="hero-pillar-item"><span></span> Lifestyle Systems</div>
+      <div class="hero-pillar-item"><span></span> Community Accountability</div>
+      <div class="hero-pillar-item"><span></span> Identity Development</div>
+      <div class="hero-pillar-item"><span></span> Progress Tracking</div>
+      <div class="hero-pillar-item"><span></span> SheBraveElite</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GOLD STRIP ═══════ -->
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-item">Strength</span>
+    <span class="strip-item">Confidence</span>
+    <span class="strip-item">Discipline</span>
+    <span class="strip-item">Transformation</span>
+    <span class="strip-item">Identity</span>
+    <span class="strip-item">Accountability</span>
+    <span class="strip-item">SheBraveElite</span>
+    <span class="strip-item">Healthy Body. Strong Spirit.</span>
+    <span class="strip-item">Strength</span>
+    <span class="strip-item">Confidence</span>
+    <span class="strip-item">Discipline</span>
+    <span class="strip-item">Transformation</span>
+    <span class="strip-item">Identity</span>
+    <span class="strip-item">Accountability</span>
+    <span class="strip-item">SheBraveElite</span>
+    <span class="strip-item">Healthy Body. Strong Spirit.</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════
+     WHO IT'S FOR SECTION
+═════════════════════════════ -->
+<section class="who" id="who">
+
+    <!-- Background Glow -->
+    <div class="who-bg-glow"></div>
+  
+    <div class="container">
+  
+      <div class="who-layout">
+  
+        <!-- ═════ LEFT VISUAL SIDE ═════ -->
+        <div class="who-visual reveal-l">
+  
+          <!-- Female Symbol -->
+          <div class="who-float-icon parallax-slow">
+            <img src="images/goldenfemalesymbol.png" alt="Female Symbol">
+          </div>
+  
+          <!-- Huge Decorative S -->
+          <span class="who-big-letter parallax-letter">
+            S
+          </span>
+  
+          <!-- Floating Card -->
+          <div class="who-float-card parallax-card">
+  
+            <div class="who-float-label">
+              This Program Is For You If…
+            </div>
+  
+            <div class="who-float-text">
+              You're ready to stop settling and start becoming the woman you were always meant to be.
+            </div>
+  
+          </div>
+  
+        </div>
+  
+        <!-- ═════ RIGHT CONTENT SIDE ═════ -->
+        <div class="reveal-r who-content">
+  
+          <span class="eyebrow">
+            Who It's For
+          </span>
+  
+          <h2 class="s-title dark">
+            Built for Women<br>
+            Who Are <em>Ready.</em>
+          </h2>
+  
+          <p class="s-sub muted">
+            SheBraveElite is not for everyone. It is for the woman who is done making excuses — and ready to commit to real, lasting transformation.
+          </p>
+  
+          <!-- LIST -->
+          <ul class="who-for-list">
+  
+            <!-- ITEM -->
+            <li class="who-for-item">
+              <span class="who-for-num">01</span>
+  
+              <div>
+                <div class="who-for-name">
+                  Women Seeking Physical Transformation
+                </div>
+  
+                <div class="who-for-desc">
+                  Real, measurable change in your body — fat loss, muscle tone, strength, and energy — through programming designed for the female body.
+                </div>
+              </div>
+            </li>
+  
+            <!-- ITEM -->
+            <li class="who-for-item">
+              <span class="who-for-num">02</span>
+  
+              <div>
+                <div class="who-for-name">
+                  Women Rebuilding Confidence
+                </div>
+  
+                <div class="who-for-desc">
+                  You've lost touch with your strength — physically or mentally. SheBraveElite rebuilds you from the inside, restoring self-belief through consistent action.
+                </div>
+              </div>
+            </li>
+  
+            <!-- ITEM -->
+            <li class="who-for-item">
+              <span class="who-for-num">03</span>
+  
+              <div>
+                <div class="who-for-name">
+                  Women Desiring Structure & Accountability
+                </div>
+  
+                <div class="who-for-desc">
+                  Tired of starting and stopping. You need a structured system with real accountability that holds you to the commitment you've made to yourself.
+                </div>
+              </div>
+            </li>
+  
+            <!-- ITEM -->
+            <li class="who-for-item">
+              <span class="who-for-num">04</span>
+  
+              <div>
+                <div class="who-for-name">
+                  Women Ready to Align Mindset, Health & Identity
+                </div>
+  
+                <div class="who-for-desc">
+                  You understand that lasting change requires more than exercise. You're ready to work on your mindset, habits, and who you are becoming — not just how you look.
+                </div>
+              </div>
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </div>
+    </div>
+  </section>
+<!-- ═══════ WHAT'S INCLUDED ═══════ -->
+<section class="included" id="program">
+  <div class="container">
+    <div class="included-header reveal">
+      <span class="eyebrow" style="color:var(--gold-light)">What's Included</span>
+      <h2 class="s-title light">Everything You Need<br>to <em>Truly Transform</em></h2>
+      <p class="s-sub light">Every element of SheBraveElite is designed with one purpose: producing real, complete, and sustainable transformation.</p>
+    </div>
+    <div class="included-grid">
+      <div class="inc-card reveal d1"><div class="inc-num">01</div><div class="inc-icon"> ✔</div><div class="inc-name">Structured Strength & Fitness Training</div><p class="inc-desc">Progressive strength and fitness programming designed for the female body. Each session builds real power, endurance, and athleticism.</p><span class="inc-tag">Progressive Overload</span></div>
+      <div class="inc-card reveal d2"><div class="inc-num">02</div><div class="inc-icon"> ✔</div><div class="inc-name">Fat Loss & Body Recomposition</div><p class="inc-desc">Science-backed fat loss guidance — not crash diets. A sustainable, effective approach to changing how you look and feel in your body.</p><span class="inc-tag">Sustainable Results</span></div>
+      <div class="inc-card reveal d3"><div class="inc-num">03</div><div class="inc-icon"> ✔</div><div class="inc-name">Mindset & Identity Coaching</div><p class="inc-desc">Coaching that targets the beliefs and mental patterns keeping you stuck. We rebuild your identity so choices align with who you're becoming.</p><span class="inc-tag">Deep Mindset Work</span></div>
+      <div class="inc-card reveal d4"><div class="inc-num">04</div><div class="inc-icon"> ✔</div><div class="inc-name">Lifestyle Discipline Systems</div><p class="inc-desc">Practical, implementable systems for sleep, nutrition, daily habits, and recovery. Discipline is the structured freedom to live how you want.</p><span class="inc-tag">Habit Architecture</span></div>
+      <div class="inc-card reveal d5"><div class="inc-num">05</div><div class="inc-icon"> ✔</div><div class="inc-name">Community Accountability</div><p class="inc-desc">A curated community of women on the same journey — supporting, challenging, and celebrating one another through every step.</p><span class="inc-tag">Sisterhood</span></div>
+      <div class="inc-card reveal d6"><div class="inc-num">06</div><div class="inc-icon"> ✔</div><div class="inc-name">Regular Progress Tracking</div><p class="inc-desc">Structured check-ins and milestone reviews ensure you always know how far you've come and what to focus on next.</p><span class="inc-tag">Data-Driven</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESULTS ═══════ -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="results-layout">
+      <div class="results-sticky reveal-l">
+        <span class="eyebrow">Expected Results</span>
+        <h2 class="results-title">What You Will<br><em>Become</em></h2>
+        <p class="results-desc">SheBraveElite doesn't promise quick fixes. We deliver complete transformation — physical, mental, and lifestyle — that you carry long after the program ends.</p>
+        <div class="results-quote">
+          <p>"The woman who comes out of SheBraveElite is not the same one who came in. She is stronger, calmer, more purposeful — and she knows it."</p>
+          <cite>— Coach Brave, Founder · Brave Souls Wellness Group</cite>
+        </div>
+        <a href="#apply" class="btn btn-gold">Begin Your Transformation</a>
+      </div>
+      <div class="result-items reveal-r">
+        <div class="result-item d1"><div class="result-check">✦</div><div><div class="result-label">Improved Body Composition</div><div class="result-desc">Real, visible changes — reduced fat, increased muscle tone, improved posture, and physical vitality others will notice.</div></div></div>
+        <div class="result-item d2"><div class="result-check">✦</div><div><div class="result-label">Increased Confidence</div><div class="result-desc">Confidence built on real accomplishments. When you do hard things consistently, you trust yourself in every area of life.</div></div></div>
+        <div class="result-item d3"><div class="result-check">✦</div><div><div class="result-label">Emotional Stability & Mental Clarity</div><div class="result-desc">Structured training and mindset work produce a calmer, clearer mind. You respond to life instead of reacting.</div></div></div>
+        <div class="result-item d4"><div class="result-check">✦</div><div><div class="result-label">Sustainable Healthy Habits</div><div class="result-desc">The systems you build become your new default — maintaining results because they fit your real life, not a temporary program.</div></div></div>
+        <div class="result-item d5"><div class="result-check">✦</div><div><div class="result-label">A Stronger, Defined Identity</div><div class="result-desc">You will know who you are and what you stand for. Identity transformation is the foundation everything else is built on.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROGRAM TRACKS ═══════ -->
+<section class="structure">
+  <div class="container">
+    <div class="structure-header reveal">
+      <span class="eyebrow" style="color:var(--gold-light)">Program Structure</span>
+      <h2 class="s-title light">Four Tracks of <em>Transformation</em></h2>
+    </div>
+    <div class="structure-tracks">
+      <div class="track reveal d1"><div class="track-line"></div><div class="track-n">01</div><div class="track-icon">💪</div><div class="track-name">Physical Training</div><p class="track-desc">Strength, fitness & body recomposition</p><ul class="track-items"><li class="track-item">Strength Sessions</li><li class="track-item">Cardio & Conditioning</li><li class="track-item">Mobility & Recovery</li><li class="track-item">Progress Assessments</li></ul></div>
+      <div class="track reveal d2"><div class="track-line"></div><div class="track-n">02</div><div class="track-icon">🧠</div><div class="track-name">Mindset Work</div><p class="track-desc">Identity, belief & mental performance</p><ul class="track-items"><li class="track-item">Identity Coaching</li><li class="track-item">Belief Re-patterning</li><li class="track-item">Focus & Clarity</li><li class="track-item">Emotional Intelligence</li></ul></div>
+      <div class="track reveal d3"><div class="track-line"></div><div class="track-n">03</div><div class="track-icon">🌿</div><div class="track-name">Lifestyle Design</div><p class="track-desc">Nutrition, habits & daily systems</p><ul class="track-items"><li class="track-item">Nutrition Guidance</li><li class="track-item">Sleep Optimization</li><li class="track-item">Discipline Systems</li><li class="track-item">Habit Architecture</li></ul></div>
+      <div class="track reveal d4"><div class="track-line"></div><div class="track-n">04</div><div class="track-icon">🤝</div><div class="track-name">Community</div><p class="track-desc">Sisterhood, support & growth</p><ul class="track-items"><li class="track-item">Weekly Check-ins</li><li class="track-item">Accountability Pods</li><li class="track-item">Community Challenges</li><li class="track-item">Milestone Celebrations</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HER WORDS. HER STORY. — VIDEO CAROUSEL ═══════ -->
+<section class="video-section" id="stories">
+  <div class="container">
+    <div class="video-header reveal">
+      <span class="eyebrow">Real Stories</span>
+      <h2 class="s-title dark">Her Words. <em>Her Story.</em></h2>
+      <p class="s-sub muted" style="margin:18px auto 0;text-align:center">
+        Real SheBraveElite women — unscripted, unfiltered, and transformed. Use the arrows to navigate between their journeys.
+      </p>
+    </div>
+
+    <!-- VIDEO CAROUSEL -->
+    <div class="video-carousel-wrap reveal d1">
+      <div class="video-slider">
+        <div class="video-slides" id="videoSlides">
+          <div class="video-slide">
+            <video controls preload="metadata">
+              <source src="videos/thebrave1.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-slide-caption">
+              <div class="video-slide-num">Story 01 / 04</div>
+              <div class="video-slide-label">Her Transformation Journey — SheBraveElite</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <video controls preload="metadata">
+              <source src="videos/thebrave2.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-slide-caption">
+              <div class="video-slide-num">Story 02 / 04</div>
+              <div class="video-slide-label">Rebuilding Confidence — SheBraveElite</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <video controls preload="metadata">
+              <source src="videos/thebrave3.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-slide-caption">
+              <div class="video-slide-num">Story 03 / 04</div>
+              <div class="video-slide-label">Discipline & Identity — SheBraveElite</div>
+            </div>
+          </div>
+          <div class="video-slide">
+            <video controls preload="metadata">
+              <source src="videos/thebrave4.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="video-slide-caption">
+              <div class="video-slide-num">Story 04 / 04</div>
+              <div class="video-slide-label">Mind, Body & Spirit — SheBraveElite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="video-arrow prev" id="videoPrev" aria-label="Previous video">&#8592;</button>
+      <button class="video-arrow next" id="videoNext" aria-label="Next video">&#8594;</button>
+
+      <div class="video-dots" id="videoDots">
+        <button class="video-dot active" data-idx="0"></button>
+        <button class="video-dot" data-idx="1"></button>
+        <button class="video-dot" data-idx="2"></button>
+        <button class="video-dot" data-idx="3"></button>
+      </div>
+    </div>
+
+<!-- ═══════ SHOP — T-SHIRT ═══════ -->
+<section class="shop" id="shop">
+  <div class="container">
+    <div class="shop-layout">
+      <!-- Image -->
+      <div class="reveal-l">
+        <div class="shop-img-col">
+          <div class="shop-img-frame">
+            <img src="images/sheisbraveelitetshirt.jpg" alt="SheBraveElite T-Shirt — Wear The Mindset">
+            <div class="shop-badge-wrap">
+              <div class="shop-badge-main">T-Shirt Available Now</div>
+              <div class="shop-badge-sub">Limited Stock</div>
+            </div>
+            <div class="shop-corner-tag">
+              <div class="shop-corner-label">Official Merch</div>
+              <div class="shop-corner-name">SheBraveElite Collection</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="shop-content reveal-r">
+        <div class="shop-announce">T-Shirt Available Now</div>
+        <h2 class="shop-title">She Is Brave.<br><em>She Is Elite.</em></h2>
+        <p class="shop-slogan">"Wear The Mindset!"</p>
+        <p class="shop-slogan-sub">
+          Order now and get started. Wear your transformation. Represent your identity. Every time you put it on, remember who you're becoming and what you're committed to.
+        </p>
+        <div class="shop-details">
+          <div class="shop-detail">Official SheBraveElite collection — limited edition</div>
+          <div class="shop-detail">Premium quality — wear your mindset with pride</div>
+          <div class="shop-detail">Available in multiple sizes — order yours today</div>
+          <div class="shop-detail">Delivered in Kigali or arrange pickup with Coach Brave</div>
+          <div class="shop-detail">Every purchase supports the SheBraveElite community</div>
+        </div>
+        <div class="shop-actions">
+          <a href="https://wa.me/250788675638?text=Hi%20Coach%20Brave!%20I%20want%20to%20order%20the%20SheBraveElite%20T-Shirt%20%F0%9F%91%91"
+             target="_blank" class="shop-whatsapp">💬 Order on WhatsApp</a>
+          <a href="#apply" class="btn btn-outline-gold">Join the Program Too</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ APPLY ═══════ -->
+<section class="apply" id="apply">
+  <div class="container">
+    <div class="apply-inner">
+      <span class="apply-crown"><img src="images/crown.png" alt="Golden Crown"></span>
+      <h2 class="apply-title">Are You Ready<em>to Rise?</em></h2>
+      <p class="apply-sub">SheBraveElite accepts a limited number of women each cohort to ensure every participant receives the attention, coaching, and accountability she deserves. Apply today.</p>
+    </div>
+    <div class="apply-form reveal">
+      <div class="apply-form-title">Apply for SheBraveElite</div>
+      <p class="apply-form-sub">Complete this form and Coach Brave's team will be in touch within 24–48 hours to schedule your intake consultation.</p>
+      <div class="form-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="Your first name"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Your last name"></div>
+      </div>
+      <div class="form-row">
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label>WhatsApp Number</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
+      </div>
+      <div class="fg">
+        <label>Your Primary Goal</label>
+        <select>
+          <option value="">Select your main goal…</option>
+          <option>Physical transformation — fat loss & body recomposition</option>
+          <option>Build strength, muscle tone & fitness</option>
+          <option>Rebuild confidence & self-belief</option>
+          <option>Develop discipline & lifestyle structure</option>
+          <option>Mindset & identity development</option>
+          <option>All of the above — complete transformation</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Biggest Challenge Right Now</label>
+        <textarea placeholder="Tell us the main challenge you're facing — physically, mentally, or in your daily lifestyle. Be honest. This is where transformation begins…"></textarea>
+      </div>
+      <div class="fg">
+        <label>How Did You Hear About SheBraveElite?</label>
+        <select>
+          <option value="">Select an option…</option>
+          <option>Instagram / Social Media</option>
+          <option>Referral from a friend or client</option>
+          <option>Brave Souls Wellness website</option>
+          <option>WhatsApp / Community group</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
+        <button class="btn btn-gold" style="flex:1" onclick="handleApply(this)">Submit My Application →</button>
+        <a href="https://wa.me/250788675638?text=Hi!%20I%20want%20to%20apply%20for%20SheBraveElite"
+           target="_blank" class="btn btn-green" style="flex:1">💬 Apply via WhatsApp</a>
+      </div>
+      <div class="apply-notice">
+        <strong>⚡ Limited Slots:</strong> Cohorts are intentionally small to maintain high accountability and coaching quality. Apply early to secure your place.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
+        <div class="footer-tagline">Healthy Body and Spirit · Kigali, Rwanda</div>
+      </div>
+      <div class="footer-links">
+        <a href="brave-souls-wellness.html">Main Website</a>
+        <a href="#who">Who It's For</a>
+        <a href="#program">Program</a>
+        <a href="#stories">Stories</a>
+        <a href="#shop">Shop</a>
+        <a href="#apply">Apply Now</a>
+        <a href="https://wa.me/250788675638" target="_blank">WhatsApp</a>
+      </div>
+      <div class="footer-copy">© 2026 Brave Souls Wellness Group Ltd · SheBraveElite™ · Kigali, Rwanda 🇷🇼</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Navbar ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+/* ── Hero image pan ── */
+setTimeout(() => document.getElementById('heroBg').classList.add('loaded'), 100);
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => obs.observe(el));
+
+/* ── VIDEO CAROUSEL ── */
+const slidesEl  = document.getElementById('videoSlides');
+const dots      = document.querySelectorAll('.video-dot');
+const allVideos = document.querySelectorAll('.video-slide video');
+let current = 0;
+const total = 4;
+
+function goTo(idx) {
+  allVideos[current].pause();
+  current = ((idx % total) + total) % total;
+  slidesEl.style.transform = `translateX(-${current * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
+
+document.getElementById('videoPrev').addEventListener('click', () => goTo(current - 1));
+document.getElementById('videoNext').addEventListener('click', () => goTo(current + 1));
+dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowLeft')  goTo(current - 1);
+  if(e.key === 'ArrowRight') goTo(current + 1);
+});
+
+/* ── Smooth anchor scroll ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+/* ── Apply form ── */
+function handleApply(btn) {
+  const orig = btn.innerHTML;
+  btn.innerHTML = '✓ Application Received — We\'ll be in touch soon!';
+  btn.style.background = 'var(--green-light)';
+  btn.disabled = true;
+  setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4500);
+}
+</script>
+</body>
+</html>

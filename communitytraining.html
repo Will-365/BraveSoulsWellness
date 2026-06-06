@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Programs — Brave Souls Wellness Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--g0:#0e2818;--g1:#1a4230;--g2:#2d6648;--au:#c8942a;--al:#e4b84a;--ap:#f5e4b8;--cr:#faf6ed;--wh:#ffffff;--tx:#1e2e22;--tm:#5a7060;--ba:rgba(200,148,42,.22);--t:.5s cubic-bezier(.16,1,.3,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--g0)}::-webkit-scrollbar-thumb{background:var(--au);border-radius:2px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:20px 0;transition:padding .3s,background .3s}
+.nav.sc{padding:12px 0;background:rgba(14,40,24,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--ba)}
+.ni{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 40px}
+.nb{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5);transition:color .25s}
+.nb::before{content:'←';color:var(--au)}.nb:hover{color:var(--au)}
+.nm{text-align:center}.nm-n{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700;color:#fff}.nm-n span{color:var(--au)}
+.nm-s{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ap);opacity:.6;margin-top:2px}
+.ncta{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:12px 26px;background:var(--au);color:#fff;border-radius:2px;transition:var(--t)}
+.ncta:hover{background:var(--al);transform:translateY(-2px)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;padding:15px 32px;border-radius:2px;transition:var(--t)}
+.btn-solid{background:var(--au);color:#fff;box-shadow:0 4px 20px rgba(200,148,42,.4)}.btn-solid:hover{background:var(--al);transform:translateY(-3px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25)}.btn-ghost:hover{border-color:var(--au);color:var(--au);transform:translateY(-3px)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--g0);display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 40px 80px}
+.hero-video{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-video video{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,40,24,.88) 0%,rgba(14,40,24,.65) 50%,rgba(14,40,24,.80) 100%)}
+.rings{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:680px;height:680px;pointer-events:none}
+.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(200,148,42,.1);transform:translate(-50%,-50%);animation:ripple 5s ease-out infinite}
+.ring:nth-child(1){width:110px;height:110px;border-color:rgba(223, 166, 53, 0.731);animation-delay:0s}
+.ring:nth-child(2){width:230px;height:230px;border-color:rgba(223, 166, 53, 0.731);animation-delay:.7s}
+.ring:nth-child(3){width:370px;height:370px;border-color:rgba(223, 166, 53, 0.731);animation-delay:1.4s}
+.ring:nth-child(4){width:520px;height:520px;border-color:rgba(223, 166, 53, 0.731);animation-delay:2.1s}
+.ring:nth-child(5){width:670px;height:670px;border-color:rgba(223, 166, 53, 0.731);animation-delay:2.8s}
+.ring-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--au);box-shadow:0 0 40px rgba(200,148,42,.5);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+@keyframes ripple{0%{opacity:.8;transform:translate(-50%,-50%) scale(.96)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.04)}}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-kicker{display:inline-flex;align-items:center;gap:12px;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--au);margin-bottom:28px}
+.hero-kicker::before{content:'';width:28px;height:1px;background:var(--au)}
+.hero-h{font-family:'Anton',sans-serif;font-size:clamp(64px,12vw,148px);line-height:.88;color:#fff;letter-spacing:1px;max-width:760px}
+.hero-h .stroke{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.2)}
+.hero-h .gold{color:var(--au)}
+.hero-sub{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:52px;max-width:820px;align-items:flex-end}
+.hero-desc{font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,.58)}
+.hero-right-col{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.hero-pill{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.48)}
+.hero-pill-dot{width:7px;height:7px;border-radius:50%;background:var(--au);flex-shrink:0}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+/* PROGRAMS */
+.programs{background:var(--cr);padding:100px 0 80px;position:relative;overflow:hidden}
+.programs::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(14,40,24,.025) 40px,rgba(14,40,24,.025) 41px)}
+.programs-wrap{max-width:1280px;margin:0 auto;padding:0 40px;position:relative;z-index:1}
+.prog-header{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:72px}
+.prog-ey{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--au);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.prog-ey::before{content:'';width:28px;height:1px;background:var(--au)}
+.prog-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;color:var(--g0);line-height:1.05}
+.prog-h em{font-style:italic;color:var(--au)}
+.prog-sub{max-width:300px;font-size:.9rem;line-height:1.8;color:var(--tm);text-align:right}
+.poster-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:start}
+.poster{background:var(--g0);border-radius:4px;overflow:hidden;position:relative;transition:transform var(--t),box-shadow var(--t)}
+.poster:nth-child(1){margin-top:0}.poster:nth-child(2){margin-top:48px}.poster:nth-child(3){margin-top:16px}.poster:nth-child(4){margin-top:72px}.poster:nth-child(5){margin-top:32px}
+.poster:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 32px 60px rgba(14,40,24,.25)}
+.poster-band{height:5px;width:100%}
+.pb-1{background:var(--au)}.pb-2{background:var(--g2)}.pb-3{background:var(--al)}.pb-4{background:var(--g1)}.pb-5{background:var(--au)}
+.poster-body{padding:32px 28px 36px}
+.poster-icon{font-size:2rem;margin-bottom:18px;display:block}
+.poster-num{font-family:'Anton',sans-serif;font-size:3.5rem;color:rgba(255,255,255,.04);line-height:1;position:absolute;bottom:12px;right:16px;transition:color .4s}
+.poster:hover .poster-num{color:rgba(200,148,42,.12)}
+.poster-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;line-height:1.3;margin-bottom:12px}
+.poster-desc{font-size:12px;line-height:1.8;color:rgba(255,255,255,.48)}
+.poster-tag{margin-top:20px;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--au);padding-top:14px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px}
+.poster-tag::before{content:'';width:16px;height:1px;background:var(--au)}
+
+/* PURPOSE */
+.purpose{background:var(--g0);padding:0;position:relative;overflow:hidden}
+.purpose::before{content:'';display:block;height:80px;background:var(--cr);clip-path:polygon(0 0,100% 0,100% 0,0 100%)}
+.purpose-inner{padding:60px 40px 100px;max-width:1280px;margin:0 auto}
+.purpose-ey{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--al);display:flex;align-items:center;gap:12px;margin-bottom:60px}
+.purpose-ey::before{content:'';width:28px;height:1px;background:var(--al)}
+.purpose-items{display:flex;flex-direction:column;gap:0}
+.purpose-item{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.07);padding:36px 0;gap:40px;align-items:center;transition:background var(--t)}
+.purpose-item:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+.purpose-item:hover{background:rgba(255,255,255,.02)}
+.purpose-item:nth-child(even) .purpose-statement{order:2}
+.purpose-item:nth-child(even) .purpose-visual{order:1;text-align:left}
+.purpose-big{font-family:'Anton',sans-serif;font-size:clamp(2.4rem,5vw,5rem);line-height:.92;color:#fff;letter-spacing:.5px;margin-bottom:16px}
+.purpose-big span{color:var(--au)}
+.purpose-small{font-size:.94rem;line-height:1.8;color:rgba(255,255,255,.45);max-width:380px}
+.purpose-visual{text-align:right}
+.purpose-icon-big{font-size:5rem;display:inline-block;filter:saturate(.7);opacity:.7;transition:filter .3s,opacity .3s,transform .4s}
+.purpose-item:hover .purpose-icon-big{filter:saturate(1.2);opacity:1;transform:scale(1.1)}
+
+/* CTA */
+.cta{background:var(--g1);padding:100px 40px;position:relative;overflow:hidden}
+.cta::before{content:'TOGETHER';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Anton',sans-serif;font-size:clamp(80px,18vw,200px);color:rgba(255,255,255,.025);letter-spacing:4px;white-space:nowrap;pointer-events:none;user-select:none}
+.cta-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.cta-ey{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--al);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.cta-ey::before{content:'';width:28px;height:1px;background:var(--al)}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,4rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:18px}
+.cta-h em{font-style:italic;color:var(--au)}
+.cta-body{font-size:.96rem;line-height:1.85;color:rgba(255,255,255,.5);max-width:440px;margin-bottom:36px}
+.cta-contact{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.cc{font-size:12px;color:rgba(255,255,255,.3);letter-spacing:.5px}
+.cta-right{display:flex;justify-content:center;align-items:center}
+.icon-cluster{position:relative;width:300px;height:300px}
+.ic-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--au);box-shadow:0 0 50px rgba(200,148,42,.4);display:flex;align-items:center;justify-content:center;font-size:2rem}
+.ic-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:230px;height:230px;border-radius:50%;border:1px dashed rgba(200,148,42,.18)}
+.ic-orbit{position:absolute;top:50%;left:50%;width:1px;height:1px}
+.ic-planet{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--ba);display:flex;align-items:center;justify-content:center;font-size:1.3rem;animation:orbit 12s linear infinite;transform-origin:center center}
+.ic-planet:nth-child(1){animation-delay:0s}.ic-planet:nth-child(2){animation-delay:-2.4s}.ic-planet:nth-child(3){animation-delay:-4.8s}.ic-planet:nth-child(4){animation-delay:-7.2s}.ic-planet:nth-child(5){animation-delay:-9.6s}
+@keyframes orbit{from{transform:rotate(0deg) translateX(115px) rotate(0deg)}to{transform:rotate(360deg) translateX(115px) rotate(-360deg)}}
+
+/* FOOTER */
+.footer{background:var(--g0);border-top:1px solid var(--ba);padding:48px 0 24px}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff}.footer-brand span{color:var(--au)}
+.footer-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--au)}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:11px;color:rgba(255,255,255,.32);text-decoration:none;letter-spacing:1px;transition:color .25s}.footer-links a:hover{color:var(--au)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.15);padding-top:14px;border-top:1px solid rgba(255,255,255,.05);width:100%}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(36px);transition:opacity .85s ease,transform .85s ease}
+[data-r].vis{opacity:1;transform:none}
+[data-r="l"]{transform:translateX(-36px)}[data-r="l"].vis{transform:none}
+[data-r="r"]{transform:translateX(36px)}[data-r="r"].vis{transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+
+@media(max-width:1100px){
+  .poster-grid{grid-template-columns:repeat(3,1fr)}.poster:nth-child(4){margin-top:0}.poster:nth-child(5){margin-top:48px}
+  .purpose-item{grid-template-columns:1fr;gap:20px}
+  .purpose-item:nth-child(even) .purpose-statement,.purpose-item:nth-child(even) .purpose-visual{order:unset}
+  .purpose-visual{text-align:left}
+  .cta-inner{grid-template-columns:1fr}.cta-right{display:none}.rings{display:none}
+}
+@media(max-width:768px){
+  .ni,.purpose-inner,.programs-wrap,.cta,.footer-inner{padding-left:20px;padding-right:20px}
+  .hero{padding:120px 20px 70px}.hero-sub{grid-template-columns:1fr}
+  .prog-header{flex-direction:column;gap:16px}.prog-sub{text-align:left}
+  .poster-grid{grid-template-columns:1fr 1fr}.poster:nth-child(n){margin-top:0}.poster:nth-child(even){margin-top:32px}
+}
+@media(max-width:480px){
+  .poster-grid{grid-template-columns:1fr}.poster:nth-child(n){margin-top:0}.purpose-big{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="ni">
+    <a href="index.html" class="nb">Back to home</a>
+    <div class="nm">
+      <div class="nm-n">Brave <span>Souls</span> Wellness Group</div>
+      <div class="nm-s">Kigali, Rwanda</div>
+    </div>
+    <a href="#cta" class="ncta">Join the Community</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">s
+
+  <!-- Background video -->
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="auto">
+      <source src="videos/community1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
+  <div class="rings">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="ring"></div><div class="ring"></div>
+    <div class="ring-dot">💡</div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-kicker" data-r>Community Programs · Brave Souls Wellness Group</div>
+    <h1 class="hero-h" data-r>
+      WELLNESS<br>
+      <span class="stroke">THAT</span><br>
+      <span class="gold">SPREADS.</span>
+    </h1>
+    <div class="hero-sub" data-r>
+      <p class="hero-desc">We believe wellness creates real impact when it spreads beyond the individual — into families, schools, workplaces, and communities. Our programs are built to do exactly that.</p>
+      <div class="hero-right-col">
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Group Fitness Classes</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Wellness Challenges</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Fitness Camps &amp; Bootcamps</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Youth &amp; School Programs</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Faith &amp; Discipline Events</div>
+        <div class="hero-btns">
+          <a href="#programs" class="btn btn-solid">See All Programs</a>
+          <a href="#cta" class="btn btn-ghost">Join a Program</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS — STAGGERED POSTERS -->
+<section class="programs" id="programs">
+  <div class="programs-wrap">
+    <div class="prog-header" data-r>
+      <div>
+        <div class="prog-ey">Programs Include</div>
+        <h2 class="prog-h">Five ways we<br><em>build together.</em></h2>
+      </div>
+      <p class="prog-sub">Each program is designed to create collective impact — because real transformation doesn't happen in isolation.</p>
+    </div>
+    <div class="poster-grid">
+      <div class="poster" data-r>
+        <div class="poster-band pb-1"></div>
+        <div class="poster-body">
+          <span class="poster-icon">❯❯❯❯</span>
+          <div class="poster-name">Group Fitness Classes</div>
+          <p class="poster-desc">High-energy, structured fitness sessions open to the community. Train together, push harder, and build friendships forged through shared effort.</p>
+          <div class="poster-tag">Community Fitness</div>
+        </div>
+        <div class="poster-num">01</div>
+      </div>
+      <div class="poster" data-r class="d1">
+        <div class="poster-band pb-2"></div>
+        <div class="poster-body">
+          <span class="poster-icon">❯❯❯❯</span>
+          <div class="poster-name">Monthly Wellness Challenges</div>
+          <p class="poster-desc">Monthly themed challenges that motivate the whole community to build healthy habits together — with accountability, recognition, and real rewards.</p>
+          <div class="poster-tag">Monthly Challenge</div>
+        </div>
+        <div class="poster-num">02</div>
+      </div>
+      <div class="poster" data-r class="d2">
+        <div class="poster-band pb-3"></div>
+        <div class="poster-body">
+          <span class="poster-icon">❯❯❯❯</span>
+          <div class="poster-name">Fitness Camps &amp; Bootcamps</div>
+          <p class="poster-desc">Intensive multi-day wellness experiences combining physical training, mindset work, and community bonding in a structured, immersive format.</p>
+          <div class="poster-tag">Immersive Training</div>
+        </div>
+        <div class="poster-num">03</div>
+      </div>
+      <div class="poster" data-r class="d3">
+        <div class="poster-band pb-4"></div>
+        <div class="poster-body">
+          <span class="poster-icon">❯❯❯❯</span>
+          <div class="poster-name">Youth &amp; School Wellness Initiatives</div>
+          <p class="poster-desc">Age-appropriate fitness, discipline, and life skills programs in schools and youth organisations — planting seeds of lifelong healthy habits early.</p>
+          <div class="poster-tag">Youth Development</div>
+        </div>
+        <div class="poster-num">04</div>
+      </div>
+      <div class="poster" data-r class="d4">
+        <div class="poster-band pb-5"></div>
+        <div class="poster-body">
+          <span class="poster-icon">❯❯❯❯</span>
+          <div class="poster-name">Faith &amp; Discipline-Based Wellness Events</div>
+          <p class="poster-desc">Special wellness events integrating physical training with values, inner strength, and purposeful living — grounded in the belief that body and spirit grow together.</p>
+          <div class="poster-tag">Values &amp; Wellness</div>
+        </div>
+        <div class="poster-num">05</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PURPOSE — MANIFESTO -->
+<section class="purpose" id="purpose">
+  <div class="purpose-inner">
+    <div class="purpose-ey" data-r>Our Purpose</div>
+    <div class="purpose-items">
+      <div class="purpose-item" data-r>
+        <div class="purpose-statement">
+          <div class="purpose-big">PROMOTE<br><span>ACTIVE</span><br>LIFESTYLES</div>
+          <p class="purpose-small">We make movement accessible and desirable for everyone in the community — regardless of background, fitness level, or experience.</p>
+        </div>
+        <div class="purpose-visual"><span class="purpose-icon-big">⚡</span></div>
+      </div>
+      <div class="purpose-item" data-r>
+        <div class="purpose-statement">
+          <div class="purpose-big">BUILD<br><span>COMMUNITY</span><br>ACCOUNTABILITY</div>
+          <p class="purpose-small">When people commit to wellness together, they go further than they ever would alone. We create structures that make collective commitment real and lasting.</p>
+        </div>
+        <div class="purpose-visual"><span class="purpose-icon-big">🤝</span></div>
+      </div>
+      <div class="purpose-item" data-r>
+        <div class="purpose-statement">
+          <div class="purpose-big">ENCOURAGE<br><span>PREVENTIVE</span><br>HEALTH</div>
+          <p class="purpose-small">The best time to invest in health is before illness arrives. Our programs shift communities from reactive to proactive — building resilience before it's needed.</p>
+        </div>
+        <div class="purpose-visual"><span class="purpose-icon-big">☀️</span></div>
+      </div>
+      <div class="purpose-item" data-r>
+        <div class="purpose-statement">
+          <div class="purpose-big">INSPIRE<br><span>DISCIPLINED</span><br>LIVING</div>
+          <p class="purpose-small">Discipline is contagious. When one person shows up consistently, it inspires the next. We create environments where discipline becomes the culture — not the exception.</p>
+        </div>
+        <div class="purpose-visual"><span class="purpose-icon-big">🏆</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="cta-inner">
+    <div class="cta-left" data-r>
+      <div class="cta-ey">Join the Movement</div>
+      <h2 class="cta-h">Wellness is better<br><em>together.</em></h2>
+      <p class="cta-body">Whether you're an individual looking to connect, a school seeking wellness programs, or an organisation wanting to bring your community together through fitness — we have a pathway for you.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/250788675638?text=Hi%20Coach%20Brave!%20I%20want%20to%20join%20a%20Community%20Program" target="_blank" class="btn btn-solid">💬 Join via WhatsApp</a>
+        <a href="brave-souls-wellness.html#contact" class="btn btn-ghost">Send a Message</a>
+      </div>
+      <div class="cta-contact">
+        <div class="cc">+250 788 675 638</div>
+        <div class="cc">info@bravesoulswellness.com</div>
+        <div class="cc">Kigali, Rwanda</div>
+      </div>
+    </div>
+    <div class="cta-right" data-r="r">
+      <div class="icon-cluster">
+        <div class="ic-ring"></div>
+        <div class="ic-center">💪</div>
+        <div class="ic-orbit">
+          <div class="ic-planet">☀️</div>
+          <div class="ic-planet">🏆</div>
+          <div class="ic-planet">⚡</div>
+          <div class="ic-planet">🤝</div>
+          <div class="ic-planet">⚖️</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
+      <div class="footer-tag">Healthy Body and Spirit · Kigali, Rwanda</div>
+    </div>
+    <div class="footer-links">
+      <a href="brave-souls-wellness.html">Main Website</a>
+      <a href="shebraveelite.html">SheBraveElite</a>
+      <a href="executive coaching.html">Executive Coaching</a>
+      <a href="personaltraining.html">Personal Training</a>
+      <a href="#programs">Programs</a>
+      <a href="#cta">Join Now</a>
+    </div>
+    <div class="footer-copy">© 2025 Brave Souls Wellness Group Ltd · Community Programs · Kigali, Rwanda 🇷🇼</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
+</script>
+</body>
+</html>
