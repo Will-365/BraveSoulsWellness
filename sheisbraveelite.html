@@ -139,6 +139,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .hero-ticker{
   display:flex;gap:0;white-space:nowrap;
   animation:ticker-slide 22s linear infinite;
+  animation-play-state:running;
 }
 .hero-ticker-item{
   font-family:'Cormorant Garamond',serif;
@@ -200,6 +201,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 .hero-pillars-track{
   display:flex;white-space:nowrap;
   animation:pillars-slide 18s linear infinite;
+  animation-play-state:running;
   border-top:1px solid rgba(200,148,42,0.18);
 }
 @keyframes pillars-slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -216,7 +218,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
    GOLD STRIP
 ════════════════════════════ */
 .strip{background:var(--gold);padding:20px 0;overflow:hidden}
-.strip-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 24s linear infinite}
+.strip-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 24s linear infinite;animation-play-state:running}
 .strip-item{
   font-family:'Playfair Display',serif;
   font-size:1rem;font-style:italic;font-weight:600;
@@ -245,6 +247,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   left:-200px;
   pointer-events:none;
   z-index:0;
+  animation:whoGlowDrift 20s ease-in-out infinite alternate;
+  animation-play-state:running;
+}
+@keyframes whoGlowDrift{
+  0%{transform:translate3d(0,0,0) scale(1);opacity:.75}
+  100%{transform:translate3d(6%,4%,0) scale(1.08);opacity:1}
 }
 
 /* LAYOUT */
@@ -447,14 +455,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
 .parallax-slow{
   animation:floatSlow 6s ease-in-out infinite;
+  animation-play-state:running;
 }
 
 .parallax-card{
   animation:floatCard 7s ease-in-out infinite;
+  animation-play-state:running;
 }
 
 .parallax-letter{
   animation:floatLetter 10s ease-in-out infinite;
+  animation-play-state:running;
 }
 
 /* ICON FLOAT */
@@ -637,8 +648,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
   display:flex;align-items:center;justify-content:center;
   font-size:1.4rem;margin-bottom:24px;transition:background .3s;
+  overflow:hidden;flex-shrink:0;
 }
 .inc-card:hover .inc-icon{background:rgba(200,148,42,0.18)}
+.page-icon{display:block;object-fit:contain;flex-shrink:0}
+.inc-icon .page-icon{width:28px;height:28px}
 .inc-name{
   font-family:'Playfair Display',serif;
   font-size:1.15rem;font-weight:700;color:var(--white);
@@ -717,7 +731,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   font-size:2.6rem;font-weight:900;font-style:italic;
   color:var(--gold);opacity:.13;line-height:1;margin-bottom:14px;
 }
-.track-icon{font-size:2rem;margin-bottom:16px}
+.track-icon{
+  width:52px;height:52px;border-radius:4px;
+  background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;overflow:hidden;flex-shrink:0;
+}
+.track-icon .page-icon{width:28px;height:28px}
 .track-name{
   font-family:'Playfair Display',serif;
   font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:10px;
@@ -943,8 +963,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
 /* Hover Effect */
 .apply-crown img{
-  animation:
-    crownFloat 5s ease-in-out infinite;
+  animation:crownFloat 5s ease-in-out infinite;
+  animation-play-state:running;
 }
 
 @keyframes crownFloat{
@@ -1333,12 +1353,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       <p class="s-sub light">Every element of SheBraveElite is designed with one purpose: producing real, complete, and sustainable transformation.</p>
     </div>
     <div class="included-grid">
-      <div class="inc-card reveal d1"><div class="inc-num">01</div><div class="inc-icon"> ✔</div><div class="inc-name">Structured Strength & Fitness Training</div><p class="inc-desc">Progressive strength and fitness programming designed for the female body. Each session builds real power, endurance, and athleticism.</p><span class="inc-tag">Progressive Overload</span></div>
-      <div class="inc-card reveal d2"><div class="inc-num">02</div><div class="inc-icon"> ✔</div><div class="inc-name">Fat Loss & Body Recomposition</div><p class="inc-desc">Science-backed fat loss guidance — not crash diets. A sustainable, effective approach to changing how you look and feel in your body.</p><span class="inc-tag">Sustainable Results</span></div>
-      <div class="inc-card reveal d3"><div class="inc-num">03</div><div class="inc-icon"> ✔</div><div class="inc-name">Mindset & Identity Coaching</div><p class="inc-desc">Coaching that targets the beliefs and mental patterns keeping you stuck. We rebuild your identity so choices align with who you're becoming.</p><span class="inc-tag">Deep Mindset Work</span></div>
-      <div class="inc-card reveal d4"><div class="inc-num">04</div><div class="inc-icon"> ✔</div><div class="inc-name">Lifestyle Discipline Systems</div><p class="inc-desc">Practical, implementable systems for sleep, nutrition, daily habits, and recovery. Discipline is the structured freedom to live how you want.</p><span class="inc-tag">Habit Architecture</span></div>
-      <div class="inc-card reveal d5"><div class="inc-num">05</div><div class="inc-icon"> ✔</div><div class="inc-name">Community Accountability</div><p class="inc-desc">A curated community of women on the same journey — supporting, challenging, and celebrating one another through every step.</p><span class="inc-tag">Sisterhood</span></div>
-      <div class="inc-card reveal d6"><div class="inc-num">06</div><div class="inc-icon"> ✔</div><div class="inc-name">Regular Progress Tracking</div><p class="inc-desc">Structured check-ins and milestone reviews ensure you always know how far you've come and what to focus on next.</p><span class="inc-tag">Data-Driven</span></div>
+      <div class="inc-card reveal d1"><div class="inc-num">01</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Structured Strength & Fitness Training</div><p class="inc-desc">Progressive strength and fitness programming designed for the female body. Each session builds real power, endurance, and athleticism.</p><span class="inc-tag">Progressive Overload</span></div>
+      <div class="inc-card reveal d2"><div class="inc-num">02</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Fat Loss & Body Recomposition</div><p class="inc-desc">Science-backed fat loss guidance — not crash diets. A sustainable, effective approach to changing how you look and feel in your body.</p><span class="inc-tag">Sustainable Results</span></div>
+      <div class="inc-card reveal d3"><div class="inc-num">03</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Mindset & Identity Coaching</div><p class="inc-desc">Coaching that targets the beliefs and mental patterns keeping you stuck. We rebuild your identity so choices align with who you're becoming.</p><span class="inc-tag">Deep Mindset Work</span></div>
+      <div class="inc-card reveal d4"><div class="inc-num">04</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Lifestyle Discipline Systems</div><p class="inc-desc">Practical, implementable systems for sleep, nutrition, daily habits, and recovery. Discipline is the structured freedom to live how you want.</p><span class="inc-tag">Habit Architecture</span></div>
+      <div class="inc-card reveal d5"><div class="inc-num">05</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Community Accountability</div><p class="inc-desc">A curated community of women on the same journey — supporting, challenging, and celebrating one another through every step.</p><span class="inc-tag">Sisterhood</span></div>
+      <div class="inc-card reveal d6"><div class="inc-num">06</div><div class="inc-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="inc-name">Regular Progress Tracking</div><p class="inc-desc">Structured check-ins and milestone reviews ensure you always know how far you've come and what to focus on next.</p><span class="inc-tag">Data-Driven</span></div>
     </div>
   </div>
 </section>
@@ -1376,10 +1396,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       <h2 class="s-title light">Four Tracks of <em>Transformation</em></h2>
     </div>
     <div class="structure-tracks">
-      <div class="track reveal d1"><div class="track-line"></div><div class="track-n">01</div><div class="track-icon">💪</div><div class="track-name">Physical Training</div><p class="track-desc">Strength, fitness & body recomposition</p><ul class="track-items"><li class="track-item">Strength Sessions</li><li class="track-item">Cardio & Conditioning</li><li class="track-item">Mobility & Recovery</li><li class="track-item">Progress Assessments</li></ul></div>
-      <div class="track reveal d2"><div class="track-line"></div><div class="track-n">02</div><div class="track-icon">🧠</div><div class="track-name">Mindset Work</div><p class="track-desc">Identity, belief & mental performance</p><ul class="track-items"><li class="track-item">Identity Coaching</li><li class="track-item">Belief Re-patterning</li><li class="track-item">Focus & Clarity</li><li class="track-item">Emotional Intelligence</li></ul></div>
-      <div class="track reveal d3"><div class="track-line"></div><div class="track-n">03</div><div class="track-icon">🌿</div><div class="track-name">Lifestyle Design</div><p class="track-desc">Nutrition, habits & daily systems</p><ul class="track-items"><li class="track-item">Nutrition Guidance</li><li class="track-item">Sleep Optimization</li><li class="track-item">Discipline Systems</li><li class="track-item">Habit Architecture</li></ul></div>
-      <div class="track reveal d4"><div class="track-line"></div><div class="track-n">04</div><div class="track-icon">🤝</div><div class="track-name">Community</div><p class="track-desc">Sisterhood, support & growth</p><ul class="track-items"><li class="track-item">Weekly Check-ins</li><li class="track-item">Accountability Pods</li><li class="track-item">Community Challenges</li><li class="track-item">Milestone Celebrations</li></ul></div>
+      <div class="track reveal d1"><div class="track-line"></div><div class="track-n">01</div><div class="track-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="track-name">Physical Training</div><p class="track-desc">Strength, fitness & body recomposition</p><ul class="track-items"><li class="track-item">Strength Sessions</li><li class="track-item">Cardio & Conditioning</li><li class="track-item">Mobility & Recovery</li><li class="track-item">Progress Assessments</li></ul></div>
+      <div class="track reveal d2"><div class="track-line"></div><div class="track-n">02</div><div class="track-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="track-name">Mindset Work</div><p class="track-desc">Identity, belief & mental performance</p><ul class="track-items"><li class="track-item">Identity Coaching</li><li class="track-item">Belief Re-patterning</li><li class="track-item">Focus & Clarity</li><li class="track-item">Emotional Intelligence</li></ul></div>
+      <div class="track reveal d3"><div class="track-line"></div><div class="track-n">03</div><div class="track-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="track-name">Lifestyle Design</div><p class="track-desc">Nutrition, habits & daily systems</p><ul class="track-items"><li class="track-item">Nutrition Guidance</li><li class="track-item">Sleep Optimization</li><li class="track-item">Discipline Systems</li><li class="track-item">Habit Architecture</li></ul></div>
+      <div class="track reveal d4"><div class="track-line"></div><div class="track-n">04</div><div class="track-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div><div class="track-name">Community</div><p class="track-desc">Sisterhood, support & growth</p><ul class="track-items"><li class="track-item">Weekly Check-ins</li><li class="track-item">Accountability Pods</li><li class="track-item">Community Challenges</li><li class="track-item">Milestone Celebrations</li></ul></div>
     </div>
   </div>
 </section>
@@ -1586,6 +1606,26 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
 
 /* ── Hero image pan ── */
 setTimeout(() => document.getElementById('heroBg').classList.add('loaded'), 100);
+
+function restartMotionAnimations() {
+  document.querySelectorAll(
+    '.hero-ticker, .hero-pillars-track, .strip-inner, .who-bg-glow, .parallax-slow, .parallax-card, .parallax-letter, .apply-crown img'
+  ).forEach(node => {
+    node.getAnimations().forEach(anim => anim.play());
+    const computed = getComputedStyle(node);
+    if (computed.animationName && computed.animationName !== 'none') {
+      node.style.animation = 'none';
+      void node.offsetWidth;
+      node.style.removeProperty('animation');
+    }
+  });
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') restartMotionAnimations();
+});
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) restartMotionAnimations();
+});
 
 /* ── Scroll reveal ── */
 const obs = new IntersectionObserver(entries => {

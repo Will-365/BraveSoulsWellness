@@ -166,9 +166,55 @@ body {
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(45,102,72,0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 42% 62% at 22% 54%, rgba(200,148,42,0.12) 0%, transparent 62%);
+  background: var(--green-deep);
+  overflow: hidden;
+}
+.hero-bg::before,
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  animation: heroWaveDrift 12s ease-in-out infinite;
+  animation-play-state: running;
+  filter: blur(28px);
+}
+.hero-bg::before {
+  width: 82%;
+  height: 105%;
+  right: -12%;
+  top: -2%;
+  background: radial-gradient(
+    ellipse at 42% 48%,
+    rgba(45,102,72,0.78) 0%,
+    rgba(45,102,72,0.42) 38%,
+    rgba(45,102,72,0.14) 58%,
+    transparent 72%
+  );
+}
+.hero-bg::after {
+  width: 58%;
+  height: 82%;
+  right: -4%;
+  top: 12%;
+  left: auto;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(200,148,42,0.52) 0%,
+    rgba(200,148,42,0.28) 36%,
+    rgba(200,148,42,0.1) 56%,
+    transparent 72%
+  );
+  animation-duration: 15s;
+  animation-direction: alternate;
+  animation-delay: -4s;
+}
+@keyframes heroWaveDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+  25% { transform: translate3d(-6%, 4%, 0) scale(1.1); opacity: 1; }
+  50% { transform: translate3d(5%, -5%, 0) scale(0.92); opacity: 0.92; }
+  75% { transform: translate3d(-4%, -4%, 0) scale(1.06); opacity: 1; }
 }
 .hero-grid {
   position: absolute; inset: 0; opacity: 0.04;
@@ -286,8 +332,11 @@ body {
 .hero-card-floating {
   position: absolute;
   z-index: 3;
-  animation: statsPulse 5.8s ease-in-out infinite;
+  opacity: 1;
+  animation: statsFloat 5.8s ease-in-out infinite;
+  animation-play-state: running;
 }
+.hero-card-floating.animate { opacity: 1; transform: none; }
 .hero-card-floating.card-1 { top: calc(8% + 60px); right: -6%; }
 .hero-card-floating.card-2 { top: 44%; left: -10%; animation-delay: 1.7s; }
 .hero-card-num {
@@ -311,10 +360,9 @@ body {
   border: 1px solid rgba(255,255,255,0.15); border-radius: 50px;
 }
 
-@keyframes statsPulse {
-  0%, 14% { opacity: 0; transform: translateY(10px) scale(0.98); }
-  24%, 56% { opacity: 1; transform: translateY(0) scale(1); }
-  76%, 100% { opacity: 0; transform: translateY(-6px) scale(0.985); }
+@keyframes statsFloat {
+  0%, 100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  50% { opacity: 1; transform: translate3d(0, -10px, 0) scale(1.015); }
 }
 
 @keyframes fadeUp {
@@ -390,6 +438,12 @@ body {
   inset: 0;
   background: radial-gradient(ellipse at 18% 25%, rgba(200,148,42,0.12) 0%, transparent 64%);
   pointer-events: none;
+  animation: ambientGlow 18s ease-in-out infinite alternate;
+  animation-play-state: running;
+}
+@keyframes ambientGlow {
+  0% { opacity: 0.55; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.06); }
 }
 .about-copy-inner {
   position: relative;
@@ -503,14 +557,13 @@ body {
   border-radius: 999px;
   transform-style: preserve-3d;
   animation: shuffleOrbit 6.6s ease-in-out infinite;
+  animation-play-state: running;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .pillar-item:nth-child(1) { animation-delay: 0s; }
 .pillar-item:nth-child(2) { animation-delay: 0.35s; }
 .pillar-item:nth-child(3) { animation-delay: 0.7s; }
-.pillars-strip:hover .pillar-item { animation-play-state: paused; }
 .pillar-item:hover {
-  transform: translateY(-5px) scale(1.04);
   box-shadow: 0 18px 30px rgba(14,40,24,0.18);
   border-color: rgba(200,148,42,0.5);
 }
@@ -714,6 +767,87 @@ body {
   margin-bottom: 14px;
 }
 .founder-bio { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.6); }
+.founder-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+.founder-read-more:hover { color: var(--gold-light); gap: 12px; }
+.founder-read-more-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,148,42,0.4);
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), background 0.25s ease;
+}
+.founder-read-more:hover .founder-read-more-arrow { background: rgba(200,148,42,0.12); }
+.founder-card.expanded .founder-read-more-arrow { transform: rotate(180deg); }
+.founder-expanded {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.founder-expanded-inner { overflow: hidden; min-height: 0; }
+.founder-card.expanded .founder-expanded { grid-template-rows: 1fr; }
+.founder-expanded-content { padding-top: 20px; }
+.founder-credentials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.founder-credentials li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+}
+.founder-credentials li::before {
+  content: "•";
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.founder-bio-extended {
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 20px;
+}
+.founder-quote {
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--gold);
+  background: rgba(200,148,42,0.1);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-pale);
+  line-height: 1.65;
+}
+.founder-highlights + .founder-quote { margin-top: 22px; margin-bottom: 0; }
 .founder-highlights {
   margin-top: 18px;
   display: flex;
@@ -752,6 +886,7 @@ body {
   border: none;
   box-shadow: none;
   animation: bookFloat 6.2s ease-in-out infinite;
+  animation-play-state: running;
 }
 .book-card img {
   width: 100%;
@@ -923,6 +1058,12 @@ body {
   background-size: 46px 46px;
   opacity: 0.25;
   pointer-events: none;
+  animation: gridDrift 36s linear infinite;
+  animation-play-state: running;
+}
+@keyframes gridDrift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 46px 46px, 46px 46px; }
 }
 .testi-header { text-align: center; margin-bottom: 42px; position: relative; z-index: 2; }
 .testi-slider {
@@ -1068,8 +1209,10 @@ body {
   width: 42px; height: 42px; border-radius: 4px;
   background: rgba(14,40,24,0.08);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
+  font-size: 1.1rem; flex-shrink: 0; overflow: hidden;
 }
+.page-icon { display: block; object-fit: contain; flex-shrink: 0; }
+.contact-icon .page-icon { width: 24px; height: 24px; }
 .contact-label {
   font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--text-muted);
@@ -1436,11 +1579,11 @@ section.content-placeholder {
         <div class="hero-coach-wrap animate delay-1">
           <img src="images/coachbgrvm.png" alt="Coach in training stance" class="hero-coach-img">
 
-          <div class="hero-card hero-card-floating card-1 animate delay-2">
+          <div class="hero-card hero-card-floating card-1">
             <div class="hero-card-num">10+</div>
             <div class="hero-card-label">Years of Coaching Experience</div>
           </div>
-          <div class="hero-card hero-card-floating card-2 animate delay-3">
+          <div class="hero-card hero-card-floating card-2">
             <div class="hero-card-num">4</div>
             <div class="hero-card-label">Structured Programs Available</div>
           </div>
@@ -1758,13 +1901,33 @@ section.content-placeholder {
           <img class="founder-avatar" src="images/coachshot1.jpg" alt="Portrait of Founder and CEO">
         </div>
         <div class="founder-body">
-          <div class="founder-role">Founder & CEO · Master Coach</div>
+          <div class="founder-role">FOUNDER & LEAD TRANSFORMATION COACH</div>
           <div class="founder-name">Jean Pierre MUFUKUZI<br><span style="font-size:1.1rem; color:var(--gold)">Coach Brave</span></div>
-          <p class="founder-bio">Coach Brave is a professional fitness and wellness coach with a mission to build disciplined individuals through structured training, mindset coaching, and identity development.</p>
-          <div class="founder-highlights">
-            <span class="founder-chip">Performance Coach</span>
-            <span class="founder-chip">Mindset Systems</span>
-            <span class="founder-chip">Body Transformation</span>
+          <p class="founder-bio">
+            Coach Brave is a certified fitness and wellness coach dedicated to helping individuals transform their bodies, mindset, discipline, and lifestyle through structured training, wellness coaching, and identity development.</p>
+          <button type="button" class="founder-read-more" aria-expanded="false" onclick="toggleFounder(this)">
+            <span class="founder-read-more-arrow">↓</span>
+            <span class="founder-read-more-text">Read more</span>
+          </button>
+          <div class="founder-expanded">
+            <div class="founder-expanded-inner">
+              <div class="founder-expanded-content">
+                <ul class="founder-credentials">
+                  <li>Certified Fitness Coach — Level 4</li>
+                  <li>PhD Candidate in Bible &amp; Theology</li>
+                  <li>Bachelor of Business Administration</li>
+                  <li>10+ Years of Experience</li>
+                  <li>1,000+ Lives Transformed</li>
+                </ul>
+                <blockquote class="founder-quote">“Discipline changes bodies. Identity changes lives.”</blockquote>
+                <div class="founder-highlights">
+                  <span class="founder-chip">Performance Coach</span>
+                  <span class="founder-chip">Mindset Systems</span>
+                  <span class="founder-chip">Body Transformation</span>
+                  <span class="founder-chip">Wellness Leadership</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1773,13 +1936,26 @@ section.content-placeholder {
           <img class="founder-avatar" src="images/cofounder.jpeg" alt="Portrait of Co-Founder">
         </div>
         <div class="founder-body">
-          <div class="founder-role">Co-Founder & Chief Operations Officer</div>
+          <div class="founder-role">CO-FOUNDER & CHIEF OPERATIONS OFFICER</div>
           <div class="founder-name">Catherine Achieng Ochieng</div>
           <p class="founder-bio">Catherine oversees operations, program coordination, and client experience while ensuring structure and excellence across all wellness programs.</p>
-          <div class="founder-highlights">
-            <span class="founder-chip">Operations Leadership</span>
-            <span class="founder-chip">Client Experience</span>
-            <span class="founder-chip">Program Excellence</span>
+          <button type="button" class="founder-read-more" aria-expanded="false" onclick="toggleFounder(this)">
+            <span class="founder-read-more-arrow">↓</span>
+            <span class="founder-read-more-text">Read more</span>
+          </button>
+          <div class="founder-expanded">
+            <div class="founder-expanded-inner">
+              <div class="founder-expanded-content">
+                <p class="founder-bio-extended">With a passion for organization, leadership, and people-centered wellness, she plays a key role in building a supportive and impactful environment for both clients and the growing Brave Souls community.</p>
+                <div class="founder-highlights">
+                  <span class="founder-chip">Operations Leadership</span>
+                  <span class="founder-chip">Client Experience</span>
+                  <span class="founder-chip">Program Excellence</span>
+                  <span class="founder-chip">Community Support</span>
+                </div>
+                <blockquote class="founder-quote">“Excellence is built through consistency, care, and leadership.”</blockquote>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1798,21 +1974,21 @@ section.content-placeholder {
         </p>
         <div class="contact-info-block animate delay-2">
           <div class="contact-item">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon"><img src="images/phone-call.png" alt="" class="page-icon"></div>
             <div>
               <div class="contact-label">Phone / WhatsApp</div>
               <div class="contact-value">+250 788 675 638</div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📧</div>
+            <div class="contact-icon"><img src="images/gmail.png" alt="" class="page-icon"></div>
             <div>
               <div class="contact-label">Email</div>
               <div class="contact-value">info@bravesoulswellness.com</div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon"><img src="images/map.png" alt="" class="page-icon"></div>
             <div>
               <div class="contact-label">Location</div>
               <div class="contact-value">Kigali, Rwanda</div>
@@ -1906,10 +2082,33 @@ window.addEventListener('scroll', () => {
 const heroBg = document.querySelector('.hero-bg');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  if (heroBg && y < 900) {
-    heroBg.style.transform = `translateY(${y * 0.08}px)`;
+  if (heroBg) {
+    heroBg.style.transform = y < 900 ? `translate3d(0, ${y * 0.08}px, 0)` : '';
   }
 }, { passive: true });
+
+function restartMotionAnimations() {
+  document.querySelectorAll(
+    '.hero-bg, .hero-card-floating, .pillar-item, .book-card, .about-copy, .testimonials'
+  ).forEach(node => {
+    node.getAnimations().forEach(anim => {
+      anim.play();
+    });
+    const computed = getComputedStyle(node);
+    if (computed.animationName && computed.animationName !== 'none') {
+      node.style.animation = 'none';
+      void node.offsetWidth;
+      node.style.removeProperty('animation');
+    }
+  });
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') restartMotionAnimations();
+});
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) restartMotionAnimations();
+});
 
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -1927,6 +2126,13 @@ function handleSubmit(btn) {
     btn.style.background = '';
     btn.disabled = false;
   }, 3500);
+}
+
+function toggleFounder(btn) {
+  const card = btn.closest('.founder-card');
+  const expanded = card.classList.toggle('expanded');
+  btn.setAttribute('aria-expanded', expanded);
+  btn.querySelector('.founder-read-more-text').textContent = expanded ? 'Read less' : 'Read more';
 }
 
 const observer = new IntersectionObserver((entries) => {

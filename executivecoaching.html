@@ -258,7 +258,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
    GOLD STRIP
 ════════════════════════════ */
 .strip{background:var(--gold);padding:20px 0;overflow:hidden}
-.strip-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 24s linear infinite}
+.strip-inner{display:flex;gap:0;white-space:nowrap;animation:marquee 24s linear infinite;animation-play-state:running}
 .strip-item{
   font-family:'Playfair Display',serif;
   font-size:1rem;font-style:italic;font-weight:600;
@@ -1495,6 +1495,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const t = document.querySelector(a.getAttribute('href'));
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
+});
+
+function restartMotionAnimations() {
+  document.querySelectorAll('.strip-inner').forEach(node => {
+    node.getAnimations().forEach(anim => anim.play());
+    const computed = getComputedStyle(node);
+    if (computed.animationName && computed.animationName !== 'none') {
+      node.style.animation = 'none';
+      void node.offsetWidth;
+      node.style.removeProperty('animation');
+    }
+  });
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') restartMotionAnimations();
+});
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) restartMotionAnimations();
 });
 </script>
 </body>

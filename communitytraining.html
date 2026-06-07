@@ -31,14 +31,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
 .hero-video video{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,40,24,.88) 0%,rgba(14,40,24,.65) 50%,rgba(14,40,24,.80) 100%)}
 .rings{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:680px;height:680px;pointer-events:none}
-.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(200,148,42,.1);transform:translate(-50%,-50%);animation:ripple 5s ease-out infinite}
+@keyframes ripple{
+  0% { opacity: 0.25; transform: translate(-50%,-50%) scale(0.92); }
+  45% { opacity: 0.85; }
+  100% { opacity: 0.25; transform: translate(-50%,-50%) scale(1.08); }
+}
+.ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(200,148,42,.1);transform:translate(-50%,-50%);animation:ripple 5s ease-in-out infinite;animation-play-state:running}
 .ring:nth-child(1){width:110px;height:110px;border-color:rgba(223, 166, 53, 0.731);animation-delay:0s}
 .ring:nth-child(2){width:230px;height:230px;border-color:rgba(223, 166, 53, 0.731);animation-delay:.7s}
 .ring:nth-child(3){width:370px;height:370px;border-color:rgba(223, 166, 53, 0.731);animation-delay:1.4s}
 .ring:nth-child(4){width:520px;height:520px;border-color:rgba(223, 166, 53, 0.731);animation-delay:2.1s}
 .ring:nth-child(5){width:670px;height:670px;border-color:rgba(223, 166, 53, 0.731);animation-delay:2.8s}
 .ring-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--au);box-shadow:0 0 40px rgba(200,148,42,.5);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
-@keyframes ripple{0%{opacity:.8;transform:translate(-50%,-50%) scale(.96)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.04)}}
 .hero-inner{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:2}
 .hero-kicker{display:inline-flex;align-items:center;gap:12px;font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--au);margin-bottom:28px}
 .hero-kicker::before{content:'';width:28px;height:1px;background:var(--au)}
@@ -112,7 +116,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
 .ic-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--au);box-shadow:0 0 50px rgba(200,148,42,.4);display:flex;align-items:center;justify-content:center;font-size:2rem}
 .ic-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:230px;height:230px;border-radius:50%;border:1px dashed rgba(200,148,42,.18)}
 .ic-orbit{position:absolute;top:50%;left:50%;width:1px;height:1px}
-.ic-planet{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--ba);display:flex;align-items:center;justify-content:center;font-size:1.3rem;animation:orbit 12s linear infinite;transform-origin:center center}
+.ic-planet{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--ba);display:flex;align-items:center;justify-content:center;font-size:1.3rem;animation:orbit 12s linear infinite;animation-play-state:running;transform-origin:center center}
 .ic-planet:nth-child(1){animation-delay:0s}.ic-planet:nth-child(2){animation-delay:-2.4s}.ic-planet:nth-child(3){animation-delay:-4.8s}.ic-planet:nth-child(4){animation-delay:-7.2s}.ic-planet:nth-child(5){animation-delay:-9.6s}
 @keyframes orbit{from{transform:rotate(0deg) translateX(115px) rotate(0deg)}to{transform:rotate(360deg) translateX(115px) rotate(-360deg)}}
 
@@ -368,6 +372,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
   });
 });
+function restartMotionAnimations(){
+  document.querySelectorAll('.ring,.ic-planet').forEach(node=>{
+    node.getAnimations().forEach(anim=>anim.play());
+    const computed=getComputedStyle(node);
+    if(computed.animationName&&computed.animationName!=='none'){
+      node.style.animation='none';void node.offsetWidth;node.style.removeProperty('animation');
+    }
+  });
+}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')restartMotionAnimations()});
+window.addEventListener('pageshow',e=>{if(e.persisted)restartMotionAnimations()});
 </script>
 </body>
 </html>
