@@ -39,34 +39,365 @@ body {
 ::-webkit-scrollbar-track { background:var(--g0) }
 ::-webkit-scrollbar-thumb { background:var(--au); border-radius:2px }
 
-/* ── NAV ── */
-.nav {
-  position:fixed; top:0; left:0; right:0; z-index:900;
-  padding:22px 0; transition:padding .3s, background .3s;
+/* ══════════════════════════
+   NAVBAR
+══════════════════════════ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0;
+  background: rgba(10, 28, 16, 0.96);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(200,148,42,0.18);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
 }
-.nav.sc {
-  padding:13px 0; background:rgba(14,40,24,.97);
-  backdrop-filter:blur(20px); border-bottom:1px solid var(--bg);
+.navbar.scrolled {
+  background: rgba(8, 22, 12, 0.99);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.35);
 }
-.ni { display:flex; align-items:center; justify-content:space-between; max-width:1280px; margin:0 auto; padding:0 44px }
-.nb {
-    position: relative;left:100px;
-  display:flex; align-items:center; gap:17px; text-decoration:none;
-  font-size:10px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
-  color:rgba(255,255,255,.55); transition:color .25s;
+
+/* Inner layout */
+.navbar .container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 72px;
+  gap: 0;
 }
-.nb::before { content:'←'; color:var(--au) }
-.nb:hover { color:var(--au) }
-.nm { text-align:center }
-.nm-n { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; color:#fff }
-.nm-n span { color:var(--au) }
-.nm-s { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--ap); opacity:.65; margin-top:2px }
-.ncta {
-  font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-  text-decoration:none; padding:12px 24px; background:var(--au); color:#fff;
-  border-radius:2px; transition:var(--t);
+
+/* ── Logo ── */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  padding-right: 24px;
 }
-.ncta:hover { background:var(--al); transform:translateY(-2px) }
+.logo-image {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: opacity 0.25s;
+}
+.logo:hover .logo-image { opacity: 0.85; }
+
+/* ── Nav Links (desktop) ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  list-style: none;
+  height: 100%;
+}
+.nav-links > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nav-links > li > a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,0.72);
+  white-space: nowrap;
+  transition: color 0.25s ease;
+  position: relative;
+}
+/* Gold underline indicator */
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; right: 50%;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px 1px 0 0;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+.nav-links > li > a:hover,
+.nav-links > li > a.active {
+  color: var(--white);
+}
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+  left: 12px; right: 12px;
+}
+.nav-links > li > a.active { color: var(--gold-light); }
+
+/* Dropdown arrow */
+.nav-links .dropdown > a .arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  opacity: 0.6;
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+.nav-links .dropdown:hover > a .arrow { transform: rotate(180deg); }
+
+/* ── Dropdown menu ── */
+.dropdown-menu {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 230px;
+  background: #0b2316;
+  border: 1px solid rgba(200,148,42,0.22);
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,148,42,0.06);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+/* Arrow tip */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: rgba(200,148,42,0.22);
+  border-top: none;
+}
+.dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s, background 0.2s, padding-left 0.2s;
+  border-left: 2px solid transparent;
+}
+.dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(200,148,42,0.08);
+  padding-left: 24px;
+  border-left-color: var(--gold);
+}
+.dropdown-menu a .dm-icon {
+  font-size: 13px; width: 20px; text-align: center; flex-shrink: 0;
+}
+.dropdown-menu .dm-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 6px 16px;
+}
+
+/* ── CTA Button ── */
+.nav-cta {
+  padding: 11px 22px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(200,148,42,0.3);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,148,42,0.45);
+}
+
+/* ── Right side wrapper ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 24px;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; z-index: 1001;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  transform-origin: center;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu overlay */
+.mobile-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(5,18,10,0.6); backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.mobile-overlay.open { display: block; opacity: 1; }
+
+/* Mobile drawer */
+.mobile-menu {
+  position: fixed; top: 0; right: -100%; bottom: 0;
+  width: min(360px, 88vw);
+  background: linear-gradient(170deg, #0b2415 0%, #0e2818 60%, #0a1f12 100%);
+  border-left: 1px solid rgba(200,148,42,0.2);
+  z-index: 999; display: flex; flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.16,1,0.3,1);
+  overflow-y: auto;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+}
+.mobile-menu.open { right: 0; }
+
+/* Drawer header */
+.mm-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid rgba(200,148,42,0.15);
+  background: rgba(200,148,42,0.04);
+}
+.mm-brand {
+  display: flex; flex-direction: column;
+}
+.mm-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 700; color: var(--white);
+  letter-spacing: 0.5px;
+}
+.mm-brand-name span { color: var(--gold); }
+.mm-brand-sub {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-top: 3px;
+}
+.mm-close {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+  transition: background 0.25s, border-color 0.25s;
+  flex-shrink: 0;
+}
+.mm-close:hover { background: rgba(200,148,42,0.2); border-color: var(--gold); color: var(--gold); }
+
+/* Drawer nav body */
+.mm-body { flex: 1; padding: 12px 0; }
+.mm-section-label {
+  font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(200,148,42,0.6); padding: 16px 24px 8px;
+}
+.mm-divider {
+  height: 1px; background: rgba(255,255,255,0.06); margin: 8px 24px;
+}
+.mobile-menu a {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem; font-weight: 500;
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  transition: all 0.25s ease;
+  border-left: 2px solid transparent;
+  position: relative;
+}
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(200,148,42,0.07);
+  border-left-color: var(--gold);
+  padding-left: 28px;
+}
+.mm-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.mobile-menu a:hover .mm-icon {
+  background: rgba(200,148,42,0.15); border-color: rgba(200,148,42,0.4);
+}
+.mm-sub { font-size: 10px; color: rgba(255,255,255,0.35); display: block; margin-top: 1px; }
+.mm-text { display: flex; flex-direction: column; }
+
+/* Programs sub-links */
+.mm-sub-links {
+  background: rgba(0,0,0,0.15);
+  border-left: 2px solid rgba(200,148,42,0.2);
+  margin-left: 24px;
+}
+.mm-sub-links a {
+  padding: 10px 16px 10px 24px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  border-left: none;
+}
+.mm-sub-links a:hover {
+  color: var(--gold); background: rgba(200,148,42,0.06);
+  padding-left: 30px; border-left: none;
+}
+
+/* CTA at bottom */
+.mm-footer {
+  padding: 20px 24px 32px;
+  border-top: 1px solid rgba(200,148,42,0.12);
+  background: rgba(200,148,42,0.03);
+}
+.mm-cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px;
+  background: var(--gold);
+  color: var(--white) !important;
+  font-size: 11px !important; font-weight: 700 !important;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 6px; text-decoration: none !important;
+  transition: background 0.25s, transform 0.25s !important;
+  border-left: none !important;
+  box-shadow: 0 6px 20px rgba(200,148,42,0.35);
+}
+.mm-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-2px) !important;
+  padding-left: 15px !important;
+  border-left: none !important;
+}
+.mm-social {
+  display: flex; gap: 10px; margin-top: 14px; justify-content: center;
+}
+.mm-social-btn {
+  flex: 1; padding: 10px 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px; text-decoration: none;
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 10px !important; font-weight: 600 !important;
+  letter-spacing: 1px; text-transform: uppercase;
+  text-align: center; transition: all 0.25s !important;
+  border-left: none !important;
+}
+.mm-social-btn:hover {
+  background: rgba(200,148,42,0.12) !important;
+  border-color: rgba(200,148,42,0.3) !important;
+  color: var(--gold) !important;
+  padding-left: 8px !important; border-left: none !important;
+}
 
 /* ══════════════════════════════════════
    HERO — EDITORIAL SPLIT
@@ -614,24 +945,173 @@ logo {
   margin-bottom: -43px;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
 }
+
+/* ══════════════════════════
+   RESPONSIVE — NAVBAR ONLY
+══════════════════════════ */
+@media (max-width: 1100px) {
+  .nav-links > li > a { padding: 0 10px; font-size: 10.5px; letter-spacing: 0.8px; }
+  .nav-cta { padding: 10px 18px; font-size: 10px; }
+  .logo-image { height: 48px; }
+}
+
+@media (max-width: 960px) {
+  .nav-links { display: none !important; }
+  .nav-cta { display: none !important; }
+  .hamburger { display: flex !important; }
+
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-right { padding-left: 0; }
+  .logo { padding-right: 0; }
+  .logo-image { height: 48px; }
+}
+
+@media (max-width: 768px) {
+  .navbar .container { height: 58px; }
+  .logo-image { height: 42px; }
+}
+
+@media (max-width: 560px) {
+  .navbar .container { height: 52px; }
+  .logo-image { height: 36px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav class="nav" id="nav">
-    <a href="#" class="logo">
-        <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
-      </a>
-  <div class="ni">
-    <a href="index.html" class="nb">Home</a>
-    <div class="nm">
-      <div class="nm-n">Brave <span>Souls</span> Wellness Group</div>
-      <div class="nm-s">Kigali, Rwanda</div>
+<!-- ═══════ NAVBAR ═══════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about" data-section="about">About</a></li>
+
+      <li class="dropdown">
+        <a href="index.html#programs" data-section="programs">Programs <span class="arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="sheisbraveelite.html"><span class="dm-icon">💜</span> SheBraveElite</a>
+          <a href="executivecoaching.html"><span class="dm-icon">🏆</span> Executive Coaching</a>
+          <a href="personaltraining.html"><span class="dm-icon">💪</span> Personal Coaching</a>
+          <div class="dm-divider"></div>
+          <a href="communitytraining.html"><span class="dm-icon">🤝</span> Community Programs</a>
+        </div>
+      </li>
+
+      <li><a href="index.html#corporate" data-section="corporate">Corporate</a></li>
+      <li><a href="index.html#testimonials" data-section="testimonials">Testimonials</a></li>
+      <li><a href="index.html#team" data-section="team">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="admin-login.html" style="color:rgba(200,148,42,0.85); font-size:10px;">
+          🔐 Admin
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right side: CTA + Hamburger -->
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-gold nav-cta">Book Now</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <a href="https://wa.me/250788675638" target="_blank" class="ncta">✆ WhatsApp Us</a>
+
   </div>
 </nav>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobile()"></div>
+
+<!-- Mobile Drawer Menu -->
+<div class="mobile-menu" id="mobileMenu">
+
+  <!-- Header -->
+  <div class="mm-header">
+    <div class="mm-brand">
+      <div class="mm-brand-name">Brave <span>Souls</span> Wellness</div>
+      <div class="mm-brand-sub">Kigali, Rwanda</div>
+    </div>
+    <button class="mm-close" id="mobileClose">✕</button>
+  </div>
+
+  <!-- Nav Body -->
+  <div class="mm-body">
+
+    <div class="mm-section-label">Navigate</div>
+
+    <a href="index.html#about" onclick="closeMobile()">
+      <span class="mm-icon">🏡</span>
+      <span class="mm-text">About Us<span class="mm-sub">Our story & mission</span></span>
+    </a>
+
+    <a href="index.html#programs" onclick="closeMobile()">
+      <span class="mm-icon">🏋️</span>
+      <span class="mm-text">Programs<span class="mm-sub">All wellness programs</span></span>
+    </a>
+
+    <!-- Programs sub-links -->
+    <div class="mm-sub-links">
+      <a href="sheisbraveelite.html" onclick="closeMobile()">✦ SheBraveElite</a>
+      <a href="executivecoaching.html" onclick="closeMobile()">✦ Executive Coaching</a>
+      <a href="personaltraining.html" onclick="closeMobile()">✦ Personal Coaching</a>
+      <a href="communitytraining.html" onclick="closeMobile()">✦ Community Programs</a>
+    </div>
+
+    <a href="index.html#corporate" onclick="closeMobile()">
+      <span class="mm-icon">🏢</span>
+      <span class="mm-text">Corporate Wellness<span class="mm-sub">Team & organization plans</span></span>
+    </a>
+
+    <div class="mm-divider"></div>
+    <div class="mm-section-label">Company</div>
+
+    <a href="index.html#testimonials" onclick="closeMobile()">
+      <span class="mm-icon">⭐</span>
+      <span class="mm-text">Testimonials<span class="mm-sub">Client success stories</span></span>
+    </a>
+
+    <a href="index.html#team" onclick="closeMobile()">
+      <span class="mm-icon">👥</span>
+      <span class="mm-text">Our Team<span class="mm-sub">Meet the coaches</span></span>
+    </a>
+
+    <a href="contact.html" onclick="closeMobile()">
+      <span class="mm-icon">💬</span>
+      <span class="mm-text">Contact<span class="mm-sub">Get in touch today</span></span>
+    </a>
+
+    <div class="mm-divider"></div>
+
+    <a href="admin-login.html" onclick="closeMobile()" style="color:rgba(200,148,42,0.8)">
+      <span class="mm-icon" style="border-color:rgba(200,148,42,0.25)">🔐</span>
+      <span class="mm-text">Admin Portal<span class="mm-sub">Staff access only</span></span>
+    </a>
+
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="mm-footer">
+    <a href="contact.html" class="mm-cta" onclick="closeMobile()">✦ Apply for Coaching</a>
+    <div class="mm-social">
+      <a href="https://wa.me/250788675638" target="_blank" class="mm-social-btn">WhatsApp</a>
+      <a href="#" class="mm-social-btn">Instagram</a>
+      <a href="#" class="mm-social-btn">Facebook</a>
+    </div>
+  </div>
+
+</div>
+
 
 <!-- ══════════════════════════════════
      HERO
@@ -785,28 +1265,28 @@ logo {
       <div class="form-row">
         <div class="fg">
           <label>First Name *</label>
-          <input type="text" placeholder="Jean Pierre" required>
+          <input type="text" id="contactFirstName" placeholder="Jean Pierre" required>
         </div>
         <div class="fg">
           <label>Last Name *</label>
-          <input type="text" placeholder="Mufukuzi" required>
+          <input type="text" id="contactLastName" placeholder="Mufukuzi" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="fg">
           <label>Email Address *</label>
-          <input type="email" placeholder="you@email.com" required>
+          <input type="email" id="contactEmail" placeholder="you@email.com" required>
         </div>
         <div class="fg">
           <label>WhatsApp / Phone</label>
-          <input type="tel" placeholder="+250 7XX XXX XXX">
+          <input type="tel" id="contactWhatsapp" placeholder="+250 7XX XXX XXX">
         </div>
       </div>
 
       <div class="fg">
         <label>I Am Enquiring As *</label>
-        <select required>
+        <select id="contactProgram" required>
           <option value="">Select…</option>
           <option>An individual seeking personal coaching</option>
           <option>A business / corporate organisation</option>
@@ -834,12 +1314,12 @@ logo {
 
       <div class="fg">
         <label>Your Message *</label>
-        <textarea placeholder="Tell us about yourself, your goals, your organisation, or what you're looking to achieve. The more detail you share, the better we can help…" required></textarea>
+        <textarea id="contactChallenge" placeholder="Tell us about yourself, your goals, your organisation, or what you're looking to achieve. The more detail you share, the better we can help…" required></textarea>
       </div>
 
       <div class="fg">
         <label>How Did You Hear About Us?</label>
-        <select>
+        <select id="contactSource">
           <option value="">Select…</option>
           <option>Instagram / Social Media</option>
           <option>Google Search</option>
@@ -1322,16 +1802,45 @@ function toggleFaq(btn) {
 }
 
 /* ── Form submit ── */
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqkpI5myxmD7YkeYi7DYs17ZoTvhBgQERRnWdFAt8SBNwVSQpj123khXTTeX80ES31aQ/exec";
+
 function handleSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-  form.style.opacity = '0';
-  form.style.transition = 'opacity .4s ease';
-  setTimeout(() => {
-    form.style.display = 'none';
-    success.classList.add('show');
-  }, 400);
+  const btn = form.querySelector('button[type="submit"]');
+
+  const data = {
+    firstName: document.getElementById('contactFirstName').value,
+    lastName: document.getElementById('contactLastName').value,
+    email: document.getElementById('contactEmail').value,
+    whatsapp: document.getElementById('contactWhatsapp').value,
+    program: document.getElementById('contactProgram').value,
+    challenge: document.getElementById('contactChallenge').value,
+    source: document.getElementById('contactSource').value
+  };
+
+  const origText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    form.style.opacity = '0';
+    form.style.transition = 'opacity .4s ease';
+    setTimeout(() => {
+      form.style.display = 'none';
+      success.classList.add('show');
+    }, 400);
+  }).catch((error) => {
+    console.error('Error!', error.message);
+    btn.innerHTML = 'Error. Try Again.';
+    btn.disabled = false;
+  });
 }
 
 /* ── Smooth scroll ── */
@@ -1341,6 +1850,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
+</script>
+<script>
+
+function toggleMobile() {
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+  const ham = document.getElementById('hamburger');
+  if(!menu) return;
+  menu.classList.toggle('active');
+  overlay.classList.toggle('active');
+  ham.classList.toggle('active');
+  document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+}
+function closeMobile() {
+  const menu = document.getElementById('mobileMenu');
+  if(!menu) return;
+  menu.classList.remove('active');
+  document.getElementById('mobileOverlay').classList.remove('active');
+  document.getElementById('hamburger').classList.remove('active');
+  document.body.style.overflow = '';
+}
+const ham = document.getElementById('hamburger');
+if(ham) ham.addEventListener('click', toggleMobile);
+const mobileClose = document.getElementById('mobileClose');
+if(mobileClose) mobileClose.addEventListener('click', closeMobile);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
+
 </script>
 </body>
 </html>

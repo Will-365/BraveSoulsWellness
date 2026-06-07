@@ -53,108 +53,364 @@ body {
 }
 .btn-outline-white:hover { background: var(--white); color: var(--green-deep); transform: translateY(-2px); }
 
-/* ── NAVBAR ── */
+/* ══════════════════════════
+   NAVBAR
+══════════════════════════ */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 13px 0;
-  background: rgba(14,40,24,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  transition: padding 0.3s, background 0.3s;
+  padding: 0;
+  background: rgba(10, 28, 16, 0.96);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid rgba(200,148,42,0.18);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
 }
-.navbar.scrolled { padding: 11px 0; background: rgba(10,30,18,0.97); }
+.navbar.scrolled {
+  background: rgba(8, 22, 12, 0.99);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.35);
+}
+
+/* Inner layout */
 .navbar .container {
-  display: flex; align-items: center; justify-content: space-between;
-  min-height: 64px;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 72px;
+  gap: 0;
 }
+
+/* ── Logo ── */
 .logo {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  height: 64px;
-  overflow: visible;
   flex-shrink: 0;
+  padding-right: 24px;
 }
 .logo-image {
-  height: 110px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   display: block;
-  margin-top: -43px;
-  margin-bottom: -43px;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  transition: opacity 0.25s;
 }
+.logo:hover .logo-image { opacity: 0.85; }
+
+/* ── Nav Links (desktop) ── */
 .nav-links {
-  display: flex; align-items: center; gap: 2px;
-  list-style: none;
-  flex: 1;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  min-width: 0;
+  gap: 0;
+  list-style: none;
+  height: 100%;
 }
-.nav-links a {
-  font-size: 11px; font-weight: 500; letter-spacing: 0.8px;
-  text-transform: uppercase; text-decoration: none;
-  color: rgba(255,255,255,0.8);
-  padding: 8px 9px; border-radius: 2px;
-  transition: color 0.25s, background 0.25s;
+.nav-links > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
   position: relative;
+}
+.nav-links > li > a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,0.72);
   white-space: nowrap;
+  transition: color 0.25s ease;
+  position: relative;
 }
-.nav-links a:hover { color: var(--gold); }
-.nav-links .dropdown { position: relative; }
-.nav-links .dropdown > a::after { content: ' ▾'; font-size: 10px; }
-.dropdown-menu {
-  display: none; position: absolute; top: calc(100% + 8px); left: 0;
-  min-width: 220px;
-  background: var(--green-deep);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 8px 0;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+/* Gold underline indicator */
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; right: 50%;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px 1px 0 0;
+  transition: left 0.3s ease, right 0.3s ease;
 }
-.dropdown:hover .dropdown-menu { display: block; }
-.dropdown-menu a {
-  display: block; padding: 10px 20px;
-  font-size: 12px; color: rgba(255,255,255,0.75);
-  text-transform: none; letter-spacing: 0.5px;
+.nav-links > li > a:hover,
+.nav-links > li > a.active {
+  color: var(--white);
 }
-.dropdown-menu a:hover { color: var(--gold); background: rgba(200,148,42,0.1); }
-.nav-cta {
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
+  left: 12px; right: 12px;
+}
+.nav-links > li > a.active { color: var(--gold-light); }
+
+/* Dropdown arrow */
+.nav-links .dropdown > a .arrow {
+  display: inline-block;
   margin-left: 4px;
-  padding: 10px 14px;
-  font-size: 10px;
-  letter-spacing: 1px;
+  font-size: 8px;
+  opacity: 0.6;
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+.nav-links .dropdown:hover > a .arrow { transform: rotate(180deg); }
+
+/* ── Dropdown menu ── */
+.dropdown-menu {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 230px;
+  background: #0b2316;
+  border: 1px solid rgba(200,148,42,0.22);
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(200,148,42,0.06);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+/* Arrow tip */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: rgba(200,148,42,0.22);
+  border-top: none;
+}
+.dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.dropdown-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s, background 0.2s, padding-left 0.2s;
+  border-left: 2px solid transparent;
+}
+.dropdown-menu a:hover {
+  color: var(--gold);
+  background: rgba(200,148,42,0.08);
+  padding-left: 24px;
+  border-left-color: var(--gold);
+}
+.dropdown-menu a .dm-icon {
+  font-size: 13px; width: 20px; text-align: center; flex-shrink: 0;
+}
+.dropdown-menu .dm-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 6px 16px;
+}
+
+/* ── CTA Button ── */
+.nav-cta {
+  padding: 11px 22px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   white-space: nowrap;
   flex-shrink: 0;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(200,148,42,0.3);
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200,148,42,0.45);
+}
+
+/* ── Right side wrapper ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 24px;
+}
+
+/* Hamburger */
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 4px;
+  cursor: pointer; padding: 6px; z-index: 1001;
 }
 .hamburger span {
-  display: block; width: 24px; height: 2px;
-  background: var(--white); border-radius: 1px;
-  transition: var(--transition);
+  display: block; width: 26px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  transform-origin: center;
 }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu overlay */
+.mobile-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(5,18,10,0.6); backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.mobile-overlay.open { display: block; opacity: 1; }
+
+/* Mobile drawer */
 .mobile-menu {
-  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--green-deep); z-index: 999;
-  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
-  padding: 80px 24px 40px;
+  position: fixed; top: 0; right: -100%; bottom: 0;
+  width: min(360px, 88vw);
+  background: linear-gradient(170deg, #0b2415 0%, #0e2818 60%, #0a1f12 100%);
+  border-left: 1px solid rgba(200,148,42,0.2);
+  z-index: 999; display: flex; flex-direction: column;
+  transition: right 0.4s cubic-bezier(0.16,1,0.3,1);
+  overflow-y: auto;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
 }
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
+.mobile-menu.open { right: 0; }
+
+/* Drawer header */
+.mm-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid rgba(200,148,42,0.15);
+  background: rgba(200,148,42,0.04);
+}
+.mm-brand {
+  display: flex; flex-direction: column;
+}
+.mm-brand-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem; font-weight: 600;
-  color: var(--white); text-decoration: none;
-  transition: color 0.25s;
+  font-size: 1.05rem; font-weight: 700; color: var(--white);
+  letter-spacing: 0.5px;
 }
-.mobile-menu a:hover { color: var(--gold); }
-.mobile-close {
-  position: absolute; top: 24px; right: 24px;
-  background: none; border: none; cursor: pointer;
-  font-size: 1.6rem; color: var(--white);
+.mm-brand-name span { color: var(--gold); }
+.mm-brand-sub {
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-top: 3px;
+}
+.mm-close {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+  transition: background 0.25s, border-color 0.25s;
+  flex-shrink: 0;
+}
+.mm-close:hover { background: rgba(200,148,42,0.2); border-color: var(--gold); color: var(--gold); }
+
+/* Drawer nav body */
+.mm-body { flex: 1; padding: 12px 0; }
+.mm-section-label {
+  font-size: 8px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(200,148,42,0.6); padding: 16px 24px 8px;
+}
+.mm-divider {
+  height: 1px; background: rgba(255,255,255,0.06); margin: 8px 24px;
+}
+.mobile-menu a {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem; font-weight: 500;
+  color: rgba(255,255,255,0.8); text-decoration: none;
+  transition: all 0.25s ease;
+  border-left: 2px solid transparent;
+  position: relative;
+}
+.mobile-menu a:hover {
+  color: var(--gold);
+  background: rgba(200,148,42,0.07);
+  border-left-color: var(--gold);
+  padding-left: 28px;
+}
+.mm-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+.mobile-menu a:hover .mm-icon {
+  background: rgba(200,148,42,0.15); border-color: rgba(200,148,42,0.4);
+}
+.mm-sub { font-size: 10px; color: rgba(255,255,255,0.35); display: block; margin-top: 1px; }
+.mm-text { display: flex; flex-direction: column; }
+
+/* Programs sub-links */
+.mm-sub-links {
+  background: rgba(0,0,0,0.15);
+  border-left: 2px solid rgba(200,148,42,0.2);
+  margin-left: 24px;
+}
+.mm-sub-links a {
+  padding: 10px 16px 10px 24px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  border-left: none;
+}
+.mm-sub-links a:hover {
+  color: var(--gold); background: rgba(200,148,42,0.06);
+  padding-left: 30px; border-left: none;
+}
+
+/* CTA at bottom */
+.mm-footer {
+  padding: 20px 24px 32px;
+  border-top: 1px solid rgba(200,148,42,0.12);
+  background: rgba(200,148,42,0.03);
+}
+.mm-cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px;
+  background: var(--gold);
+  color: var(--white) !important;
+  font-size: 11px !important; font-weight: 700 !important;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 6px; text-decoration: none !important;
+  transition: background 0.25s, transform 0.25s !important;
+  border-left: none !important;
+  box-shadow: 0 6px 20px rgba(200,148,42,0.35);
+}
+.mm-cta:hover {
+  background: var(--gold-light) !important;
+  transform: translateY(-2px) !important;
+  padding-left: 15px !important;
+  border-left: none !important;
+}
+.mm-social {
+  display: flex; gap: 10px; margin-top: 14px; justify-content: center;
+}
+.mm-social-btn {
+  flex: 1; padding: 10px 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px; text-decoration: none;
+  color: rgba(255,255,255,0.5) !important;
+  font-size: 10px !important; font-weight: 600 !important;
+  letter-spacing: 1px; text-transform: uppercase;
+  text-align: center; transition: all 0.25s !important;
+  border-left: none !important;
+}
+.mm-social-btn:hover {
+  background: rgba(200,148,42,0.12) !important;
+  border-color: rgba(200,148,42,0.3) !important;
+  color: var(--gold) !important;
+  padding-left: 8px !important; border-left: none !important;
 }
 
 /* ── HERO ── */
@@ -1069,6 +1325,7 @@ body {
   background: rgba(14,40,24,0.08);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem; flex-shrink: 0;
+  color: var(--gold);
 }
 .contact-label {
   font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
@@ -1201,10 +1458,39 @@ section.content-placeholder {
   color: var(--text-muted);
 }
 
-@media (max-width: 1024px) {
+/* ══════════════════════════
+   RESPONSIVE — 1100px
+══════════════════════════ */
+@media (max-width: 1100px) {
+  .nav-links > li > a { padding: 0 10px; font-size: 10.5px; letter-spacing: 0.8px; }
+  .nav-cta { padding: 10px 18px; font-size: 10px; }
+  .logo-image { height: 48px; }
+}
+
+/* ══════════════════════════
+   RESPONSIVE — 960px (switch to mobile nav)
+══════════════════════════ */
+@media (max-width: 960px) {
+  /* Hide desktop links, show hamburger */
+  .nav-links { display: none !important; }
+  .nav-cta { display: none !important; }
+  .hamburger { display: flex !important; }
+
+  /* Simplify navbar grid to logo + hamburger */
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-right { padding-left: 0; }
+  .logo { padding-right: 0; }
+  .logo-image { height: 48px; }
+
+  /* Content */
   .hero { min-height: auto; }
-  .hero-content { grid-template-columns: 1fr; gap: 34px; padding: 96px 0 52px; align-items: center; }
-  .hero-left { max-width: 680px; }
+  .hero-content { grid-template-columns: 1fr; gap: 34px; padding: 96px 0 52px; align-items: center; margin-top: 0; }
+  .hero-left { max-width: 680px; margin-top: 0; }
   .hero-right { align-items: center; }
   .hero-coach-wrap { width: min(480px, 100%); }
   .hero-tags { justify-content: center; }
@@ -1212,39 +1498,28 @@ section.content-placeholder {
   .hero-card-floating.card-2 { left: 2%; top: 54%; }
 
   .about-shell {
-    grid-template-columns: 130px 1fr;
-    grid-template-rows: auto 400px;
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: auto 350px;
     min-height: auto;
   }
-  .about-rail {
-    grid-row: 1 / span 2;
-  }
-  .about-copy {
-    grid-column: 2;
-    grid-row: 1;
-    margin-right: 0;
-  }
-  .about-visual {
-    grid-column: 2;
-    grid-row: 2;
-  }
+  .about-rail { grid-row: 1 / span 2; }
+  .about-rail-text { font-size: 1.2rem; letter-spacing: 5px; }
+  .about-copy { grid-column: 2; grid-row: 1; margin-right: 0; padding: 40px 28px; }
+  .about-copy-inner p { font-size: 0.95rem; }
+  .about-visual { grid-column: 2; grid-row: 2; }
   .programs-grid, .corp-grid, .contact-grid, .booking-grid, .founders-grid { grid-template-columns: 1fr; }
   .testi-layout { grid-template-columns: 1fr; }
   .testi-media-stack { margin-top: 10px; min-height: 480px; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
+/* ══════════════════════════
+   RESPONSIVE — 768px
+══════════════════════════ */
 @media (max-width: 768px) {
-  .nav-links, .nav-cta { display: none; }
-  .hamburger { display: flex; }
-  .navbar { padding: 12px 0; }
-  .navbar .container { min-height: 56px; }
-  .logo { height: 56px; }
-  .logo-image {
-    height: 76px;
-    margin-top: -10px;
-    margin-bottom: -10px;
-  }
+  .navbar .container { height: 58px; }
+  .logo-image { height: 42px; }
+
   .hero-content { grid-template-columns: 1fr; padding: 86px 0 44px; gap: 28px; }
   .hero-left {
     max-width: 100%;
@@ -1295,26 +1570,33 @@ section.content-placeholder {
   .about-shell {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
+    min-height: auto;
   }
   .about-rail {
     grid-template-columns: 1fr 1fr;
-    min-height: 88px;
+    min-height: 72px;
+    order: -1;
   }
+  .about-rail-col { padding: 16px 12px; }
   .about-rail-text {
     writing-mode: horizontal-tb;
     transform: none;
     letter-spacing: 4px;
-    font-size: 1.1rem;
+    font-size: 0.85rem;
   }
   .about-copy {
-    padding: 34px 24px;
+    padding: 36px 24px;
     margin-right: 0;
   }
+  .about-copy-inner {
+    max-width: 100%;
+  }
   .about-copy-inner p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
   }
   .about-visual {
-    min-height: 330px;
+    min-height: 280px;
   }
   .book-feature {
     grid-template-columns: 1fr;
@@ -1350,13 +1632,28 @@ section.content-placeholder {
   .form-row { grid-template-columns: 1fr; }
 }
 
+/* ══════════════════════════
+   RESPONSIVE — 560px
+══════════════════════════ */
 @media (max-width: 560px) {
-  .hero-card-floating { display: none; } /* responsive hide on small screens */
+  .navbar .container { height: 52px; }
+  .logo-image { height: 36px; }
+
+  .hero-card-floating { display: none; }
   .hero-tags { margin-top: 22px; }
   .hero-headline { font-size: 2.8rem; }
   .hero-btns { flex-direction: column; }
   .hero-btns .btn { justify-content: center; }
-  .hero-content { padding: 82px 0 36px; }
+  .hero-content { padding: 72px 0 36px; }
+
+  /* About section — smallest screens */
+  .about-rail { min-height: 60px; }
+  .about-rail-col { padding: 12px 8px; }
+  .about-rail-text { font-size: 0.7rem; letter-spacing: 3px; }
+  .about-copy { padding: 28px 18px; }
+  .about-copy-inner p { font-size: 0.9rem; }
+  .about-visual { min-height: 220px; }
+  .about-copy-cta { font-size: 10px; padding: 12px 16px; }
 }
 </style>
 </head>
@@ -1365,45 +1662,129 @@ section.content-placeholder {
 <!-- ═══════ NAVBAR ═══════ -->
 <nav class="navbar" id="navbar">
   <div class="container">
+
+    <!-- Logo -->
     <a href="#" class="logo">
       <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
     </a>
 
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+    <!-- Desktop Nav Links -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-section="about">About</a></li>
+
       <li class="dropdown">
-        <a href="#programs">Programs</a>
+        <a href="#programs" data-section="programs">Programs <span class="arrow">▾</span></a>
         <div class="dropdown-menu">
-          <a href="sheisbraveelite.html">SheBraveElite</a>
-          <a href="executivecoaching.html">Executive Coaching</a>
-          <a href="personaltraining.html">Personal Coaching</a>
-          <a href="communitytraining.html">Community Programs</a>
+          <a href="sheisbraveelite.html"><span class="dm-icon">💜</span> SheBraveElite</a>
+          <a href="executivecoaching.html"><span class="dm-icon">🏆</span> Executive Coaching</a>
+          <a href="personaltraining.html"><span class="dm-icon">💪</span> Personal Coaching</a>
+          <div class="dm-divider"></div>
+          <a href="communitytraining.html"><span class="dm-icon">🤝</span> Community Programs</a>
         </div>
       </li>
-      <li><a href="#corporate">Corporate Wellness</a></li>
-      <li><a href="#booking">Education</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#team">Our Team</a></li>
+
+      <li><a href="#corporate" data-section="corporate">Corporate</a></li>
+      <li><a href="#testimonials" data-section="testimonials">Testimonials</a></li>
+      <li><a href="#team" data-section="team">Our Team</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="admin-login.html" style="color:rgba(200,148,42,0.85); font-size:10px;">
+          🔐 Admin
+        </a>
+      </li>
     </ul>
 
-    <a href="contact.html" class="btn btn-gold nav-cta">Book Now</a>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+    <!-- Right side: CTA + Hamburger -->
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-gold nav-cta">Book Now</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
     </div>
+
   </div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobile()"></div>
+
+<!-- Mobile Drawer Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" id="mobileClose">✕</button>
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#programs" onclick="closeMobile()">Programs</a>
-  <a href="#corporate" onclick="closeMobile()">Corporate Wellness</a>
-  <a href="#booking" onclick="closeMobile()">Book Consultation</a>
-  <a href="#testimonials" onclick="closeMobile()">Testimonials</a>
-  <a href="#team" onclick="closeMobile()">Our Team</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
+
+  <!-- Header -->
+  <div class="mm-header">
+    <div class="mm-brand">
+      <div class="mm-brand-name">Brave <span>Souls</span> Wellness</div>
+      <div class="mm-brand-sub">Kigali, Rwanda</div>
+    </div>
+    <button class="mm-close" id="mobileClose">✕</button>
+  </div>
+
+  <!-- Nav Body -->
+  <div class="mm-body">
+
+    <div class="mm-section-label">Navigate</div>
+
+    <a href="#about" onclick="closeMobile()">
+      <span class="mm-icon">🏡</span>
+      <span class="mm-text">About Us<span class="mm-sub">Our story & mission</span></span>
+    </a>
+
+    <a href="#programs" onclick="closeMobile()">
+      <span class="mm-icon">🏋️</span>
+      <span class="mm-text">Programs<span class="mm-sub">All wellness programs</span></span>
+    </a>
+
+    <!-- Programs sub-links -->
+    <div class="mm-sub-links">
+      <a href="sheisbraveelite.html" onclick="closeMobile()">✦ SheBraveElite</a>
+      <a href="executivecoaching.html" onclick="closeMobile()">✦ Executive Coaching</a>
+      <a href="personaltraining.html" onclick="closeMobile()">✦ Personal Coaching</a>
+      <a href="communitytraining.html" onclick="closeMobile()">✦ Community Programs</a>
+    </div>
+
+    <a href="#corporate" onclick="closeMobile()">
+      <span class="mm-icon">🏢</span>
+      <span class="mm-text">Corporate Wellness<span class="mm-sub">Team & organization plans</span></span>
+    </a>
+
+    <div class="mm-divider"></div>
+    <div class="mm-section-label">Company</div>
+
+    <a href="#testimonials" onclick="closeMobile()">
+      <span class="mm-icon">⭐</span>
+      <span class="mm-text">Testimonials<span class="mm-sub">Client success stories</span></span>
+    </a>
+
+    <a href="#team" onclick="closeMobile()">
+      <span class="mm-icon">👥</span>
+      <span class="mm-text">Our Team<span class="mm-sub">Meet the coaches</span></span>
+    </a>
+
+    <a href="contact.html" onclick="closeMobile()">
+      <span class="mm-icon">💬</span>
+      <span class="mm-text">Contact<span class="mm-sub">Get in touch today</span></span>
+    </a>
+
+    <div class="mm-divider"></div>
+
+    <a href="admin-login.html" onclick="closeMobile()" style="color:rgba(200,148,42,0.8)">
+      <span class="mm-icon" style="border-color:rgba(200,148,42,0.25)">🔐</span>
+      <span class="mm-text">Admin Portal<span class="mm-sub">Staff access only</span></span>
+    </a>
+
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="mm-footer">
+    <a href="contact.html" class="mm-cta" onclick="closeMobile()">✦ Apply for Coaching</a>
+    <div class="mm-social">
+      <a href="https://wa.me/250788675638" target="_blank" class="mm-social-btn">WhatsApp</a>
+      <a href="#" class="mm-social-btn">Instagram</a>
+      <a href="#" class="mm-social-btn">Facebook</a>
+    </div>
+  </div>
+
 </div>
 
 <!-- ═══════ HERO ═══════ -->
@@ -1413,7 +1794,7 @@ section.content-placeholder {
   <div class="container">
     <div class="hero-content">
       <div class="hero-left">
-        <div class="hero-eyebrow animate">Kigali, Rwanda — Est. 2024</div>
+        <div class="hero-eyebrow animate">Kigali, Rwanda — Est. 2026</div>
         <h1 class="hero-headline animate delay-1">
           Healthy Body.<br><em>Strong Spirit.</em>
         </h1>
@@ -1798,21 +2179,21 @@ section.content-placeholder {
         </p>
         <div class="contact-info-block animate delay-2">
           <div class="contact-item">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
             <div>
               <div class="contact-label">Phone / WhatsApp</div>
               <div class="contact-value">+250 788 675 638</div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📧</div>
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
             <div>
               <div class="contact-label">Email</div>
               <div class="contact-value">info@bravesoulswellness.com</div>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
             <div>
               <div class="contact-label">Location</div>
               <div class="contact-value">Kigali, Rwanda</div>
@@ -1825,20 +2206,47 @@ section.content-placeholder {
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Jean Pierre">
+            <input type="text" id="homeFirstName" placeholder="Jean Pierre">
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Mufukuzi">
+            <input type="text" id="homeLastName" placeholder="Mufukuzi">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="homeEmail" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="homeWhatsapp" placeholder="+250 7XX XXX XXX">
           </div>
         </div>
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com">
+          <label>Program</label>
+          <select id="homeProgram">
+            <option value="" disabled selected>Select a program</option>
+            <option value="SheBraveElite">SheBraveElite</option>
+            <option value="Executive Coaching">Executive Coaching</option>
+            <option value="Personal Coaching">Personal Coaching</option>
+            <option value="Community Programs">Community Programs</option>
+          </select>
         </div>
         <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us about your goals or your organization's needs…"></textarea>
+          <label>Biggest Challenge Right Now</label>
+          <textarea id="homeChallenge" placeholder="Tell us the main challenge you're facing — physically, mentally, or in your daily lifestyle. Be honest. This is where transformation begins…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>How Did You Hear About Us?</label>
+          <select id="homeSource">
+            <option value="">Select an option…</option>
+            <option>Instagram / Social Media</option>
+            <option>Referral from a friend or client</option>
+            <option>Brave Souls Wellness website</option>
+            <option>WhatsApp / Community group</option>
+            <option>Other</option>
+          </select>
         </div>
         <button class="btn btn-green" style="width:100%; justify-content:center;" onclick="handleSubmit(this)">Send Message</button>
       </div>
@@ -1880,6 +2288,7 @@ section.content-placeholder {
           <li><a href="#about">About Us</a></li>
           <li><a href="#team">Our Team</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
+          
           <li><a href="#booking">Book Consultation</a></li>
         </ul>
       </div>
@@ -1898,6 +2307,9 @@ section.content-placeholder {
 </footer>
 
 <script>
+// IMPORTANT: Paste your Google Apps Script Web App URL below
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqkpI5myxmD7YkeYi7DYs17ZoTvhBgQERRnWdFAt8SBNwVSQpj123khXTTeX80ES31aQ/exec";
+
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
@@ -1914,19 +2326,115 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
-hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+const mobileOverlay = document.getElementById('mobileOverlay');
+
+function openMobile() {
+  mobileMenu.classList.add('open');
+  mobileOverlay.classList.add('open');
+  hamburger.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  mobileOverlay.classList.remove('open');
+  hamburger.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) { closeMobile(); } else { openMobile(); }
+});
 mobileClose.addEventListener('click', closeMobile);
-function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// Close on Escape key
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
+
+// ── Scroll spy: highlight active nav link ──
+const navSections = document.querySelectorAll('[data-section]');
+const sectionMap = {};
+navSections.forEach(link => {
+  const id = link.getAttribute('data-section');
+  const section = document.getElementById(id);
+  if (section) sectionMap[id] = { link, section };
+});
+
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120;
+  let activeId = null;
+  Object.entries(sectionMap).forEach(([id, { section }]) => {
+    if (section.offsetTop <= scrollY && section.offsetTop + section.offsetHeight > scrollY) {
+      activeId = id;
+    }
+  });
+  navSections.forEach(link => link.classList.remove('active'));
+  if (activeId && sectionMap[activeId]) {
+    sectionMap[activeId].link.classList.add('active');
+  }
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// ── Smooth scroll for nav links (offset for fixed navbar) ──
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    }
+  });
+});
 
 function handleSubmit(btn) {
-  btn.textContent = '✓ Message Sent!';
-  btn.style.background = 'var(--gold)';
+  if (!SCRIPT_URL) {
+    alert("Please set the SCRIPT_URL in the HTML file first!");
+    return;
+  }
+
+  const data = {
+    firstName: document.getElementById('homeFirstName').value,
+    lastName: document.getElementById('homeLastName').value,
+    email: document.getElementById('homeEmail').value,
+    whatsapp: document.getElementById('homeWhatsapp').value,
+    program: document.getElementById('homeProgram').value,
+    challenge: document.getElementById('homeChallenge').value,
+    source: document.getElementById('homeSource').value
+  };
+
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Send Message';
-    btn.style.background = '';
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'var(--gold)';
+    
+    // Clear inputs
+    document.getElementById('homeFirstName').value = '';
+    document.getElementById('homeLastName').value = '';
+    document.getElementById('homeEmail').value = '';
+    document.getElementById('homeWhatsapp').value = '';
+    document.getElementById('homeProgram').value = '';
+    document.getElementById('homeChallenge').value = '';
+    document.getElementById('homeSource').value = '';
+
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }).catch((error) => {
+    console.error('Error!', error.message);
+    btn.textContent = 'Error. Try Again.';
     btn.disabled = false;
-  }, 3500);
+  });
 }
 
 const observer = new IntersectionObserver((entries) => {

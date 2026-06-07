@@ -1089,7 +1089,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       <a href="index.html" class="nav-back">Back to Home</a>
       <div class="nav-brand">
       </div>
-      <a href="#apply" class="btn btn-gold nav-cta-desk">Apply Now</a>
+      <a href="#apply" class="btn btn-gold nav-cta-desk" style="background: #c8942a !important; color: #ffffff !important; padding: 12px 24px !important; border-radius: 6px !important; box-shadow: 0 4px 12px rgba(200,148,42,0.4) !important; border: none !important; font-weight: bold !important; text-decoration: none !important;">Apply Now</a>
     </div>
   </div>
 </nav>
@@ -1511,16 +1511,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       <div class="apply-form-title">Apply for SheBraveElite</div>
       <p class="apply-form-sub">Complete this form and Coach Brave's team will be in touch within 24–48 hours to schedule your intake consultation.</p>
       <div class="form-row">
-        <div class="fg"><label>First Name</label><input type="text" placeholder="Your first name"></div>
-        <div class="fg"><label>Last Name</label><input type="text" placeholder="Your last name"></div>
+        <div class="fg"><label>First Name</label><input type="text" id="eliteFirstName" placeholder="Your first name"></div>
+        <div class="fg"><label>Last Name</label><input type="text" id="eliteLastName" placeholder="Your last name"></div>
       </div>
       <div class="form-row">
-        <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
-        <div class="fg"><label>WhatsApp Number</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
+        <div class="fg"><label>Email Address</label><input type="email" id="eliteEmail" placeholder="your@email.com"></div>
+        <div class="fg"><label>WhatsApp Number</label><input type="tel" id="eliteWhatsapp" placeholder="+250 7XX XXX XXX"></div>
       </div>
       <div class="fg">
         <label>Your Primary Goal</label>
-        <select>
+        <select id="eliteProgram">
           <option value="">Select your main goal…</option>
           <option>Physical transformation — fat loss & body recomposition</option>
           <option>Build strength, muscle tone & fitness</option>
@@ -1532,11 +1532,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="fg">
         <label>Biggest Challenge Right Now</label>
-        <textarea placeholder="Tell us the main challenge you're facing — physically, mentally, or in your daily lifestyle. Be honest. This is where transformation begins…"></textarea>
+        <textarea id="eliteChallenge" placeholder="Tell us the main challenge you're facing — physically, mentally, or in your daily lifestyle. Be honest. This is where transformation begins…"></textarea>
       </div>
       <div class="fg">
         <label>How Did You Hear About SheBraveElite?</label>
-        <select>
+        <select id="eliteSource">
           <option value="">Select an option…</option>
           <option>Instagram / Social Media</option>
           <option>Referral from a friend or client</option>
@@ -1580,6 +1580,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 </footer>
 
 <script>
+// IMPORTANT: Paste your Google Apps Script Web App URL below
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxqkpI5myxmD7YkeYi7DYs17ZoTvhBgQERRnWdFAt8SBNwVSQpj123khXTTeX80ES31aQ/exec";
+
 /* ── Navbar ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
@@ -1625,11 +1628,49 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 /* ── Apply form ── */
 function handleApply(btn) {
+  if (!SCRIPT_URL) {
+    alert("Please set the SCRIPT_URL in the HTML file first!");
+    return;
+  }
+
+  const data = {
+    firstName: document.getElementById('eliteFirstName').value,
+    lastName: document.getElementById('eliteLastName').value,
+    email: document.getElementById('eliteEmail').value,
+    whatsapp: document.getElementById('eliteWhatsapp').value,
+    program: "SheBraveElite: " + document.getElementById('eliteProgram').value,
+    challenge: document.getElementById('eliteChallenge').value,
+    source: document.getElementById('eliteSource').value
+  };
+
   const orig = btn.innerHTML;
-  btn.innerHTML = '✓ Application Received — We\'ll be in touch soon!';
-  btn.style.background = 'var(--green-light)';
+  btn.innerHTML = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4500);
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(data)
+  }).then(() => {
+    btn.innerHTML = '✓ Application Received — We\'ll be in touch soon!';
+    btn.style.background = 'var(--green-light)';
+    
+    // Clear inputs
+    document.getElementById('eliteFirstName').value = '';
+    document.getElementById('eliteLastName').value = '';
+    document.getElementById('eliteEmail').value = '';
+    document.getElementById('eliteWhatsapp').value = '';
+    document.getElementById('eliteProgram').value = '';
+    document.getElementById('eliteChallenge').value = '';
+    document.getElementById('eliteSource').value = '';
+
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4500);
+  }).catch((error) => {
+    console.error('Error!', error.message);
+    btn.innerHTML = 'Error. Try Again.';
+    btn.disabled = false;
+  });
 }
 </script>
 </body>
