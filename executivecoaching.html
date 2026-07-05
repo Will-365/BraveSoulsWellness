@@ -387,8 +387,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
   display:flex;align-items:center;justify-content:center;
   font-size:1.5rem;margin-bottom:26px;transition:background .3s;
+  overflow:hidden;flex-shrink:0;
 }
 .sol-card:hover .sol-icon{background:rgba(200,148,42,0.2)}
+.page-icon{display:block;object-fit:contain;flex-shrink:0}
+.sol-icon .page-icon,.outcome-icon .page-icon{width:28px;height:28px}
 .sol-name{
   font-family:'Playfair Display',serif;
   font-size:1.2rem;font-weight:700;color:var(--white);
@@ -496,7 +499,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
   transform:scaleX(0);transition:transform .5s;
 }
 .outcome-card:hover .outcome-top{transform:scaleX(1)}
-.outcome-icon{font-size:2.2rem;margin-bottom:20px;display:block}
+.outcome-icon{
+  width:54px;height:54px;border-radius:4px;
+  background:rgba(200,148,42,0.1);border:1px solid var(--border-gold);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;overflow:hidden;flex-shrink:0;
+}
 .outcome-name{
   font-family:'Playfair Display',serif;
   font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:12px;
@@ -943,28 +951,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
         <div class="challenge-problems">
           <div class="challenge-problem reveal d1">
-            <div class="challenge-problem-icon">🔥</div>
+            <div class="challenge-problem-icon"></div>
             <div>
               <div class="challenge-problem-name">High-Pressure Environments</div>
               <div class="challenge-problem-desc">Constant pressure without recovery creates cortisol overload, impaired cognition, and reduced emotional regulation — eroding leadership quality silently.</div>
             </div>
           </div>
           <div class="challenge-problem reveal d2">
-            <div class="challenge-problem-icon">⏰</div>
+            <div class="challenge-problem-icon"></div>
             <div>
               <div class="challenge-problem-name">Long Working Hours</div>
               <div class="challenge-problem-desc">Extended hours without physical maintenance leads to diminishing returns. More hours does not equal more output when your brain and body are depleted.</div>
             </div>
           </div>
           <div class="challenge-problem reveal d3">
-            <div class="challenge-problem-icon">🧠</div>
+            <div class="challenge-problem-icon"></div>
             <div>
               <div class="challenge-problem-name">Mental Fatigue & Stress Accumulation</div>
               <div class="challenge-problem-desc">Unmanaged mental fatigue compounds stress, reduces decision quality, and accelerates the path to burnout — often before leaders recognise the warning signs.</div>
             </div>
           </div>
           <div class="challenge-problem reveal d4">
-            <div class="challenge-problem-icon">📉</div>
+            <div class="challenge-problem-icon"></div>
             <div>
               <div class="challenge-problem-name">Decreasing Physical Health</div>
               <div class="challenge-problem-desc">Leaders who neglect their physical health lose energy, presence, and resilience — the three pillars that sustain exceptional long-term leadership performance.</div>
@@ -1006,7 +1014,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div class="solution-grid">
       <div class="sol-card reveal d1">
         <div class="sol-num">01</div>
-        <div class="sol-icon">🏋️</div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Performance-Based Fitness Programming</div>
         <p class="sol-desc">Structured fitness programming calibrated to your schedule, energy demands, and physical goals. No generic plans — every session is designed around your leadership life.</p>
         <ul class="sol-points">
@@ -1019,7 +1027,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d2">
         <div class="sol-num">02</div>
-        <div class="sol-icon">⚡</div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Stress Optimization Systems</div>
         <p class="sol-desc">Practical, evidence-based stress management systems that reduce cortisol accumulation, improve recovery, and protect your ability to perform under sustained pressure.</p>
         <ul class="sol-points">
@@ -1032,7 +1040,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d3">
         <div class="sol-num">03</div>
-        <div class="sol-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Mental Clarity & Focus Coaching</div>
         <p class="sol-desc">Targeted mindset and focus coaching that sharpens your decision-making, eliminates mental clutter, and helps you operate at cognitive peak across long leadership days.</p>
         <ul class="sol-points">
@@ -1045,7 +1053,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d4">
         <div class="sol-num">04</div>
-        <div class="sol-icon">🔋</div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Energy Management Strategy</div>
         <p class="sol-desc">A complete energy management blueprint — covering nutrition, sleep, movement, and recovery — so your energy output matches the demands of your leadership role, sustainably.</p>
         <ul class="sol-points">
@@ -1058,7 +1066,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d5">
         <div class="sol-num">05</div>
-        <div class="sol-icon">🧭</div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Discipline-Based Lifestyle Systems</div>
         <p class="sol-desc">A structured daily operating system built on disciplined routines, accountability frameworks, and leadership habits that make peak performance the default — not the exception.</p>
         <ul class="sol-points">
@@ -1071,7 +1079,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d6">
         <div class="sol-num">06</div>
-        <div class="sol-icon">🏆</div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
         <div class="sol-name">Leadership Presence Development</div>
         <p class="sol-desc">The physical and mental disciplines that build commanding presence — posture, confidence, vocal power, composure under pressure, and the energy others feel when you enter a room.</p>
         <ul class="sol-points">
@@ -1097,28 +1105,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
         <div class="who-profiles">
           <div class="who-profile">
-            <div class="who-profile-icon">👔</div>
+            <div class="who-profile-icon"></div>
             <div>
               <div class="who-profile-title">CEOs & Managing Directors</div>
               <div class="who-profile-desc">Leaders who carry organizational weight and need sustainable energy, clarity and physical resilience to perform at the top level day after day.</div>
             </div>
           </div>
           <div class="who-profile">
-            <div class="who-profile-icon">🚀</div>
+            <div class="who-profile-icon"></div>
             <div>
               <div class="who-profile-title">Founders & Entrepreneurs</div>
               <div class="who-profile-desc">Builders who cannot afford burnout. Entrepreneurs who need peak physical and mental performance to match the demands of building something significant.</div>
             </div>
           </div>
           <div class="who-profile">
-            <div class="who-profile-icon">📊</div>
+            <div class="who-profile-icon"></div>
             <div>
               <div class="who-profile-title">Senior Managers & Decision-Makers</div>
               <div class="who-profile-desc">High-responsibility leaders whose decisions impact teams, clients, and organizations — and who need the mental and physical capacity to make those decisions well.</div>
             </div>
           </div>
           <div class="who-profile">
-            <div class="who-profile-icon">🌍</div>
+            <div class="who-profile-icon"></div>
             <div>
               <div class="who-profile-title">High-Achieving Professionals</div>
               <div class="who-profile-desc">Ambitious professionals in demanding fields who want to sustain high performance across career, health, and personal life — without sacrificing one for the other.</div>
@@ -1181,7 +1189,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div class="outcomes-grid">
       <div class="outcome-card reveal d1">
         <div class="outcome-top"></div>
-        <span class="outcome-icon">⚡</span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
         <div class="outcome-name">Higher Daily Energy</div>
         <p class="outcome-desc">Consistent, high-output energy that carries you through long days, intense meetings, and demanding schedules — without relying on caffeine or willpower alone.</p>
         <span class="outcome-n">+40%</span>
@@ -1189,7 +1197,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d2">
         <div class="outcome-top"></div>
-        <span class="outcome-icon">🧠</span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
         <div class="outcome-name">Improved Decision-Making</div>
         <p class="outcome-desc">Sharper, faster, more confident decisions. Mental clarity that allows you to cut through complexity and choose decisively even under intense pressure.</p>
         <span class="outcome-n">3×</span>
@@ -1197,7 +1205,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d3">
         <div class="outcome-top"></div>
-        <span class="outcome-icon">📈</span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
         <div class="outcome-name">Increased Productivity</div>
         <p class="outcome-desc">Output quality rises when your body and mind are optimized. Leaders in this program consistently report doing more in less time — with greater focus and less friction.</p>
         <span class="outcome-n">35%</span>
@@ -1205,7 +1213,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d4">
         <div class="outcome-top"></div>
-        <span class="outcome-icon">🏆</span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
         <div class="outcome-name">Sustainable High Performance</div>
         <p class="outcome-desc">Performance that lasts — not peaks followed by crashes. A rhythm of excellence built on structured recovery, disciplined habits, and a body that can sustain the demands of leadership.</p>
         <span class="outcome-n">∞</span>
@@ -1240,21 +1248,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
         <div class="coach-credentials">
           <div class="coach-cred">
-            <div class="coach-cred-icon">🎓</div>
+            <div class="coach-cred-icon"></div>
             <div>
               <div class="coach-cred-title">Professional Fitness & Wellness Coach</div>
               <div class="coach-cred-desc">Certified in fitness programming, performance coaching, and holistic wellness with over a decade of hands-on coaching experience.</div>
             </div>
           </div>
           <div class="coach-cred">
-            <div class="coach-cred-icon">🧠</div>
+            <div class="coach-cred-icon"></div>
             <div>
               <div class="coach-cred-title">Mindset & Identity Development Specialist</div>
               <div class="coach-cred-desc">Specialized expertise in mindset coaching, belief systems, and identity-level transformation for executives and high-performers.</div>
             </div>
           </div>
           <div class="coach-cred">
-            <div class="coach-cred-icon">🏢</div>
+            <div class="coach-cred-icon"></div>
             <div>
               <div class="coach-cred-title">Founder, Brave Souls Wellness Group Ltd</div>
               <div class="coach-cred-desc">Registered wellness company in Kigali, Rwanda — delivering structured coaching programs for individuals, executives, and organizations.</div>
