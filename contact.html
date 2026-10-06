@@ -1004,6 +1004,8 @@ logo {
   .logo-image { height: 36px; }
 }
 </style>
+<link rel="stylesheet" href="css/lang-switcher.css">
+<link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
 
@@ -1031,15 +1033,11 @@ logo {
         </div>
       </li>
 
-      <li><a href="index.html#corporate" data-section="corporate">Corporate</a></li>
+      <li><a href="corporatewellness.html" data-section="corporate">Corporate</a></li>
+      <li><a href="index.html#shop" data-section="shop">Shop</a></li>
       <li><a href="index.html#testimonials" data-section="testimonials">Testimonials</a></li>
       <li><a href="index.html#team" data-section="team">Our Team</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li>
-        <a href="admin-login.html" style="color:rgba(200,148,42,0.85); font-size:10px;">
-          🔐 Admin
-        </a>
-      </li>
     </ul>
 
     <!-- Right side: CTA + Hamburger -->
@@ -1091,9 +1089,14 @@ logo {
       <a href="communitytraining.html" onclick="closeMobile()">✦ Community Programs</a>
     </div>
 
-    <a href="index.html#corporate" onclick="closeMobile()">
+    <a href="corporatewellness.html" onclick="closeMobile()">
       <span class="mm-icon">🏢</span>
       <span class="mm-text">Corporate Wellness<span class="mm-sub">Team & organization plans</span></span>
+    </a>
+
+    <a href="index.html#shop" onclick="closeMobile()">
+      <span class="mm-icon">+</span>
+      <span class="mm-text">Shop<span class="mm-sub">Eric Favre supplements</span></span>
     </a>
 
     <div class="mm-divider"></div>
@@ -1112,13 +1115,6 @@ logo {
     <a href="contact.html" onclick="closeMobile()">
       <span class="mm-icon">💬</span>
       <span class="mm-text">Contact<span class="mm-sub">Get in touch today</span></span>
-    </a>
-
-    <div class="mm-divider"></div>
-
-    <a href="admin-login.html" onclick="closeMobile()" style="color:rgba(200,148,42,0.8)">
-      <span class="mm-icon" style="border-color:rgba(200,148,42,0.25)">🔐</span>
-      <span class="mm-text">Admin Portal<span class="mm-sub">Staff access only</span></span>
     </a>
 
   </div>
@@ -1189,7 +1185,6 @@ logo {
             <div class="cc-sub">Fastest way to reach us — usually within hours</div>
           </div>
         </a>
-
         <a href="tel:+250788675638" class="contact-card">
           <div class="cc-icon"><img src="images/phone-call (1).png" alt="" class="page-icon"></div>
           <div>
@@ -1198,16 +1193,14 @@ logo {
             <div class="cc-sub">Available Mon–Sat, 7am–7pm CAT</div>
           </div>
         </a>
-
-        <a href="mailto:info@bravesoulswellness.com" class="contact-card">
+        <a href="mailto:coachbrave@bravesoulswellness.com" class="contact-card">
           <div class="cc-icon"><img src="images/gmail.png" alt="" class="page-icon"></div>
           <div>
             <div class="cc-label">Email</div>
-            <div class="cc-value">info@bravesoulswellness.com</div>
+            <div class="cc-value">coachbrave@bravesoulswellnessgroup.com</div>
             <div class="cc-sub">For detailed enquiries &amp; partnerships</div>
           </div>
         </a>
-ss
         <div class="contact-card" style="cursor:default">
           <div class="cc-icon"><img src="images/gps.png" alt="" class="page-icon"></div>
           <div>
@@ -1317,6 +1310,7 @@ ss
           <option>An NGO or non-profit</option>
           <option>A media / press enquiry</option>
           <option>A partnership or collaboration</option>
+          <option>Shop / merch order</option>
           <option>Other</option>
         </select>
       </div>
@@ -1330,9 +1324,15 @@ ss
           <div class="chip" onclick="toggleChip(this)">Community Programs</div>
           <div class="chip" onclick="toggleChip(this)">Corporate Wellness</div>
           <div class="chip" onclick="toggleChip(this)">Book a Consultation</div>
+          <div class="chip" onclick="toggleChip(this)">Shop / Merch</div>
           <div class="chip" onclick="toggleChip(this)">Partnership</div>
           <div class="chip" onclick="toggleChip(this)">General Enquiry</div>
         </div>
+      </div>
+
+      <div class="fg" id="cartInquiryWrap" hidden>
+        <label>Products I'm interested in</label>
+        <textarea id="contactCartItems" readonly></textarea>
       </div>
 
       <div class="fg">
@@ -1849,7 +1849,14 @@ function handleSubmit(e) {
     email: document.getElementById('contactEmail').value,
     whatsapp: document.getElementById('contactWhatsapp').value,
     program: document.getElementById('contactProgram').value,
-    challenge: document.getElementById('contactChallenge').value,
+    challenge: (function () {
+      const msg = document.getElementById('contactChallenge').value;
+      const cartBox = document.getElementById('contactCartItems');
+      if (cartBox && cartBox.value && msg.indexOf('Shop order') === -1) {
+        return msg + '\n\n' + cartBox.value;
+      }
+      return msg;
+    })(),
     source: document.getElementById('contactSource').value
   };
 
@@ -1911,5 +1918,7 @@ if(mobileClose) mobileClose.addEventListener('click', closeMobile);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobile(); });
 
 </script>
+<script src="js/cart.js"></script>
+<script src="js/lang-switcher.js"></script>
 </body>
 </html>
