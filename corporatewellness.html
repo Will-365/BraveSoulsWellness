@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6MZDKR5ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6MZDKR5ZV');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Corporate Wellness — NGOs, Schools & Organizations | Brave Souls Wellness</title>
@@ -25,7 +34,7 @@
 }
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: clip; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--green-deep); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
@@ -212,10 +221,17 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
   .form-row { flex-direction: column; gap: 0; }
 }
 </style>
+<link rel="stylesheet" href="css/performance.css">
+<script>document.documentElement.classList.add("is-booting");</script>
 <link rel="stylesheet" href="css/lang-switcher.css">
 <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading Brave Souls Wellness">
+  <p class="preloader-brand">Brave <span>Souls</span></p>
+  <div class="preloader-line"></div>
+</div>
+
 
 <nav class="nav" id="nav">
   <div class="container">
@@ -233,7 +249,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 <section class="hero" id="top">
   <div class="hero-bg" data-parallax="0.18"></div>
   <div class="container hero-grid">
-    <div>
+    <div data-scroll-reveal="fade-up">
       <div class="hero-kicker">Corporate Wellness · Kigali, Rwanda</div>
       <h1>Healthier teams.<br><em>Stronger impact.</em></h1>
       <p class="hero-lead">Brave Souls Wellness Group Ltd builds structured wellness programs for NGOs, schools, companies, and public institutions — so people can work with more energy, focus, and discipline.</p>
@@ -247,11 +263,11 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
         <a class="jump" href="#organizations" data-sector="Organizations">Other organizations</a>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual" data-scroll-reveal="fade-up">
       <div class="hero-mosaic">
-        <img class="tall" src="images/corporate10.jpeg" alt="Brave Souls team together after training">
-        <img src="images/corporate6.jfif" alt="Team wellness session">
-        <img src="images/corporate4.jfif" alt="Mindful recovery">
+        <img class="tall" src="images/corporate10.jpeg" alt="Brave Souls team together after training" width="1080" height="583" loading="eager" decoding="async" fetchpriority="high">
+        <img src="images/corporate6.jfif" alt="Team wellness session" width="547" height="365" loading="eager" decoding="async">
+        <img src="images/corporate4.jfif" alt="Mindful recovery" width="596" height="335" loading="eager" decoding="async">
       </div>
       <div class="stat-float">
         <strong>Teams first</strong>
@@ -265,7 +281,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
   <div class="container">
     <span class="eyebrow">How a partnership works</span>
     <h2 class="s-title">A clear path from <em>request</em> to results</h2>
-    <div class="approach-grid">
+    <div class="approach-grid" data-scroll-reveal="stagger">
       <article class="step">
         <div class="step-num">01</div>
         <h3>Listen & assess</h3>
@@ -292,7 +308,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 
 <section class="sector" id="ngos">
   <div class="container sector-layout">
-    <div class="sector-copy">
+    <div class="sector-copy" data-scroll-reveal="fade-up">
       <div class="sector-kicker">NGOs & mission-driven teams</div>
       <h2 class="s-title">We walk well with <em>NGOs</em></h2>
       <p>NGO work is high-purpose and high-stress. Field travel, emotional caseloads, donor pressure, and long hours wear down even the most committed staff. When people are exhausted, programs slow, mistakes rise, and good people leave.</p>
@@ -310,8 +326,8 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
       <a href="#apply" class="btn btn-gold">Boost your NGO’s wellness</a>
     </div>
     <div class="visual-stack" data-parallax="0.1">
-      <img src="images/corporate1.png" alt="NGO team in a wellness session">
-      <img class="back" src="images/corporate3.jpg" alt="Recovery and mindfulness">
+      <img src="images/corporate1.png" alt="NGO team in a wellness session" width="1200" height="628" loading="lazy" decoding="async">
+      <img class="back" src="images/corporate3.jpg" alt="Recovery and mindfulness" width="900" height="600" loading="lazy" decoding="async">
       <div class="chip">Built for high-stress, high-purpose teams</div>
     </div>
   </div>
@@ -320,11 +336,11 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 <section class="sector alt" id="schools">
   <div class="container sector-layout flip">
     <div class="visual-stack" data-parallax="0.1">
-      <img src="images/schools1.webp" alt="Students in a school wellness activity">
-      <img class="back" src="images/schools2.webp" alt="Group movement for young people">
+      <img src="images/schools1.webp" alt="Students in a school wellness activity" width="1600" height="900" loading="lazy" decoding="async">
+      <img class="back" src="images/schools2.webp" alt="Group movement for young people" width="800" height="534" loading="lazy" decoding="async">
       <div class="chip">Students, teachers, and school culture</div>
     </div>
-    <div class="sector-copy">
+    <div class="sector-copy" data-scroll-reveal="fade-up">
       <div class="sector-kicker">Schools & education</div>
       <h2 class="s-title light">Wellness that belongs in the <em>school</em></h2>
       <p>Schools ask young people to focus, and teachers to hold the whole room, often with little recovery built into the week. When energy drops, discipline slips, classrooms get heavier, and staff burn out.</p>
@@ -346,7 +362,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 
 <section class="sector" id="organizations">
   <div class="container sector-layout">
-    <div class="sector-copy">
+    <div class="sector-copy" data-scroll-reveal="fade-up">
       <div class="sector-kicker">Companies, government & institutions</div>
       <h2 class="s-title">Wellness for every <em>organization</em></h2>
       <p>Private companies, government offices, health institutions, and tech teams share a quiet problem: long sitting, deadline stress, and no shared system for energy. Productivity talks do not fix a tired body.</p>
@@ -364,8 +380,8 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
       <a href="#apply" class="btn btn-gold">Build a healthier team</a>
     </div>
     <div class="visual-stack" data-parallax="0.1">
-      <img src="images/organizaiton1.webp" alt="Workplace wellness training">
-      <img class="back" src="images/organization2.webp" alt="Team training session">
+      <img src="images/organizaiton1.webp" alt="Workplace wellness training" width="1000" height="676" loading="lazy" decoding="async">
+      <img class="back" src="images/organization2.webp" alt="Team training session" width="600" height="900" loading="lazy" decoding="async">
       <div class="chip">Private · Public · Health · Tech</div>
     </div>
   </div>
@@ -375,19 +391,19 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
   <div class="container">
     <span class="eyebrow">What a program can include</span>
     <h2 class="s-title">The building blocks we <em>bring</em></h2>
-    <div class="include-grid">
+    <div class="include-grid" data-scroll-reveal="stagger">
       <article class="inc-card">
-        <img src="images/wellness10.jpg" alt="Group fitness">
+        <img src="images/wellness10.jpg" alt="Group fitness" width="612" height="408" loading="lazy" decoding="async">
         <h3>Structured movement</h3>
         <p>Guided sessions that raise energy and strength without turning the workplace into a bootcamp. Suitable for mixed fitness levels.</p>
       </article>
       <article class="inc-card">
-        <img src="images/wellness6.jpg" alt="Nutrition education">
+        <img src="images/wellness6.jpg" alt="Nutrition education" width="1000" height="437" loading="lazy" decoding="async">
         <h3>Fuel & daily habits</h3>
         <p>Practical nutrition talks and simple plate guidance people can use in Kigali — at the canteen, in the field, or at home.</p>
       </article>
       <article class="inc-card">
-        <img src="images/diet3.webp" alt="Mindfulness practice">
+        <img src="images/diet3.webp" alt="Mindfulness practice" width="2500" height="1637" loading="lazy" decoding="async">
         <h3>Mindset & recovery</h3>
         <p>Breathwork, focus drills, and recovery tools that help teams downshift after intense work instead of carrying it into the night.</p>
       </article>
@@ -399,7 +415,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
   <div class="container">
     <span class="eyebrow">Before you request</span>
     <h2 class="s-title" style="text-align:center">Questions teams usually <em>ask</em></h2>
-    <div class="faq-list">
+    <div class="faq-list" data-scroll-reveal="stagger">
       <details open>
         <summary>Do we need a gym or special space?</summary>
         <p>No. We adapt to halls, courtyards, classrooms, and office floors. If you have a venue, we use it. If space is tight, we design shorter, standing-friendly sessions.</p>
@@ -421,7 +437,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 </section>
 
 <section class="apply" id="apply">
-  <div class="container apply-inner">
+  <div class="container apply-inner" data-scroll-reveal="fade-up">
     <span class="eyebrow">Partnership request</span>
     <h2 class="s-title">Tell us who you <em>serve</em></h2>
     <p style="color:var(--text-muted);margin:12px 0 28px;line-height:1.7">Share a few details. We will come back with a practical way to work together — for an NGO team, a school, or another organization.</p>
@@ -454,7 +470,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 </section>
 
 <footer class="footer">
-  <div class="container footer-inner">
+  <div class="container footer-inner" data-scroll-reveal="fade-up">
     <div>Brave <span style="color:var(--gold)">Souls</span> Wellness Group Ltd</div>
     <div>
       <a href="index.html">Home</a>
@@ -467,6 +483,11 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
   </div>
 </footer>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/scroll.js"></script>
 <script>
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
@@ -511,7 +532,10 @@ function handleHashNavigation() {
   if (!hash) return;
   if (SECTOR_MAP[hash]) preselectSector(SECTOR_MAP[hash]);
   const target = document.getElementById(hash);
-  if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  if (target) {
+    if (window.bsLenis) window.bsLenis.scrollTo(target, { offset: -96 });
+    else setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+  }
 }
 document.querySelectorAll("[data-sector]").forEach((el) => {
   el.addEventListener("click", () => preselectSector(el.getAttribute("data-sector")));

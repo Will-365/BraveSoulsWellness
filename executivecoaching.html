@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6MZDKR5ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6MZDKR5ZV');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Executive Coaching — Leadership Performance Program | Brave Souls Wellness</title>
@@ -32,7 +41,7 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:clip}
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:var(--green-deep)}
 ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
@@ -824,10 +833,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 @media (max-width: 480px) { .apply-form { padding: 26px 20px; } }
 
 </style>
+<link rel="stylesheet" href="css/performance.css">
+<script>document.documentElement.classList.add("is-booting");</script>
 <link rel="stylesheet" href="css/lang-switcher.css">
 <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading Brave Souls Wellness">
+  <p class="preloader-brand">Brave <span>Souls</span></p>
+  <div class="preloader-line"></div>
+</div>
+
 
 <!-- ═══════ NAVBAR ═══════ -->
 <nav class="nav" id="nav">
@@ -847,9 +863,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 <section class="hero" id="home">
 
   <!-- Left — Coach photo -->
-  <div class="hero-img-col">
+  <div class="hero-img-col" data-scroll-reveal="fade-up">
     <div class="hero-img-frame" id="heroImg"></div>
-    <div class="hero-img-overlay"><div class="hero-img-overlay"></div>.<img src="images/gym3.jpg" alt="Coach Brave — Jean Pierre MUFUKUZI" class="coach-img"></div>
+    <div class="hero-img-overlay"><div class="hero-img-overlay"></div>.<img src="images/gym3.jpg" alt="Coach Brave — Jean Pierre MUFUKUZI" class="coach-img" width="1920" height="1280" loading="eager" decoding="async" fetchpriority="high"></div>
     <div class="hero-img-vert">Brave Souls Wellness Group · Executive Coaching</div>
     <div class="hero-img-corner">
       <div class="hero-img-corner-label">Your Gym</div>
@@ -1016,7 +1032,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div class="solution-grid">
       <div class="sol-card reveal d1">
         <div class="sol-num">01</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Performance-Based Fitness Programming</div>
         <p class="sol-desc">Structured fitness programming calibrated to your schedule, energy demands, and physical goals. No generic plans — every session is designed around your leadership life.</p>
         <ul class="sol-points">
@@ -1029,7 +1045,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d2">
         <div class="sol-num">02</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Stress Optimization Systems</div>
         <p class="sol-desc">Practical, evidence-based stress management systems that reduce cortisol accumulation, improve recovery, and protect your ability to perform under sustained pressure.</p>
         <ul class="sol-points">
@@ -1042,7 +1058,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d3">
         <div class="sol-num">03</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Mental Clarity & Focus Coaching</div>
         <p class="sol-desc">Targeted mindset and focus coaching that sharpens your decision-making, eliminates mental clutter, and helps you operate at cognitive peak across long leadership days.</p>
         <ul class="sol-points">
@@ -1055,7 +1071,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d4">
         <div class="sol-num">04</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Energy Management Strategy</div>
         <p class="sol-desc">A complete energy management blueprint — covering nutrition, sleep, movement, and recovery — so your energy output matches the demands of your leadership role, sustainably.</p>
         <ul class="sol-points">
@@ -1068,7 +1084,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d5">
         <div class="sol-num">05</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Discipline-Based Lifestyle Systems</div>
         <p class="sol-desc">A structured daily operating system built on disciplined routines, accountability frameworks, and leadership habits that make peak performance the default — not the exception.</p>
         <ul class="sol-points">
@@ -1081,7 +1097,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
       <div class="sol-card reveal d6">
         <div class="sol-num">06</div>
-        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></div>
+        <div class="sol-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></div>
         <div class="sol-name">Leadership Presence Development</div>
         <p class="sol-desc">The physical and mental disciplines that build commanding presence — posture, confidence, vocal power, composure under pressure, and the energy others feel when you enter a room.</p>
         <ul class="sol-points">
@@ -1191,7 +1207,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div class="outcomes-grid">
       <div class="outcome-card reveal d1">
         <div class="outcome-top"></div>
-        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></span>
         <div class="outcome-name">Higher Daily Energy</div>
         <p class="outcome-desc">Consistent, high-output energy that carries you through long days, intense meetings, and demanding schedules — without relying on caffeine or willpower alone.</p>
         <span class="outcome-n">+40%</span>
@@ -1199,7 +1215,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d2">
         <div class="outcome-top"></div>
-        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></span>
         <div class="outcome-name">Improved Decision-Making</div>
         <p class="outcome-desc">Sharper, faster, more confident decisions. Mental clarity that allows you to cut through complexity and choose decisively even under intense pressure.</p>
         <span class="outcome-n">3×</span>
@@ -1207,7 +1223,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d3">
         <div class="outcome-top"></div>
-        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></span>
         <div class="outcome-name">Increased Productivity</div>
         <p class="outcome-desc">Output quality rises when your body and mind are optimized. Leaders in this program consistently report doing more in less time — with greater focus and less friction.</p>
         <span class="outcome-n">35%</span>
@@ -1215,7 +1231,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
       </div>
       <div class="outcome-card reveal d4">
         <div class="outcome-top"></div>
-        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+        <span class="outcome-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="lazy" decoding="async"></span>
         <div class="outcome-name">Sustainable High Performance</div>
         <p class="outcome-desc">Performance that lasts — not peaks followed by crashes. A rhythm of excellence built on structured recovery, disciplined habits, and a body that can sustain the demands of leadership.</p>
         <span class="outcome-n">∞</span>
@@ -1231,7 +1247,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
     <div class="coach-layout">
       <div class="reveal-l">
         <div class="coach-img-block">
-          <img src="images/coachshot3.jpg" alt="Coach Brave" class="coach-img">
+          <img src="images/coachshot3.jpg" alt="Coach Brave" class="coach-img" width="4480" height="6720" loading="lazy" decoding="async">
           <div class="coach-img-tag">
             <div class="coach-img-tag-num">10+</div>
             <div class="coach-img-tag-text">Years Coaching Experience</div>
@@ -1436,8 +1452,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 <!-- ═══════ APPLY ═══════ -->
 <section class="apply" id="apply">
   <div class="container">
-    <div class="apply-inner">
-      <span class="apply-crown"><img src="images/crown.png" alt="Golden Crown"></span>
+    <div class="apply-inner" data-scroll-reveal="fade-up">
+      <span class="apply-crown"><img src="images/crown.png" alt="Golden Crown" width="2500" height="2500" loading="lazy" decoding="async"></span>
       <h2 class="apply-title">Are You Ready<em>to Transform?</em></h2>
       <p class="apply-sub">We accept a limited number of clients each month to ensure every participant receives the attention, coaching, and accountability they deserve. Apply today.</p>
     </div>
@@ -1484,7 +1500,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
+    <div class="footer-inner" data-scroll-reveal="fade-up">
       <div>
         <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
         <div class="footer-tagline">Healthy Body and Spirit · Kigali, Rwanda</div>
@@ -1504,6 +1520,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-d
 </footer>
 
 <!-- ═══════ JAVASCRIPT ═══════ -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/scroll.js"></script>
 <script>
 /* ── Navbar ── */
 const nav = document.getElementById('nav');
@@ -1579,7 +1600,11 @@ if (whoSection) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    if (t) {
+      e.preventDefault();
+      if (window.bsLenis) window.bsLenis.scrollTo(t, { offset: -88 });
+      else t.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 function restartMotionAnimations() {

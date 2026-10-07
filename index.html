@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X6MZDKR5ZV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X6MZDKR5ZV');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brave Souls Wellness Group Ltd | Healthy Body and Spirit</title>
@@ -40,7 +49,7 @@
         font-family: 'Outfit', sans-serif;
         color: var(--text-dark);
         background: var(--cream);
-        overflow-x: hidden;
+        overflow-x: clip;
       }
       .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -2983,10 +2992,17 @@
         .about-copy-cta { font-size: 10px; padding: 12px 16px; }
       }
     </style>
-    <link rel="stylesheet" href="css/lang-switcher.css" />
+    <link rel="stylesheet" href="css/performance.css">
+<script>document.documentElement.classList.add("is-booting");</script>
+<link rel="stylesheet" href="css/lang-switcher.css" />
     <link rel="stylesheet" href="css/cart.css" />
   </head>
   <body>
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading Brave Souls Wellness">
+  <p class="preloader-brand">Brave <span>Souls</span></p>
+  <div class="preloader-line"></div>
+</div>
+
     <!-- ═══════ NAVBAR ═══════ -->
     <nav class="navbar" id="navbar">
       <div class="container">
@@ -2995,8 +3011,7 @@
           <img
             src="images/logo.png"
             alt="Brave Souls Wellness logo"
-            class="logo-image"
-          />
+            class="logo-image" width="1080" height="819" loading="eager" decoding="async" />
         </a>
 
         <!-- Desktop Nav Links -->
@@ -3189,8 +3204,7 @@
             <img
               src="images/coachbgrvm.png"
               alt="Coach in training stance"
-              class="hero-coach-img"
-            />
+              class="hero-coach-img" width="5367" height="7391" loading="eager" decoding="async" fetchpriority="high" />
             <div class="hero-card hero-card-floating card-1">
               <div class="hero-card-num">10+</div>
               <div class="hero-card-label">Years of Coaching Experience</div>
@@ -3203,7 +3217,7 @@
         </div>
 
         <a href="corporatewellness.html" class="hero-flame hero-flame-left animate delay-2">
-          <img id="heroFlameSlide" src="images/wellness1.png" alt="Corporate wellness">
+          <img id="heroFlameSlide" src="images/wellness1.png" alt="Corporate wellness" width="1536" height="1024" loading="eager" decoding="async">
           <span class="hero-flame-arrow" aria-hidden="true">↗</span>
           <div class="hero-flame-overlay">
             <div class="hero-flame-kicker">Corporate</div>
@@ -3218,7 +3232,7 @@
             <video id="heroStoryVideo" autoplay muted loop playsinline preload="metadata" aria-label="Everyday wellness training">
               <source src="videos/fordinary.mp4" type="video/mp4" />
             </video>
-            <img id="heroStoryPhoto" class="hero-aside-img" alt="">
+            <img id="heroStoryPhoto" class="hero-aside-img" alt="" loading="eager" decoding="async">
             <span class="hero-flame-play" aria-hidden="true">▶</span>
             <div class="hero-flame-overlay">
               <div class="hero-flame-kicker" id="heroStoryKicker">Everyday training</div>
@@ -3234,10 +3248,10 @@
               </video>
             </button>
             <button type="button" class="hero-orbit-dot" data-story="diet" aria-label="Healthy diet" aria-selected="false">
-              <img src="images/wellness9.jpg" alt="">
+              <img src="images/wellness9.jpg" alt="" width="4888" height="3487" loading="eager" decoding="async">
             </button>
             <button type="button" class="hero-orbit-dot" data-story="mind" aria-label="Meditation" aria-selected="false">
-              <img src="images/wellness2.png" alt="">
+              <img src="images/wellness2.png" alt="" width="2960" height="1270" loading="eager" decoding="async">
             </button>
           </div>
         </div>
@@ -3275,7 +3289,7 @@
           </div>
         </div>
 
-        <div class="about-copy">
+        <div class="about-copy" data-scroll-reveal="fade-up">
           <div class="about-copy-inner">
             <p>
               Brave Souls Wellness Group Ltd is a registered wellness company
@@ -3298,13 +3312,12 @@
           </div>
         </div>
 
-        <div class="about-visual">
+        <div class="about-visual" data-scroll-reveal="fade-up">
           <img
             src="images/equipment.jpg"
-            alt="Brave Souls training facility and coaching environment"
-          />
+            alt="Brave Souls training facility and coaching environment" width="1920" height="1282" loading="lazy" decoding="async" />
           <div class="about-more" id="aboutMore" hidden>
-            <div class="about-more-grid">
+            <div class="about-more-grid" data-scroll-reveal="stagger">
               <div>
                 <h3>Our Mission</h3>
                 <p>To empower individuals and organizations to build healthier, stronger and more purposeful lives through structured wellness solutions, professional coaching, education and accountability.</p>
@@ -3316,7 +3329,7 @@
             </div>
             <div class="about-values">
               <h3>Our Values</h3>
-              <ul class="about-value-list">
+              <ul class="about-value-list" data-scroll-reveal="stagger">
                 <li><strong>DISCIPLINE</strong><span>We believe meaningful results require consistency and commitment.</span></li>
                 <li><strong>INTEGRITY</strong><span>We do what is right, communicate honestly and take responsibility for our work.</span></li>
                 <li><strong>EXCELLENCE</strong><span>We pursue high standards in coaching, service and client experience.</span></li>
@@ -3333,27 +3346,27 @@
     <section class="bsew" id="bsew">
       <div class="bsew-stage" aria-roledescription="carousel" aria-label="Executive wellness">
         <article class="bsew-slide is-on">
-          <img src="images/busyperson3.jpg" alt="A leader under pressure at his desk" />
+          <img src="images/busyperson3.jpg" alt="A leader under pressure at his desk" width="750" height="450" loading="lazy" decoding="async" />
           <div class="bsew-shade"></div>
           <div class="bsew-caption"><h2>Are you like this all the time?</h2></div>
         </article>
         <article class="bsew-slide">
-          <img src="images/busyperson4.webp" alt="A leader pausing, still carrying the weight of the day" />
+          <img src="images/busyperson4.webp" alt="A leader pausing, still carrying the weight of the day" width="1000" height="550" loading="lazy" decoding="async" />
           <div class="bsew-shade"></div>
           <div class="bsew-caption"><h2>Are you always overloaded with work?</h2></div>
         </article>
         <article class="bsew-slide">
-          <img src="images/busyperson2.jpg" alt="A professional overwhelmed by competing demands" />
+          <img src="images/busyperson2.jpg" alt="A professional overwhelmed by competing demands" width="525" height="350" loading="lazy" decoding="async" />
           <div class="bsew-shade"></div>
           <div class="bsew-caption"><h2>You are always stressed and tired</h2></div>
         </article>
         <article class="bsew-slide bsew-slide--long">
-          <img src="images/busyperson5.jpg" alt="A woman surrounded by work and no room to recover" />
+          <img src="images/busyperson5.jpg" alt="A woman surrounded by work and no room to recover" width="524" height="350" loading="lazy" decoding="async" />
           <div class="bsew-shade"></div>
           <div class="bsew-caption"><h2>You think you can't find time to take care of yourself with all the responsibilities you have</h2></div>
         </article>
         <article class="bsew-slide" data-hold="7600">
-          <img src="images/personmanaging.png" alt="A professional exhausted in front of the screen" />
+          <img src="images/personmanaging.png" alt="A professional exhausted in front of the screen" width="1502" height="1047" loading="lazy" decoding="async" />
           <div class="bsew-shade"></div>
           <div class="bsew-caption"><h2>But your health comes first and I have a solution for you.</h2></div>
         </article>
@@ -3386,7 +3399,7 @@
 
       <div class="bsew-story" id="bsewStory">
         <div class="container">
-          <div class="bsew-intro">
+          <div class="bsew-intro" data-scroll-reveal="fade-up">
             <span class="bsew-kicker">Brave Souls Executive Wellness &amp; Performance</span>
             <h3>Healthy Body and Spirit. Better Performance.</h3>
             <p class="bsew-tagline">Executive wellness designed around the reality of leadership.</p>
@@ -3401,11 +3414,11 @@
           </div>
           <a href="contact.html" class="btn btn-gold">Book an Executive Consultation</a>
 
-          <div class="bsew-block">
+          <div class="bsew-block" data-scroll-reveal="fade-up">
             <span class="bsew-kicker">The executive wellness challenge</span>
             <h3>Leadership requires energy, focus and consistency.</h3>
             <p class="bsew-lead">However, senior professionals often face:</p>
-            <ul class="bsew-list">
+            <ul class="bsew-list" data-scroll-reveal="stagger">
               <li>Demanding schedules</li>
               <li>Long hours of meetings and decision-making</li>
               <li>Extended periods of sitting</li>
@@ -3417,7 +3430,7 @@
               <li>Wellness being postponed because of competing priorities</li>
             </ul>
             <p class="bsew-note">The challenge is often not a lack of knowledge.</p>
-            <div class="bsew-formula" aria-label="Time, structure, consistency and accountability">
+            <div class="bsew-formula" data-scroll-reveal="stagger" aria-label="Time, structure, consistency and accountability">
               <span>TIME</span>
               <span>STRUCTURE</span>
               <span>CONSISTENCY</span>
@@ -3426,14 +3439,14 @@
             <p class="bsew-note">Our program is designed around these realities.</p>
           </div>
 
-          <div class="bsew-block">
+          <div class="bsew-block" data-scroll-reveal="fade-up">
             <span class="bsew-kicker">Our solution</span>
             <h3>Wellness that fits the executive's life</h3>
             <p>Traditional fitness programs ask busy professionals to adjust their lives around a fixed schedule.</p>
             <p class="bsew-lead">We take a different approach.</p>
             <p>Brave Souls designs and delivers structured wellness sessions around the executive's schedule and organizational needs.</p>
             <p class="bsew-lead">Sessions can be delivered:</p>
-            <ul class="bsew-modes">
+            <ul class="bsew-modes" data-scroll-reveal="stagger">
               <li>Before the working day</li>
               <li>During designated breaks</li>
               <li>Between meetings</li>
@@ -3460,7 +3473,7 @@
             individuals and leaders.
           </p>
         </div>
-        <div class="pillars-strip animate delay-1">
+        <div class="pillars-strip animate delay-1" data-scroll-reveal="stagger">
           <div class="pillar-item">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 14c-1.8 0-3-1.2-3-3s1.3-3 3-3h2l2 2-2 2H8Z" />
@@ -3488,7 +3501,7 @@
             Lifestyle Discipline
           </div>
         </div>
-        <div class="programs-grid animate delay-2">
+        <div class="programs-grid animate delay-2" data-scroll-reveal="stagger">
           <div class="program-block">
             <div class="program-num">01</div>
             <div class="program-tag">Women-Only Transformation</div>
@@ -3605,7 +3618,7 @@
             that build healthier, more focused, and resilient teams.
           </p>
         </div>
-        <div class="corp-grid">
+        <div class="corp-grid" data-scroll-reveal="stagger">
           <div class="corp-card animate delay-1">
             <div class="corp-card-icon"></div>
             <h3 class="corp-card-title">Solutions for NGOs</h3>
@@ -3669,8 +3682,7 @@
             <div class="book-card">
               <img
                 src="images/book2.png"
-                alt="Brave Souls Wellness education book cover"
-              />
+                alt="Brave Souls Wellness education book cover" width="1024" height="1024" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="book-feature-copy">
@@ -3685,14 +3697,14 @@
           </div>
         </div>
 
-        <div class="shop-header">
+        <div class="shop-header" data-scroll-reveal="fade-up">
           <span class="section-label">Shop</span>
           <h2 class="section-title">Fuel the work with <em>Supplements</em></h2>
           <p class="shop-lead">Every supplement we sell is listed here. Select one to hold that card, or leave them all clear to see all kinds that are available.</p>
           <div class="shop-origin">Sourced directly from Eric Favre</div>
         </div>
 
-        <div class="shop-picker" role="radiogroup" aria-label="Supplements we sell">
+        <div class="shop-picker" data-scroll-reveal="fade-up" role="radiogroup" aria-label="Supplements we sell">
             <label><input type="radio" name="shop-pick" data-shop-pick value="0"> Creatine Monohydrate</label>
             <label><input type="radio" name="shop-pick" data-shop-pick value="1"> Whey Protein</label>
             <label><input type="radio" name="shop-pick" data-shop-pick value="2"> Collagen</label>
@@ -3721,13 +3733,13 @@
             </div>
             <div class="shop-rail" data-speed="0.038">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/creatine-unflavoured.png" alt="Eric Favre Creatine Pro unflavoured" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-peach.png" alt="Eric Favre Clear Creatine peach flavour" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-caps.png" alt="Eric Favre Creatine 3000 mg capsules" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-creapure.png" alt="Eric Favre Creapure creatine" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-3.png" alt="Eric Favre creatine variety" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-6.png" alt="Eric Favre creatine tub" /></figure>
-                <figure class="shop-item"><img src="images/shop/creatine-7.png" alt="Eric Favre creatine pouch" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-unflavoured.png" alt="Eric Favre Creatine Pro unflavoured" width="661" height="911" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-peach.png" alt="Eric Favre Clear Creatine peach flavour" width="674" height="880" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-caps.png" alt="Eric Favre Creatine 3000 mg capsules" width="746" height="955" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-creapure.png" alt="Eric Favre Creapure creatine" width="221" height="312" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-3.png" alt="Eric Favre creatine variety" width="401" height="435" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-6.png" alt="Eric Favre creatine tub" width="859" height="951" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/creatine-7.png" alt="Eric Favre creatine pouch" width="503" height="644" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3748,14 +3760,14 @@
             </div>
             <div class="shop-rail" data-speed="0.036">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/whey.png" alt="Eric Favre Iso Whey Zero sizes" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-2.png" alt="Eric Favre Iso Whey Zero 2kg chocolate hazelnut" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-3.png" alt="Eric Favre Iso Whey Zero cookie 500g" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-4.png" alt="Eric Favre Iso Whey Zero milk 500g" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-5.png" alt="Eric Favre Iso Whey Zero vanilla 2kg" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-6.png" alt="Eric Favre Iso Whey Zero raspberry 1.5kg" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-7.png" alt="Eric Favre Iso Whey Zero chocolate 1.5kg" /></figure>
-                <figure class="shop-item"><img src="images/shop/whey-8.png" alt="Eric Favre Iso Whey Zero limited edition 2kg" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey.png" alt="Eric Favre Iso Whey Zero sizes" width="294" height="346" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-2.png" alt="Eric Favre Iso Whey Zero 2kg chocolate hazelnut" width="951" height="900" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-3.png" alt="Eric Favre Iso Whey Zero cookie 500g" width="315" height="300" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-4.png" alt="Eric Favre Iso Whey Zero milk 500g" width="323" height="300" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-5.png" alt="Eric Favre Iso Whey Zero vanilla 2kg" width="913" height="890" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-6.png" alt="Eric Favre Iso Whey Zero raspberry 1.5kg" width="647" height="726" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-7.png" alt="Eric Favre Iso Whey Zero chocolate 1.5kg" width="893" height="880" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/whey-8.png" alt="Eric Favre Iso Whey Zero limited edition 2kg" width="973" height="917" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3776,10 +3788,10 @@
             </div>
             <div class="shop-rail" data-speed="0.034">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/collagen.png" alt="Eric Favre Collagen Complex" /></figure>
-                <figure class="shop-item"><img src="images/shop/collagen-3.png" alt="Eric Favre Collagen Complex with strawberries" /></figure>
-                <figure class="shop-item"><img src="images/shop/collagen-4.png" alt="Eric Favre Collagen Complex tub" /></figure>
-                <figure class="shop-item"><img src="images/shop/collagen-5.png" alt="Eric Favre Collagen Complex peach" /></figure>
+                <figure class="shop-item"><img src="images/shop/collagen.png" alt="Eric Favre Collagen Complex" width="722" height="973" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/collagen-3.png" alt="Eric Favre Collagen Complex with strawberries" width="712" height="915" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/collagen-4.png" alt="Eric Favre Collagen Complex tub" width="217" height="211" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/collagen-5.png" alt="Eric Favre Collagen Complex peach" width="739" height="808" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3800,13 +3812,13 @@
             </div>
             <div class="shop-rail" data-speed="0.04">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/preworkout-tub.png" alt="Eric Favre Born of Rage tub" /></figure>
-                <figure class="shop-item"><img src="images/shop/preworkout-shot.png" alt="Eric Favre Born of Rage lemon shot" /></figure>
-                <figure class="shop-item"><img src="images/shop/pre-passion.png" alt="Eric Favre Born of Rage Ultimate passion fruit" /></figure>
-                <figure class="shop-item"><img src="images/shop/pre-ultimate.png" alt="Eric Favre Born of Rage Ultimate" /></figure>
-                <figure class="shop-item"><img src="images/shop/pre-original.png" alt="Eric Favre Born of Rage Original berries" /></figure>
-                <figure class="shop-item"><img src="images/shop/pre-3.png" alt="Eric Favre Born of Rage Ultimate tub" /></figure>
-                <figure class="shop-item"><img src="images/shop/pre-5.png" alt="Eric Favre Born of Rage variety" /></figure>
+                <figure class="shop-item"><img src="images/shop/preworkout-tub.png" alt="Eric Favre Born of Rage tub" width="313" height="321" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/preworkout-shot.png" alt="Eric Favre Born of Rage lemon shot" width="612" height="907" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/pre-passion.png" alt="Eric Favre Born of Rage Ultimate passion fruit" width="287" height="299" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/pre-ultimate.png" alt="Eric Favre Born of Rage Ultimate" width="581" height="580" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/pre-original.png" alt="Eric Favre Born of Rage Original berries" width="762" height="679" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/pre-3.png" alt="Eric Favre Born of Rage Ultimate tub" width="420" height="463" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/pre-5.png" alt="Eric Favre Born of Rage variety" width="825" height="853" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3827,7 +3839,7 @@
             </div>
             <div class="shop-rail" data-speed="0.03">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/omega3.png" alt="Eric Favre Omega 3" /></figure>
+                <figure class="shop-item"><img src="images/shop/omega3.png" alt="Eric Favre Omega 3" width="706" height="980" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3848,7 +3860,7 @@
             </div>
             <div class="shop-rail" data-speed="0.03">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/vitamin-d.png" alt="Eric Favre Vitamins D3 K2" /></figure>
+                <figure class="shop-item"><img src="images/shop/vitamin-d.png" alt="Eric Favre Vitamins D3 K2" width="537" height="896" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3869,7 +3881,7 @@
             </div>
             <div class="shop-rail" data-speed="0.03">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/magzinc.png" alt="Eric Favre ZMA plus magnesium and zinc" /></figure>
+                <figure class="shop-item"><img src="images/shop/magzinc.png" alt="Eric Favre ZMA plus magnesium and zinc" width="225" height="338" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3890,11 +3902,11 @@
             </div>
             <div class="shop-rail" data-speed="0.038">
               <div class="shop-track">
-                <figure class="shop-item"><img src="images/shop/hydro.png" alt="Eric Favre Hydrafull lemon tube" /></figure>
-                <figure class="shop-item"><img src="images/shop/hydro-1.png" alt="Eric Favre Hydrafull electrolytes" /></figure>
-                <figure class="shop-item"><img src="images/shop/hydro-berry.png" alt="Eric Favre Hydrafull red fruits" /></figure>
-                <figure class="shop-item"><img src="images/shop/hydro-pouch.png" alt="Eric Favre Hydrafull isotonic pouch" /></figure>
-                <figure class="shop-item"><img src="images/shop/hydro-box.png" alt="Eric Favre Hydrafull electrolyte box" /></figure>
+                <figure class="shop-item"><img src="images/shop/hydro.png" alt="Eric Favre Hydrafull lemon tube" width="599" height="973" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/hydro-1.png" alt="Eric Favre Hydrafull electrolytes" width="157" height="590" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/hydro-berry.png" alt="Eric Favre Hydrafull red fruits" width="579" height="973" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/hydro-pouch.png" alt="Eric Favre Hydrafull isotonic pouch" width="300" height="314" loading="lazy" decoding="async" /></figure>
+                <figure class="shop-item"><img src="images/shop/hydro-box.png" alt="Eric Favre Hydrafull electrolyte box" width="733" height="740" loading="lazy" decoding="async" /></figure>
               </div>
             </div>
             <div class="shop-buy">
@@ -3913,9 +3925,9 @@
             <button class="shop-dot" type="button" data-shop-dot="7" aria-label="Electrolytes"></button>
           </div>
         </div>
-        <article class="merch" id="merch">
+        <article class="merch" id="merch" data-scroll-reveal="fade-up">
           <div class="merch-visual">
-            <img src="images/sheisbraveelitetshirt.jpg" alt="She Brave Elite t-shirt">
+            <img src="images/sheisbraveelitetshirt.jpg" alt="She Brave Elite t-shirt" width="1080" height="1068" loading="lazy" decoding="async">
           </div>
           <div>
             <div class="merch-kicker">Official merch</div>
@@ -3941,7 +3953,7 @@
           <span class="section-label">Testimonials</span>
           <h2 class="section-title light">Voices of <em>Transformation</em></h2>
         </div>
-        <div class="testi-slider" id="testiSlider">
+        <div class="testi-slider" id="testiSlider" data-scroll-reveal="fade-up">
           <article class="testi-slide active">
             <div class="testi-layout">
               <div class="testi-copy">
@@ -3965,14 +3977,12 @@
                 <figure class="testi-photo-card testi-photo-after">
                   <img
                     src="images/clientafter.jpg"
-                    alt="Client after transformation"
-                  />
+                    alt="Client after transformation" width="535" height="1265" loading="lazy" decoding="async" />
                 </figure>
                 <figure class="testi-photo-card testi-photo-before">
                   <img
                     src="images/clientbefore.jpg"
-                    alt="Client before transformation"
-                  />
+                    alt="Client before transformation" width="536" height="1274" loading="lazy" decoding="async" />
                 </figure>
                 <span class="testi-tag after">After</span>
                 <span class="testi-tag before">Before</span>
@@ -4040,14 +4050,13 @@
             Led by a team committed to building disciplined wellness systems.
           </p>
         </div>
-        <div class="founders-grid">
+        <div class="founders-grid" data-scroll-reveal="stagger">
           <div class="founder-card animate delay-1">
             <div class="founder-photo founder-photo-ceo">
               <img
                 class="founder-avatar"
                 src="images/coachshot1.jpg"
-                alt="Portrait of Founder and CEO"
-              />
+                alt="Portrait of Founder and CEO" width="4641" height="6825" loading="lazy" decoding="async" />
             </div>
             <div class="founder-body">
               <div class="founder-role">
@@ -4075,8 +4084,7 @@
               <img
                 class="founder-avatar"
                 src="images/cofounder.jpeg"
-                alt="Portrait of Co-Founder"
-              />
+                alt="Portrait of Co-Founder" width="1080" height="948" loading="lazy" decoding="async" />
             </div>
             <div class="founder-body">
               <div class="founder-role">
@@ -4258,10 +4266,9 @@
           <img
             src="images/logo.png"
             alt="Brave Souls Wellness logo"
-            class="logo-image"
-          />
+            class="logo-image" width="1080" height="819" loading="eager" decoding="async" />
         </a>
-        <div class="footer-top">
+        <div class="footer-top" data-scroll-reveal="stagger">
           <div>
             <div class="footer-brand-name">
               Brave <span>Souls</span> Wellness Group Ltd
@@ -4302,7 +4309,7 @@
           <div>
             <div class="footer-col-title">Contact</div>
             <div class="footer-contact-item">+250 788 675 638</div>
-            <div class="footer-contact-item">info@bravesoulswellness.com</div>
+            <div class="footer-contact-item">coachbrave@bravesoulswellness.com</div>
             <div class="footer-contact-item">Kigali, Rwanda</div>
           </div>
         </div>
@@ -4318,6 +4325,11 @@
       </div>
     </footer>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+    <script src="js/scroll.js"></script>
     <script>
       // IMPORTANT: Paste your Google Apps Script Web App URL below
       const SCRIPT_URL =
@@ -4589,10 +4601,14 @@
           if (target) {
             e.preventDefault();
             const offset = 80;
-            window.scrollTo({
-              top: target.offsetTop - offset,
-              behavior: "smooth",
-            });
+            if (window.bsLenis) {
+              window.bsLenis.scrollTo(target, { offset: -offset });
+            } else {
+              window.scrollTo({
+                top: target.offsetTop - offset,
+                behavior: "smooth",
+              });
+            }
           }
         });
       });

@@ -260,7 +260,7 @@
     drawer.setAttribute("aria-label", "Shopping cart");
     drawer.innerHTML =
       '<div class="cart-head"><h3>Your cart</h3><button type="button" class="cart-close" id="bswCartClose" aria-label="Close">×</button></div>' +
-      '<div class="cart-body" id="bswCartList"></div>' +
+      '<div class="cart-body" id="bswCartList" data-lenis-prevent></div>' +
       '<div class="cart-foot">' +
       '<div class="cart-total"><span>Total</span><span id="bswCartTotal">0 RWF</span></div>' +
       '<p class="cart-note">No online payment. Checkout sends this order to our contact form so the team can confirm stock and collection in Kigali.</p>' +

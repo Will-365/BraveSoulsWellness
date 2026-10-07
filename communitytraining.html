@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6MZDKR5ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6MZDKR5ZV');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Community Programs — Brave Souls Wellness Group</title>
@@ -10,7 +19,7 @@
 :root{--g0:#0e2818;--g1:#1a4230;--g2:#2d6648;--au:#c8942a;--al:#e4b84a;--ap:#f5e4b8;--cr:#faf6ed;--wh:#ffffff;--tx:#1e2e22;--tm:#5a7060;--ba:rgba(200,148,42,.22);--t:.5s cubic-bezier(.16,1,.3,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overflow-x:clip}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--g0)}::-webkit-scrollbar-thumb{background:var(--au);border-radius:2px}
 .nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:20px 0;transition:padding .3s,background .3s}
 .nav.sc{padding:12px 0;background:rgba(14,40,24,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--ba)}
@@ -179,10 +188,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
 @media (max-width: 480px) { .apply-form { padding: 26px 20px; } }
 
 </style>
+<link rel="stylesheet" href="css/performance.css">
+<script>document.documentElement.classList.add("is-booting");</script>
 <link rel="stylesheet" href="css/lang-switcher.css">
 <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading Brave Souls Wellness">
+  <p class="preloader-brand">Brave <span>Souls</span></p>
+  <div class="preloader-line"></div>
+</div>
+
 
 <nav class="nav" id="nav">
   <div class="ni">
@@ -374,8 +390,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
 <!-- ═══════ APPLY ═══════ -->
 <section class="apply" id="apply">
   <div class="container">
-    <div class="apply-inner">
-      <span class="apply-crown"><img src="images/crown.png" alt="Golden Crown"></span>
+    <div class="apply-inner" data-scroll-reveal="fade-up">
+      <span class="apply-crown"><img src="images/crown.png" alt="Golden Crown" width="2500" height="2500" loading="lazy" decoding="async"></span>
       <h2 class="apply-title">Are You Ready<em>to Transform?</em></h2>
       <p class="apply-sub">We accept a limited number of clients each month to ensure every participant receives the attention, coaching, and accountability they deserve. Apply today.</p>
     </div>
@@ -421,7 +437,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
 </section>
 
 <footer class="footer">
-  <div class="footer-inner">
+  <div class="footer-inner" data-scroll-reveal="fade-up">
     <div>
       <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
       <div class="footer-tag">Healthy Body and Spirit · Kigali, Rwanda</div>
@@ -438,6 +454,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--g0);color:var(--wh);overf
   </div>
 </footer>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/scroll.js"></script>
 <script>
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));
 const obs=new IntersectionObserver(entries=>{
@@ -447,7 +468,7 @@ document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+    if(t){e.preventDefault();if(window.bsLenis)window.bsLenis.scrollTo(t,{offset:-88});else t.scrollIntoView({behavior:'smooth'})}
   });
 });
 function restartMotionAnimations(){

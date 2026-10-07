@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X6MZDKR5ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X6MZDKR5ZV');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us — Brave Souls Wellness Group Ltd</title>
@@ -33,7 +42,7 @@ body {
   font-family:'DM Sans',sans-serif;
   background:var(--cr);
   color:var(--tx);
-  overflow-x:hidden;
+  overflow-x:clip;
 }
 ::-webkit-scrollbar { width:4px }
 ::-webkit-scrollbar-track { background:var(--g0) }
@@ -573,7 +582,7 @@ body {
 }
 .contact-card:hover .cc-icon { background:rgba(200,148,42,.22) }
 
-/* Replaceable icons — swap src on each <img>; keep class="page-icon" */
+/* Replaceable icons — swap src on each <img loading="lazy" decoding="async">; keep class="page-icon" */
 .page-icon { display:block; object-fit:contain; flex-shrink:0 }
 .cc-icon .page-icon { width:24px; height:24px }
 .social-btn-icon .page-icon { width:18px; height:18px }
@@ -1004,10 +1013,17 @@ logo {
   .logo-image { height: 36px; }
 }
 </style>
+<link rel="stylesheet" href="css/performance.css">
+<script>document.documentElement.classList.add("is-booting");</script>
 <link rel="stylesheet" href="css/lang-switcher.css">
 <link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
+<div id="preloader" role="status" aria-live="polite" aria-label="Loading Brave Souls Wellness">
+  <p class="preloader-brand">Brave <span>Souls</span></p>
+  <div class="preloader-line"></div>
+</div>
+
 
 <!-- ═══════ NAVBAR ═══════ -->
 <nav class="navbar" id="navbar">
@@ -1015,7 +1031,7 @@ logo {
 
     <!-- Logo -->
     <a href="index.html" class="logo">
-      <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image">
+      <img src="images/logo.png" alt="Brave Souls Wellness logo" class="logo-image" width="1080" height="819" loading="eager" decoding="async">
     </a>
 
     <!-- Desktop Nav Links -->
@@ -1178,7 +1194,7 @@ logo {
       <div class="contact-cards">
 
         <a href="https://wa.me/250788675638" target="_blank" class="contact-card">
-          <div class="cc-icon"><img src="images/apple.png" alt="" class="page-icon"></div>
+          <div class="cc-icon"><img src="images/apple.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async" fetchpriority="high"></div>
           <div>
             <div class="cc-label">WhatsApp</div>
             <div class="cc-value">+250 788 675 638</div>
@@ -1186,7 +1202,7 @@ logo {
           </div>
         </a>
         <a href="tel:+250788675638" class="contact-card">
-          <div class="cc-icon"><img src="images/phone-call (1).png" alt="" class="page-icon"></div>
+          <div class="cc-icon"><img src="images/phone-call (1).png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></div>
           <div>
             <div class="cc-label">Phone</div>
             <div class="cc-value">+250 788 675 638</div>
@@ -1194,7 +1210,7 @@ logo {
           </div>
         </a>
         <a href="mailto:coachbrave@bravesoulswellness.com" class="contact-card">
-          <div class="cc-icon"><img src="images/gmail.png" alt="" class="page-icon"></div>
+          <div class="cc-icon"><img src="images/gmail.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></div>
           <div>
             <div class="cc-label">Email</div>
             <div class="cc-value">coachbrave@bravesoulswellnessgroup.com</div>
@@ -1202,7 +1218,7 @@ logo {
           </div>
         </a>
         <div class="contact-card" style="cursor:default">
-          <div class="cc-icon"><img src="images/gps.png" alt="" class="page-icon"></div>
+          <div class="cc-icon"><img src="images/gps.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></div>
           <div>
             <div class="cc-label">Location</div>
             <div class="cc-value">Kigali, Rwanda</div>
@@ -1240,19 +1256,19 @@ logo {
       <div class="info-label">Follow Our Journey</div>
       <div class="social-row">
         <a href="https://www.instagram.com/coachbraveofficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-btn">
-          <span class="social-btn-icon"><img src="images/istagramicon.png" alt="" class="page-icon"></span> Instagram
+          <span class="social-btn-icon"><img src="images/istagramicon.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></span> Instagram
         </a>
         <a href="https://www.youtube.com/@coachbraveofficial" class="social-btn">
-          <span class="social-btn-icon"><img src="images/youtube.png" alt="" class="page-icon"></span> YouTube
+          <span class="social-btn-icon"><img src="images/youtube.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></span> YouTube
         </a>
         <a href="https://www.tiktok.com/@coachbraveofficial?is_from_webapp=1&sender_device=pc" class="social-btn">
-          <span class="social-btn-icon"><img src="images/social-media.png" alt="" class="page-icon"></span> Tiktok
+          <span class="social-btn-icon"><img src="images/social-media.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></span> Tiktok
         </a>
         <a href="https://x.com/MCoachbrave" target="_blank" class="social-btn">
-          <span class="social-btn-icon"><img src="images/twitter.png" alt="" class="page-icon"></span> 
+          <span class="social-btn-icon"><img src="images/twitter.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></span> 
         </a>
         <a href="https://wa.me/250788675638" target="_blank" class="social-btn">
-          <span class="social-btn-icon"><img src="images/whatsapp.png" alt="" class="page-icon"></span> WhatsApp
+          <span class="social-btn-icon"><img src="images/whatsapp.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"></span> WhatsApp
         </a>
       </div>
     </div>
@@ -1367,7 +1383,7 @@ logo {
 
     <!-- Success state -->
     <div class="form-success" id="formSuccess">
-      <span class="form-success-icon"><img src="images/.png" alt="" class="page-icon"></span>
+      <span class="form-success-icon"><img src="images/.png" alt="" class="page-icon" loading="eager" decoding="async"></span>
       <div class="form-success-title">Message Received!</div>
       <p class="form-success-sub">
         Thank you for reaching out. Coach Brave or Catherine will personally read your message and get back to you within 24 hours.<br><br>
@@ -1375,7 +1391,7 @@ logo {
       </p>
       <div style="margin-top:28px">
         <a href="https://wa.me/250788675638" target="_blank" class="form-wa-btn" style="display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:15px 32px;background:var(--g0);color:#fff;text-decoration:none;border-radius:3px;transition:var(--t)">
-          <img src="images/.png" alt="" class="page-icon"> Also Message on WhatsApp
+          <img src="images/.png" alt="" class="page-icon" loading="eager" decoding="async"> Also Message on WhatsApp
         </a>
       </div>
     </div>
@@ -1394,7 +1410,7 @@ logo {
     </p>
     <div class="quick-actions">
       <a href="https://wa.me/250788675638?text=Hi%20Coach%20Brave!%20I%20found%20you%20on%20your%20website%20and%20want%20to%20enquire%20about%20your%20programs" target="_blank" class="qa-btn qa-btn-wa">
-        <img src="images/whatsapp.png" alt="" class="page-icon"> WhatsApp Now
+        <img src="images/whatsapp.png" alt="" class="page-icon" width="512" height="512" loading="eager" decoding="async"> WhatsApp Now
       </a>
     </div>
   </div>
@@ -1411,15 +1427,15 @@ logo {
       <h3 class="map-address-big">Based in<br><em>Kigali,</em><br>Rwanda.</h3>
       <div class="map-details">
         <div class="map-detail">
-          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="eager" decoding="async"></span>
           <span>Kigali, Rwanda — exact session location shared upon booking confirmation</span>
         </div>
         <div class="map-detail">
-          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="eager" decoding="async"></span>
           <span>In-person sessions, virtual consultations, or hybrid — your choice</span>
         </div>
         <div class="map-detail">
-          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon"></span>
+          <span class="map-detail-icon"><img src="images/bullet-point.png" alt="" class="page-icon" width="256" height="256" loading="eager" decoding="async"></span>
           <span>Corporate &amp; group programs delivered on-site at your organisation</span>
         </div>
       </div>
@@ -1521,7 +1537,7 @@ logo {
 
 <!-- ── FOOTER ── -->
 <footer class="footer">
-  <div class="footer-inner">
+  <div class="footer-inner" data-scroll-reveal="fade-up">
     <div>
       <div class="footer-brand">Brave <span>Souls</span> Wellness Group Ltd</div>
       <div class="footer-tagline">Healthy Body and Spirit · Kigali, Rwanda</div>
@@ -1771,6 +1787,11 @@ logo {
 
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<script src="js/scroll.js"></script>
 <script>
 /* ── Navbar ── */
 window.addEventListener('scroll', () =>
@@ -1887,7 +1908,11 @@ function handleSubmit(e) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    if (t) {
+      e.preventDefault();
+      if (window.bsLenis) window.bsLenis.scrollTo(t, { offset: -88 });
+      else t.scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 </script>

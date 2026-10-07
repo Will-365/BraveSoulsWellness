@@ -1,0 +1,70 @@
+/* Reserved image space. More specific rules on each page still control
+   product shots, icons, and heroes. */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+html.is-booting,
+html.is-booting body {
+  overflow: hidden;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: #0e2818;
+}
+
+.preloader-brand {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #faf6ed;
+}
+
+.preloader-brand span {
+  color: #c8942a;
+}
+
+.preloader-line {
+  width: min(180px, 42vw);
+  height: 1px;
+  background: rgba(250, 246, 237, 0.18);
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  background: #c8942a;
+  animation: preloader-slide 1.05s ease-in-out infinite;
+}
+
+@keyframes preloader-slide {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-line::after {
+    animation: none;
+    width: 100%;
+    transform: none;
+  }
+}
